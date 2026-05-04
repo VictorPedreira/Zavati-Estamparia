@@ -1,0 +1,114 @@
+/* ===== TECIDOS PAGE STYLES ===== */
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+    background: linear-gradient(135deg, #1e3a8a, #0f766e);
+    color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ===== FABRICS GRID ===== */
+.fabrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.fabric-card {
+    background: linear-gradient(135deg, #f9fafb, #ffffff);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid #1e3a8a;
+}
+
+.fabric-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #1e3a8a, #0f766e);
+    color: #ffffff;
+}
+
+.fabric-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.fabric-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.fabric-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.fabric-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.fabric-tags span {
+    background-color: rgba(30, 58, 138, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.fabric-card:hover .fabric-tags span {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .fabrics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        padding: 2rem 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .fabrics-grid {
+        grid-template-columns: 1fr;
+    }
+}

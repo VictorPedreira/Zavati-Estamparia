@@ -1,0 +1,148 @@
+/* ===== OBJETIVOS PAGE STYLES ===== */
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+    background: linear-gradient(135deg, #1e3a8a, #0f766e);
+    color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ===== OBJETIVOS GRID ===== */
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.objective-card {
+    background: linear-gradient(135deg, #f9fafb, #ffffff);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.objective-card:hover {
+    transform: translateY(-10px);
+    border-color: #1e3a8a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.objective-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.objective-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1e3a8a;
+}
+
+.objective-card p {
+    color: #6b7280;
+    line-height: 1.8;
+}
+
+/* ===== ROADMAP SECTION ===== */
+.roadmap-section {
+    padding: 4rem 2rem;
+    background-color: #f9fafb;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.roadmap-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #1e3a8a;
+}
+
+.roadmap-item {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #1e3a8a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.roadmap-item h3 {
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.roadmap-item ul {
+    list-style: none;
+}
+
+.roadmap-item li {
+    padding: 0.5rem 0;
+    color: #6b7280;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.roadmap-item li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #fbbf24;
+    font-weight: bold;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .objectives-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 2rem 1rem;
+    }
+
+    .roadmap-section {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        padding: 2rem 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .objectives-grid {
+        grid-template-columns: 1fr;
+    }
+}
