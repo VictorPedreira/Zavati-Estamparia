@@ -67,6 +67,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     showSlide(0);
+
+// Auto-play
+function startAutoPlay() {
+    autoPlayInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000); // Muda a cada 5 segundos
+}
+
+function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+}
+
+startAutoPlay();
+
+// Pausar ao passar o mouse
+const carousel = document.querySelector('.carousel');
+if (carousel) {
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+}
+
 });
 </script>
 
