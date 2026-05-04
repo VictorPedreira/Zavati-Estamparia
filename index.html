@@ -4,92 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Zavati Estamparia</title>
-    <link rel="stylesheet" href="assets/header-footer.css">
-    <link rel="stylesheet" href="home/style.css">
-    <script src="home/script.js"></script>
+    <link rel="stylesheet" href="./assets/header-footer.css">
+    <link rel="stylesheet" href="./home/style.css">
+    <script src="./home/script.js"></script>
 <script>
-// Inicializar carrossel manualmente
 document.addEventListener('DOMContentLoaded', function() {
-    let currentSlide = 0;
     const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const currentSlideSpan = document.getElementById('currentSlide');
+    
+    let currentSlide = 0;
     const totalSlides = slides.length;
     let autoPlayInterval;
 
-    function showSlide(index) {
-        if (index >= totalSlides) {
-            currentSlide = 0;
-        } else if (index < 0) {
-            currentSlide = totalSlides - 1;
-        } else {
-            currentSlide = index;
+    function showSlide(n) {
+        // Limpar active de todos
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(ind => ind.classList.remove('active'));
+        
+        // Adicionar active ao slide atual
+        if (slides[n]) {
+            slides[n].classList.add('active');
+        }
+        if (indicators[n]) {
+            indicators[n].classList.add('active');
         }
         
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-        
-        if (slides[currentSlide]) {
-            slides[currentSlide].classList.add('active');
+        // Atualizar contador
+        if (currentSlideSpan) {
+            currentSlideSpan.textContent = n + 1;
         }
         
-        updateIndicators();
-        updateCounter();
+        currentSlide = n;
     }
 
-    function updateIndicators() {
-        const indicators = document.querySelectorAll('.indicator');
-        indicators.forEach((indicator, index) => {
-            if (index === currentSlide) {
-                indicator.classList.add('active');
-            } else {
-                indicator.classList.remove('active');
-            }
-        });
+    function nextSlide() {
+        let n = currentSlide + 1;
+        if (n >= totalSlides) {
+            n = 0;
+        }
+        showSlide(n);
     }
 
-    function updateCounter() {
-        const currentSlideSpan = document.getElementById('currentSlide');
-        const totalSlidesSpan = document.getElementById('totalSlides');
-        
-        if (currentSlideSpan) currentSlideSpan.textContent = currentSlide + 1;
-        if (totalSlidesSpan) totalSlidesSpan.textContent = totalSlides;
+    function prevSlide() {
+        let n = currentSlide - 1;
+        if (n < 0) {
+            n = totalSlides - 1;
+        }
+        showSlide(n);
     }
 
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    if (prevBtn) prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-    
-    const indicators = document.querySelectorAll('.indicator');
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => showSlide(index));
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    // Event listeners
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        prevSlide();
+        startAutoPlay();
     });
-    
+
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        nextSlide();
+        startAutoPlay();
+    });
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            stopAutoPlay();
+            showSlide(index);
+            startAutoPlay();
+        });
+    });
+
+    const carousel = document.querySelector('.carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Iniciar
     showSlide(0);
-
-// Auto-play
-function startAutoPlay() {
-    autoPlayInterval = setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 2000); // Muda a cada 2 segundos
-}
-
-function stopAutoPlay() {
-    clearInterval(autoPlayInterval);
-}
-
-startAutoPlay();
-
-// Pausar ao passar o mouse
-const carousel = document.querySelector('.carousel');
-if (carousel) {
-    carousel.addEventListener('mouseenter', stopAutoPlay);
-    carousel.addEventListener('mouseleave', startAutoPlay);
-}
-
+    startAutoPlay();
 });
 </script>
+
 
 
 </head>
@@ -102,15 +109,15 @@ if (carousel) {
                 <!-- Links da esquerda -->
                 <div class="nav-left">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="servicos/index.html" class="nav-link">Serviços</a>
-                    <a href="materiais/index.html" class="nav-link">Materiais</a>
+                    <a href="./servicos/index.html" class="nav-link">Serviços</a>
+                    <a href="./materiais/index.html" class="nav-link">Materiais</a>
                 </div>
 
                 <!-- Links da direita -->
                 <div class="nav-right">
-                    <a href="tecidos/index.html" class="nav-link">Tecidos</a>
-                    <a href="profissionais/index.html" class="nav-link">Profissionais</a>
-                    <a href="objetivos/index.html" class="nav-link">Objetivos</a>
+                    <a href="./tecidos/index.html" class="nav-link">Tecidos</a>
+                    <a href="./profissionais/index.html" class="nav-link">Profissionais</a>
+                    <a href="./objetivos/index.html" class="nav-link">Objetivos</a>
                 </div>
 
                 <!-- Menu mobile -->
@@ -124,18 +131,18 @@ if (carousel) {
             <!-- Menu mobile dropdown -->
             <div class="mobile-menu" id="mobileMenu">
                 <a href="index.html" class="mobile-link">Home</a>
-                <a href="servicos/index.html" class="mobile-link">Serviços</a>
-                <a href="materiais/index.html" class="mobile-link">Materiais</a>
-                <a href="tecidos/index.html" class="mobile-link">Tecidos</a>
-                <a href="profissionais/index.html" class="mobile-link">Profissionais</a>
-                <a href="objetivos/index.html" class="mobile-link">Objetivos</a>
+                <a href="./servicos/index.html" class="mobile-link">Serviços</a>
+                <a href="./materiais/index.html" class="mobile-link">Materiais</a>
+                <a href="./tecidos/index.html" class="mobile-link">Tecidos</a>
+                <a href="./profissionais/index.html" class="mobile-link">Profissionais</a>
+                <a href="./objetivos/index.html" class="mobile-link">Objetivos</a>
             </div>
         </nav>
 
         <!-- Logo centralizado -->
         <div class="logo-container">
             <div class="logo-circle">
-                <img src="assets/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
+                <img src="./assets/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
             </div>
         </div>
     </header>
@@ -169,11 +176,11 @@ if (carousel) {
             <!-- Carrossel no lugar da imagem -->
             <div class="carousel">
                 <div class="carousel-container">
-                    <img src="assets/enuncio 1.jpeg" alt="Slide 1" class="carousel-slide active" style="object-fit: cover;">
-                    <img src="assets/anuncio 6.jpeg" alt="Slide 2" class="carousel-slide" style="object-fit: cover;">
-                    <img src="assets/anuncio 7.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
-                    <img src="assets/anuncio 3.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
-                    <img src="assets/mockup jbf.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
+                    <img src="./assets/enuncio 1.jpeg" alt="Slide 1" class="carousel-slide active" style="object-fit: cover;">
+                    <img src="./assets/anuncio 6.jpeg" alt="Slide 2" class="carousel-slide" style="object-fit: cover;">
+                    <img src="./assets/anuncio 7.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
+                    <img src="./assets/anuncio 3.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
+                    <img src="./assets/mockup jbf.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
                 </div>
 
                 <button class="carousel-btn prev" id="prevBtn">❮</button>
@@ -188,8 +195,9 @@ if (carousel) {
                 </div>
 
                 <div class="carousel-counter">
-                    <span id="currentSlide">1</span> / <span id="totalSlides">5</span>
+                    <span id="currentSlide">1</span> / 5
                 </div>
+
             </div>
         </section>
 
@@ -203,19 +211,19 @@ if (carousel) {
                     <div class="service-icon">💧</div>
                     <h3>DTF</h3>
                     <p>Impressão direta em tecido com cores vibrantes e durabilidade excepcional.</p>
-                    <a href="servicos/index.html" class="service-link">Saiba mais →</a>
+                    <a href="./servicos/index.html" class="service-link">Saiba mais →</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">⭐</div>
                     <h3>Serigrafia</h3>
                     <p>Técnica clássica de impressão com precisão e qualidade profissional.</p>
-                    <a href="servicos/index.html" class="service-link">Saiba mais →</a>
+                    <a href="./servicos/index.html" class="service-link">Saiba mais →</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🎯</div>
                     <h3>Personalização</h3>
                     <p>Customização de canecas, bonés, camisetas e muito mais.</p>
-                    <a href="servicos/index.html" class="service-link">Saiba mais →</a>
+                    <a href="./servicos/index.html" class="service-link">Saiba mais →</a>
                 </div>
             </div>
         </section>
@@ -262,6 +270,6 @@ if (carousel) {
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./home/script.js"></script>
 </body>
 </html>
