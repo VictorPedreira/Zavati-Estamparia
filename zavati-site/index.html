@@ -4,8 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Zavati Estamparia</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../assets/header-footer.css">
+    <link rel="stylesheet" href="/zavati-site/assets/header-footer.css">
+    <link rel="stylesheet" href="/zavati-site/home/style.css">
+    <script src="home/script.js"></script>
+<script>
+// Inicializar carrossel manualmente
+document.addEventListener('DOMContentLoaded', function() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+    let autoPlayInterval;
+
+    function showSlide(index) {
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = index;
+        }
+        
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        
+        if (slides[currentSlide]) {
+            slides[currentSlide].classList.add('active');
+        }
+        
+        updateIndicators();
+        updateCounter();
+    }
+
+    function updateIndicators() {
+        const indicators = document.querySelectorAll('.indicator');
+        indicators.forEach((indicator, index) => {
+            if (index === currentSlide) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        });
+    }
+
+    function updateCounter() {
+        const currentSlideSpan = document.getElementById('currentSlide');
+        const totalSlidesSpan = document.getElementById('totalSlides');
+        
+        if (currentSlideSpan) currentSlideSpan.textContent = currentSlide + 1;
+        if (totalSlidesSpan) totalSlidesSpan.textContent = totalSlides;
+    }
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    if (prevBtn) prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+    
+    const indicators = document.querySelectorAll('.indicator');
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => showSlide(index));
+    });
+    
+    showSlide(0);
+});
+</script>
+
+
 </head>
 <body>
     <!-- HEADER -->
@@ -16,15 +81,15 @@
                 <!-- Links da esquerda -->
                 <div class="nav-left">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="../servicos/index.html" class="nav-link">Serviços</a>
-                    <a href="../materiais/index.html" class="nav-link">Materiais</a>
+                    <a href="servicos/index.html" class="nav-link">Serviços</a>
+                    <a href="materiais/index.html" class="nav-link">Materiais</a>
                 </div>
 
                 <!-- Links da direita -->
                 <div class="nav-right">
-                    <a href="../tecidos/index.html" class="nav-link">Tecidos</a>
-                    <a href="../profissionais/index.html" class="nav-link">Profissionais</a>
-                    <a href="../objetivos/index.html" class="nav-link">Objetivos</a>
+                    <a href="tecidos/index.html" class="nav-link">Tecidos</a>
+                    <a href="profissionais/index.html" class="nav-link">Profissionais</a>
+                    <a href="objetivos/index.html" class="nav-link">Objetivos</a>
                 </div>
 
                 <!-- Menu mobile -->
@@ -38,18 +103,18 @@
             <!-- Menu mobile dropdown -->
             <div class="mobile-menu" id="mobileMenu">
                 <a href="index.html" class="mobile-link">Home</a>
-                <a href="../servicos/index.html" class="mobile-link">Serviços</a>
-                <a href="../materiais/index.html" class="mobile-link">Materiais</a>
-                <a href="../tecidos/index.html" class="mobile-link">Tecidos</a>
-                <a href="../profissionais/index.html" class="mobile-link">Profissionais</a>
-                <a href="../objetivos/index.html" class="mobile-link">Objetivos</a>
+                <a href="servicos/index.html" class="mobile-link">Serviços</a>
+                <a href="materiais/index.html" class="mobile-link">Materiais</a>
+                <a href="tecidos/index.html" class="mobile-link">Tecidos</a>
+                <a href="profissionais/index.html" class="mobile-link">Profissionais</a>
+                <a href="objetivos/index.html" class="mobile-link">Objetivos</a>
             </div>
         </nav>
 
         <!-- Logo centralizado -->
         <div class="logo-container">
             <div class="logo-circle">
-                <img src="../assets/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
+                <img src="assets/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
             </div>
         </div>
     </header>
@@ -77,17 +142,17 @@
                     </div>
                 </div>
 
-                <a href="https://wa.me/5511455188884?text=Olá%20Zavati!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." target="_blank" class="btn btn-primary">Fale Conosco</a>
+                <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." target="_blank" class="btn btn-primary">Fale Conosco</a>
             </div>
 
             <!-- Carrossel no lugar da imagem -->
             <div class="carousel">
                 <div class="carousel-container">
-                    <img src="../assets/enuncio 1.jpeg" alt="Slide 1" class="carousel-slide active" style="object-fit: cover;">
-                    <img src="../assets/anuncio 6.jpeg" alt="Slide 2" class="carousel-slide" style="object-fit: cover;">
-                    <img src="../assets/anuncio 7.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
-                    <img src="../assets/anuncio 3.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
-                    <img src="../assets/mockup jbf.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
+                    <img src="assets/enuncio 1.jpeg" alt="Slide 1" class="carousel-slide active" style="object-fit: cover;">
+                    <img src="assets/anuncio 6.jpeg" alt="Slide 2" class="carousel-slide" style="object-fit: cover;">
+                    <img src="assets/anuncio 7.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
+                    <img src="assets/anuncio 3.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
+                    <img src="assets/mockup jbf.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
                 </div>
 
                 <button class="carousel-btn prev" id="prevBtn">❮</button>
@@ -117,19 +182,19 @@
                     <div class="service-icon">💧</div>
                     <h3>DTF</h3>
                     <p>Impressão direta em tecido com cores vibrantes e durabilidade excepcional.</p>
-                    <a href="../servicos/index.html" class="service-link">Saiba mais →</a>
+                    <a href="servicos/index.html" class="service-link">Saiba mais →</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">⭐</div>
                     <h3>Serigrafia</h3>
                     <p>Técnica clássica de impressão com precisão e qualidade profissional.</p>
-                    <a href="../servicos/index.html" class="service-link">Saiba mais →</a>
+                    <a href="servicos/index.html" class="service-link">Saiba mais →</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🎯</div>
                     <h3>Personalização</h3>
                     <p>Customização de canecas, bonés, camisetas e muito mais.</p>
-                    <a href="../servicos/index.html" class="service-link">Saiba mais →</a>
+                    <a href="servicos/index.html" class="service-link">Saiba mais →</a>
                 </div>
             </div>
         </section>
@@ -138,7 +203,7 @@
         <section class="cta-section">
             <h2>Pronto para Começar?</h2>
             <p>Entre em contato conosco e transforme suas ideias em realidade</p>
-            <a href="https://wa.me/5511455188884?text=Olá%20Zavati!%20Gostaria%20de%20fazer%20um%20orçamento." target="_blank" class="btn btn-secondary">Solicitar Orçamento</a>
+            <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20fazer%20um%20orçamento." target="_blank" class="btn btn-secondary">Solicitar Orçamento</a>
         </section>
     </main>
 
@@ -152,7 +217,7 @@
 
             <div class="footer-section">
                 <h4>Contato</h4>
-                <a href="https://wa.me/5511455188884?text=Olá%20Zavati!" target="_blank" class="footer-link">
+                <a href="https://wa.me/551145518884?text=Olá%20Zavati!" target="_blank" class="footer-link">
                     📱 +55 11 4551-8884
                 </a>
                 <a href="https://www.instagram.com/zavati.estamparia" target="_blank" class="footer-link">
@@ -171,7 +236,7 @@
             <p>&copy; 2024 Zavati Estamparia. Todos os direitos reservados.</p>
             <div class="social-links">
                 <a href="https://www.instagram.com/zavati.estamparia" target="_blank">Instagram</a>
-                <a href="https://wa.me/5511455188884" target="_blank">WhatsApp</a>
+                <a href="https://wa.me/551145518884" target="_blank">WhatsApp</a>
             </div>
         </div>
     </footer>
