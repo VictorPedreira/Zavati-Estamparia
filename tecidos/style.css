@@ -112,3 +112,16 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Logo como botão */
+.logo-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.logo-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border: 8px solid var(--white);
+}

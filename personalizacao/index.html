@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalização - Zavati Estamparia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/header-footer.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <a href="index.html" class="nav-link">Personalização</a>
+                    <a href="../servicos/index.html" class="nav-link">Serviços</a>
+                    <a href="../materiais/index.html" class="nav-link">Materiais</a>
+                </div>
+
+                <div class="nav-right">
+                    <a href="../tecidos/index.html" class="nav-link">Tecidos</a>
+                    <a href="../profissionais/index.html" class="nav-link">Profissionais</a>
+                    <a href="../objetivos/index.html" class="nav-link">Objetivos</a>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html" class="mobile-link">Personalização</a>
+                <a href="../servicos/index.html" class="mobile-link">Serviços</a>
+                <a href="../materiais/index.html" class="mobile-link">Materiais</a>
+                <a href="../tecidos/index.html" class="mobile-link">Tecidos</a>
+                <a href="../profissionais/index.html" class="mobile-link">Profissionais</a>
+                <a href="../objetivos/index.html" class="mobile-link">Objetivos</a>
+            </div>
+        </nav>
+
+        <div class="logo-container">
+            <a href="/index.html" class="logo-circle logo-btn">
+                <img src="../assets/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1><span class="gradient-text">Personalize Sua Camiseta</span></h1>
+            <p>Escolha o modelo, a cor e faça upload de sua logo para ver como ficará o produto final</p>
+        </div>
+
+        <!-- Personalization Container -->
+        <div class="personalization-container">
+            <!-- Left Panel - Controls -->
+            <div class="controls-panel">
+                <h2>Configurações</h2>
+
+                <!-- Modelo de Camiseta -->
+                <div class="control-group">
+                    <label for="shirtModel">Modelo de Camiseta:</label>
+                    <select id="shirtModel">
+                        <option value="basic">Camiseta Básica</option>
+                        <option value="premium">Camiseta Premium</option>
+                        <option value="oversized">Camiseta Oversized</option>
+                        <option value="fitted">Camiseta Fitted</option>
+                    </select>
+                </div>
+
+                <!-- Cor da Camiseta -->
+                <div class="control-group">
+                    <label for="shirtColor">Cor da Camiseta:</label>
+                    <div class="color-grid">
+                        <div class="color-option" data-color="#000000" style="background-color: #000000;" title="Preto"></div>
+                        <div class="color-option" data-color="#FFFFFF" style="background-color: #FFFFFF; border: 2px solid #ddd;" title="Branco"></div>
+                        <div class="color-option" data-color="#FF0000" style="background-color: #FF0000;" title="Vermelho"></div>
+                        <div class="color-option" data-color="#0000FF" style="background-color: #0000FF;" title="Azul"></div>
+                        <div class="color-option" data-color="#00AA00" style="background-color: #00AA00;" title="Verde"></div>
+                        <div class="color-option" data-color="#FFFF00" style="background-color: #FFFF00; border: 2px solid #ddd;" title="Amarelo"></div>
+                        <div class="color-option" data-color="#FF6600" style="background-color: #FF6600;" title="Laranja"></div>
+                        <div class="color-option" data-color="#AA00AA" style="background-color: #AA00AA;" title="Roxo"></div>
+                    </div>
+                </div>
+
+                <!-- Upload de Logo -->
+                <div class="control-group">
+                    <label for="logoUpload">Fazer Upload da Logo:</label>
+                    <input type="file" id="logoUpload" accept="image/*">
+                    <p class="help-text">Formatos aceitos: PNG, JPG, GIF (máx. 5MB)</p>
+                </div>
+
+                <!-- Controles de Tamanho -->
+                <div class="control-group">
+                    <label for="logoSize">Tamanho da Logo:</label>
+                    <input type="range" id="logoSize" min="1" max="30" value="2">
+                    <span id="sizeValue">2.0 cm</span>
+                </div>
+
+                <!-- Controles de Posição -->
+                <div class="control-group">
+                    <label>Posição da Logo:</label>
+                    <div class="position-buttons">
+                        <button class="position-btn" data-position="top-left">↖️ Canto Superior</button>
+                        <button class="position-btn" data-position="center">📍 Centro</button>
+                        <button class="position-btn" data-position="bottom-right">↙️ Canto Inferior</button>
+                    </div>
+                </div>
+
+                <!-- Botão de Reset -->
+                <button id="resetBtn" class="reset-btn">Resetar Tudo</button>
+
+                <!-- Botão de Contato -->
+                <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20personalização%20de%20camisetas." target="_blank" class="contact-btn">
+                    📱 Solicitar Orçamento
+                </a>
+            </div>
+
+            <!-- Right Panel - Preview -->
+            <div class="preview-panel">
+                <h2>Prévia do Produto</h2>
+                <!-- Artboard com Réguas (tipo Corel) -->
+                <div class="shirt-preview-container">
+                    <div class="shirt-preview">
+                        <!-- Camiseta em PNG -->
+                        <img id="shirtImage" class="shirt-image" src="" alt="Camiseta">
+
+                        <!-- Container para a logo (sobreposto à camiseta) -->
+                        <div class="logo-container-preview">
+                            <img id="previewLogo" class="preview-logo" src="" alt="Logo" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="preview-info">
+                    <p><strong>Modelo:</strong> <span id="modelInfo">Camiseta Básica</span></p>
+                    <p><strong>Cor:</strong> <span id="colorInfo">Preto</span></p>
+                    <p><strong>Logo:</strong> <span id="logoInfo">Nenhuma logo adicionada</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ZAVATI ESTAMPARIA</h3>
+                <p>Especializada em DTF, serigrafia e personalização de produtos. Qualidade e criatividade em cada detalhe.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <a href="https://wa.me/551145518884?text=Olá%20Zavati!" target="_blank" class="footer-link">
+                    📱 +55 11 4551-8884
+                </a>
+                <a href="https://www.instagram.com/zavati.estamparia" target="_blank" class="footer-link">
+                    📷 @zavati.estamparia
+                </a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Cobertura</h4>
+                <p>🌍 Entregamos para o Brasil todo!</p>
+                <p>Independente da sua localização, levamos nossos produtos com qualidade até você.</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Zavati Estamparia. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/zavati.estamparia" target="_blank">Instagram</a>
+                <a href="https://wa.me/551145518884" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carregar arquivo de configuração de modelos PRIMEIRO -->
+    <script src="modelos.js"></script>
+    <!-- Depois o script principal com canvas e réguas -->
+    <script src="script.js"></script>
+</body>
+</html>
