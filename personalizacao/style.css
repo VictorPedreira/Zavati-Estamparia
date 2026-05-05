@@ -1,0 +1,449 @@
+/* ===== PERSONALIZAÇÃO PAGE STYLES ===== */
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+    background: linear-gradient(135deg, #1e3a8a, #0f766e);
+    color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.regua { /* Verifique o nome da classe da sua régua */
+    z-index: 10; /* Garante que a régua fique abaixo do header (1000) */
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ===== PERSONALIZATION CONTAINER ===== */
+.personalization-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ===== CONTROLS PANEL ===== */
+.controls-panel {
+    background-color: #f9fafb;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.controls-panel h2 {
+    color: #1e3a8a;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.control-group {
+    margin-bottom: 2rem;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+.control-group select,
+.control-group input[type="file"],
+.control-group input[type="range"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.control-group select:focus,
+.control-group input[type="file"]:focus,
+.control-group input[type="range"]:focus {
+    outline: none;
+    border-color: #1e3a8a;
+}
+
+.help-text {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+}
+
+/* ===== COLOR GRID ===== */
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+}
+
+.color-option {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.color-option.active {
+    border-color: #1e3a8a;
+    box-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
+}
+
+/* ===== POSITION BUTTONS ===== */
+.position-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+}
+
+.position-btn {
+    padding: 0.8rem;
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #1e3a8a;
+    transition: all 0.3s ease;
+}
+
+.position-btn:hover {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    border-color: #1e3a8a;
+}
+
+.position-btn.active {
+    background-color: #1e3a8a;
+    color: #ffffff;
+}
+
+/* ===== BUTTONS ===== */
+.reset-btn,
+.contact-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.reset-btn {
+    background-color: #f3f4f6;
+    color: #1e3a8a;
+    border: 2px solid #ddd;
+}
+
+.reset-btn:hover {
+    background-color: #e5e7eb;
+    border-color: #1e3a8a;
+}
+
+.contact-btn {
+    background: linear-gradient(135deg, #1e3a8a, #0f766e);
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== PREVIEW PANEL ===== */
+.preview-panel {
+    background-color: #f9fafb;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.preview-panel h2 {
+    color: #1e3a8a;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+/* ===== SHIRT PREVIEW CONTAINER (ARTBOARD COM RÉGUAS) ===== */
+.shirt-preview-container {
+    position: relative;
+    background-color: #808080;
+    border: 3px solid #333;
+    margin-bottom: 2rem;
+    overflow: visible;
+    /* Espaço para as réguas */
+    margin-top: 60px;
+    margin-left: 70px;
+    padding: 0;
+    
+}
+
+/* ===== SHIRT PREVIEW ===== */
+
+.shirt-preview {
+    position: relative;
+    background-color: #c2c2c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 800px; /* Garante que o espaço branco exista mesmo sem a imagem carregar */
+    overflow: visible;
+}
+
+.shirt-image {
+    display: block !important;
+    max-width: none !important;
+    max-height: none !important;
+    /* Remova qualquer height: 100% ou width: 100% daqui */
+}
+
+/* .shirt-preview {
+    position: relative;
+    background-color: #bbb9b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 54 / 71; 
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    min-height: 700px;
+} */
+
+/* .shirt-image {
+    
+    width: auto; 
+    height: auto; 
+    object-fit: contain;
+    transition: transform 0.3s ease; 
+} */
+
+.shirt-svg {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+}
+
+/* ===== LOGO CONTAINER PREVIEW ===== */
+.logo-container-preview {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.preview-logo {
+    position: absolute;
+    cursor: move;
+    pointer-events: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* ===== RÉGUAS ===== */
+.ruler {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: #333;
+    background-color: #cccccc;
+    z-index: 100;
+}
+
+.horizontal-ruler {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    border-bottom: 2px solid #333;
+    background-color: #cccccc;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.vertical-ruler {
+    position: absolute;
+    left: -70px;
+    top: 0;
+    width: 70px;
+    height: 100%;
+    border-right: 2px solid #333;
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+/* ===== PREVIEW INFO ===== */
+.preview-info {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #1e3a8a;
+}
+
+.preview-info p {
+    margin-bottom: 0.8rem;
+    color: #6b7280;
+}
+
+.preview-info strong {
+    color: #1e3a8a;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+    .shirt-preview-container {
+        margin-top: 40px;
+        margin-left: 50px;
+    }
+
+    .shirt-preview {
+        height: 400px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .personalization-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 2rem 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .personalization-container {
+        padding: 2rem 1rem;
+    }
+
+    .controls-panel,
+    .preview-panel {
+        padding: 1.5rem;
+    }
+
+    .color-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .shirt-preview {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .color-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .position-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== RANGE SLIDER STYLING ===== */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #1e3a8a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #0f766e;
+    transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #1e3a8a;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #0f766e;
+    transform: scale(1.2);
+}
+
+/* Logo como botão */
+
+.logo-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+}
+
+.logo-btn:hover {
+   transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border: 8px solid var(--white);
+}

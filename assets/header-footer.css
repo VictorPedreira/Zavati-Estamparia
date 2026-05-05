@@ -31,11 +31,10 @@ body {
 
 /* ===== HEADER E NAVEGAÇÃO ===== */
 .header {
-    background-color: var(--white);
-    position: sticky;
+    position: sticky; /* ou fixed, dependendo do seu layout */
     top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    z-index: 1000; /* Define uma camada alta para o header */
 }
 
 .navbar {
@@ -131,9 +130,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 8px solid var(--white);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    margin-top: -100px;
+    margin-top: -110px;
 }
 
 .logo-placeholder {
