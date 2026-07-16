@@ -31,13 +31,13 @@ const SHIRT_MODELS = [
     },
     {
         id: 'oversized',
-        nome: 'Camiseta Oversized',
-        imagem: '../assets/camiseta-oversized.png'
+        nome: 'Camiseta Oversized frente',
+        imagem: '../assets/camiseta oversized branca frente.png'
     },
     {
         id: 'fitted',
-        nome: 'Camiseta Fitted',
-        imagem: '../assets/camiseta-fitted.png'
+        nome: 'Camiseta Oversized trás',
+        imagem: '../assets/camiseta oversized branca trás.png'
     }
     
     // ========== ADICIONE NOVOS MODELOS AQUI ==========
