@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="./assets/header-footer.css">
     <link rel="stylesheet" href="./home/style.css">
     <script src="./home/script.js"></script>
+    <script>
+function toggleMenu() {
+    document
+        .getElementById("mobileMenu")
+        .classList.toggle("active");
+
+    document
+        .getElementById("overlay")
+        .classList.toggle("active");
+}
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.carousel-slide');
