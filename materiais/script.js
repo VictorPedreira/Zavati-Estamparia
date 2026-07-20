@@ -1,5 +1,5 @@
 /**
- * MATERIAIS PAGE - SCRIPT
+ * TECIDOS PAGE - SCRIPT
  * 
  * Funcionalidades:
  * - Menu mobile
@@ -63,4 +63,4 @@ window.addEventListener('resize', function() {
     }
 });
 
-console.log('Materiais Page - Carregada com sucesso!');
+console.log('Tecidos Page - Carregada com sucesso!');

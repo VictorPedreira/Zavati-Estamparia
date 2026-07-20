@@ -3,10 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Zavati Estamparia</title>
+    <title>Estamparia, Bordados e Camisetas Personalizadas | Zavati</title>
+
+    <meta name="description" content="Especialistas em estamparia, bordado computadorizado, silk screen e camisetas personalizadas. Produzimos uniformes de alta qualidade para empresas, eventos e equipes. Solicite seu orçamento.">
+    
+    <meta property="og:type" content="website">
+
+    <meta property="og:site_name" content="Zavati">
+
+    <meta property="og:locale" content="pt_BR">
+
+    <meta property="og:title" content="Estamparia, Bordados e Camisetas Personalizadas | Zavati">
+
+    <meta property="og:description" content="Especialistas em estamparia, bordado computadorizado, silk screen e camisetas personalizadas. Produzimos uniformes de alta qualidade para empresas, eventos e equipes.">
+
+    <meta property="og:url" content="https://www.zavati.com.br/">
+
+    <meta property="og:image" content="../assets/images/enuncio 1.jpeg">
+
+    <meta property="og:image:width" content="1200">
+
+    <meta property="og:image:height" content="630">
+
+    <meta property="og:image:alt" content="Zavati - Estamparia e Bordados Personalizados">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Estamparia, Bordados e Camisetas Personalizadas | Zavati">
+
+    <meta name="twitter:description" content="Especialistas em estamparia, bordado computadorizado, silk screen e camisetas personalizadas.">
+
+    <meta name="twitter:image" content="../assets/images/enuncio 1.jpeg">
+
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    
     <link rel="stylesheet" href="./assets/header-footer.css">
     <link rel="stylesheet" href="./home/style.css">
     <script src="./home/script.js"></script>
+    <script>
+function toggleMenu() {
+    document
+        .getElementById("mobileMenu")
+        .classList.toggle("active");
+
+    document
+        .getElementById("overlay")
+        .classList.toggle("active");
+}
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.carousel-slide');
@@ -110,12 +154,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="nav-left">
                     <a href="./personalizacao/index.html" class="nav-link">Personalização</a>
                     <a href="./servicos/index.html" class="nav-link">Serviços</a>
-                    <a href="./materiais/index.html" class="nav-link">Materiais</a>
+                    <a href="./tecidos/index.html" class="nav-link">Tecidos</a>
                 </div>
 
                 <!-- Links da direita -->
                 <div class="nav-right">
-                    <a href="./tecidos/index.html" class="nav-link">Tecidos</a>
+                    <a href="./materiais/index.html" class="nav-link">Materiais</a>
                     <a href="./profissionais/index.html" class="nav-link">Profissionais</a>
                     <a href="./objetivos/index.html" class="nav-link">Objetivos</a>
                 </div>
@@ -143,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
          <!-- Logo centralizado como botão -->
         <div class="logo-container">
             <a href="./index.html" class="logo-circle logo-btn">
-                <img src="./assets/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
+                <img src="/assets/images/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
             </a>
         </div>
     </header>
@@ -153,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Hero Section com Carrossel -->
         <section class="hero">
             <div class="hero-content">
-                <h1>Estamparia de <span class="gradient-text">Qualidade</span></h1>
+                <h1>Estamparia e Bordados Personalizados de <span class="gradient-text">Qualidade</span></h1>
                 <p>Somos especialistas em <strong>DTF</strong>, <strong>serigrafia</strong> e <strong>personalização</strong> de produtos. Transformamos suas ideias em criações vibrantes e duráveis.</p>
                 
                 <div class="highlights">
@@ -177,11 +221,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Carrossel no lugar da imagem -->
             <div class="carousel">
                 <div class="carousel-container">
-                    <img src="./assets/enuncio 1.jpeg" alt="Slide 1" class="carousel-slide active" style="object-fit: cover;">
-                    <img src="./assets/anuncio 6.jpeg" alt="Slide 2" class="carousel-slide" style="object-fit: cover;">
-                    <img src="./assets/anuncio 7.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
-                    <img src="./assets/anuncio 3.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
-                    <img src="./assets/mockup jbf.jpeg" alt="Slide 3" class="carousel-slide" style="object-fit: cover;">
+                    <img src="/assets/images/enuncio 1.jpeg" alt="camiseta-personalizada-zavati" class="carousel-slide active" style="object-fit: cover;">
+                    <img src="./assets/images/anuncio 6.jpeg" alt="personalizacao-sacolas-serigrafia" class="carousel-slide" style="object-fit: cover;">
+                    <img src="./assets/images/anuncio 7.jpeg" alt="imagem-ilustrativa-cliente-forc-engines" class="carousel-slide" style="object-fit: cover;">
+                    <img src="./assets/images/anuncio 3.jpeg" alt="imagem-serigrafia-upgrade-garage" class="carousel-slide" style="object-fit: cover;">
+                    <img src="./assets/images/mockup jbf.jpeg" alt="imagem-mockup-jbf-reformas" class="carousel-slide" style="object-fit: cover;">
                 </div>
 
                 <button class="carousel-btn prev" id="prevBtn">❮</button>
@@ -209,15 +253,21 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2>Nossas Especialidades</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">💧</div>
+                    <div class="service-icon">🖨️</div>
                     <h3>DTF</h3>
-                    <p>Impressão direta em tecido com cores vibrantes e durabilidade excepcional.</p>
+                    <p>O DTF (Direct to Film) é uma tecnologia de impressão digital em filme que oferece alta definição, excelente fixação e versatilidade para estampar tecidos claros ou escuros sem limite de cores.</p>
                     <a href="./servicos/index.html" class="service-link">Saiba mais →</a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">⭐</div>
+                    <div class="service-icon">🫟</div>
                     <h3>Serigrafia</h3>
-                    <p>Técnica clássica de impressão com precisão e qualidade profissional.</p>
+                    <p>A serigrafia é uma técnica de impressão manual por telas que oferece alta durabilidade, excelente custo-benefício para grandes produções e cores intensas em qualquer tipo de tecido.</p>
+                    <a href="./servicos/index.html" class="service-link">Saiba mais →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪡</div>
+                    <h3>Bordado</h3>
+                    <p>O bordado é uma técnica de personalização com fios que garante extrema sofisticação, relevo elegante e altíssima resistência à lavagem para valorizar uniformes e peças exclusivas.</p>
                     <a href="./servicos/index.html" class="service-link">Saiba mais →</a>
                 </div>
                 <div class="service-card">

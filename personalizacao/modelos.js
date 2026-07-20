@@ -22,22 +22,22 @@ const SHIRT_MODELS = [
     {
         id: 'basica',
         nome: 'Camiseta Básica frente',
-        imagem: '../assets/camiseta frente.png'
+        imagem: '../assets/images/camiseta frente.png'
     },
     {
         id: 'premium',
         nome: 'Camiseta Básica trás',
-        imagem: '../assets/camiseta tras.png'
+        imagem: '../assets/images/camiseta tras.png'
     },
     {
         id: 'oversized',
-        nome: 'Camiseta Oversized',
-        imagem: '../assets/camiseta-oversized.png'
+        nome: 'Camiseta Oversized frente',
+        imagem: '../assets/images/camiseta oversized branca frente.png'
     },
     {
         id: 'fitted',
-        nome: 'Camiseta Fitted',
-        imagem: '../assets/camiseta-fitted.png'
+        nome: 'Camiseta Oversized trás',
+        imagem: '../assets/images/camiseta oversized branca trás.png'
     }
     
     // ========== ADICIONE NOVOS MODELOS AQUI ==========

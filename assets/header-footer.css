@@ -72,6 +72,26 @@ body {
     color: var(--accent-color);
 }
 
+/* Página ativa */
+.nav-link.active {
+    color: var(--accent-color);
+    position: relative;
+}
+
+/* Linha abaixo da página ativa */
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--accent-color);
+    border-radius: 5px;
+}
+
 /* Menu mobile */
 .menu-toggle {
     display: none;
