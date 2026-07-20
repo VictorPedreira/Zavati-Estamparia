@@ -1,4 +1,4 @@
-/* ===== TECIDOS PAGE STYLES ===== */
+/* ===== MATERIAIS PAGE STYLES ===== */
 
 /* ===== PAGE HEADER ===== */
 .page-header {
@@ -27,8 +27,8 @@
     opacity: 0.9;
 }
 
-/* ===== FABRICS GRID ===== */
-.fabrics-grid {
+/* ===== MATERIAIS GRID ===== */
+.materials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
@@ -37,54 +37,50 @@
     margin: 0 auto;
 }
 
-.fabric-card {
-    background: linear-gradient(135deg, #f9fafb, #ffffff);
+.material-card {
+    background-color: #f9fafb;
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
     transition: all 0.3s ease;
-    border: 2px solid #1e3a8a;
+    border-left: 4px solid #1e3a8a;
 }
 
-.fabric-card:hover {
+.material-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(135deg, #1e3a8a, #0f766e);
-    color: #ffffff;
 }
 
-.fabric-icon {
+.material-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.fabric-card h3 {
+.material-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: #1e3a8a;
 }
 
-.fabric-card p {
+.material-card p {
+    color: #6b7280;
     margin-bottom: 1.5rem;
-    opacity: 0.9;
 }
 
-.fabric-tags {
+.material-benefits {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: center;
 }
 
-.fabric-tags span {
-    background-color: rgba(30, 58, 138, 0.2);
+.benefit {
+    background-color: #1e3a8a;
+    color: #ffffff;
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
-}
-
-.fabric-card:hover .fabric-tags span {
-    background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* ===== RESPONSIVO ===== */
@@ -93,7 +89,7 @@
         font-size: 2rem;
     }
 
-    .fabrics-grid {
+    .materials-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         padding: 2rem 1rem;
     }
@@ -108,9 +104,21 @@
         font-size: 1.5rem;
     }
 
-    .fabrics-grid {
+    .materials-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Logo como botão */
+.logo-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.logo-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Logo como botão */
