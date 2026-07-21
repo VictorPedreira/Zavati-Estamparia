@@ -45,20 +45,24 @@
 <body>
     <!-- HEADER -->
     <header class="header">
+        <!-- Barra de Navegação -->
         <nav class="navbar">
             <div class="nav-container">
+                <!-- Links da esquerda -->
                 <div class="nav-left">
-                    <a href="../personalizacao/index.html" class="nav-link">Personalização</a>
-                    <a href="../servicos/index.html" class="nav-link">Serviços</a>
+                    <a href="/personalizacao/index.html" class="nav-link">Personalização</a>
+                    <a href="/servicos/index.html" class="nav-link">Serviços</a>
                     <a href="index.html" class="nav-link active">Tecidos</a>
                 </div>
 
+                <!-- Links da direita -->
                 <div class="nav-right">
-                    <a href="../materiais/index.html" class="nav-link">Materiais</a>
-                    <a href="../profissionais/index.html" class="nav-link">Profissionais</a>
-                    <a href="../objetivos/index.html" class="nav-link">Objetivos</a>
+                    <a href="/materiais/index.html" class="nav-link">Materiais</a>
+                    <a href="/profissionais/index.html" class="nav-link">Profissionais</a>
+                    <a href="/objetivos/index.html" class="nav-link">Objetivos</a>
                 </div>
 
+                <!-- Menu mobile -->
                 <button class="menu-toggle" id="menuToggle">
                     <span></span>
                     <span></span>
@@ -66,14 +70,30 @@
                 </button>
             </div>
 
+            <div id="mobileMenu" class="mobile-menu">
+            <!-- Botão de fechar (X) -->
+            <button id="menuClose" class="menu-close-btn">&times;</button>
+
+            <!-- Seus links atuais -->
+            <a href="/index.html" class="mobile-link">Home</a>
+            <a href="/personalizacao/index.html" class="mobile-link">Personalização</a>
+            <a href="/servicos/index.html" class="mobile-link">Serviços</a>
+            <a href="/materiais/index.html" class="mobile-link">Materiais</a>
+            <a href="index.html" class="mobile-link active">Tecidos</a>
+            <a href="/profissionais/index.html" class="mobile-link">Profissionais</a>
+            <a href="/objetivos/index.html" class="mobile-link">Objetivos</a>
+            <!-- ... demais links ... -->
+            </div>
+
+            <!-- Menu mobile dropdown -->
             <div class="mobile-menu" id="mobileMenu">
-                <a href="../home/index.html" class="mobile-link">Home</a>
-                <a href="../personalizacao/index.html" class="nav-link">Personalização</a>
-                <a href="../servicos/index.html" class="mobile-link">Serviços</a>
-                <a href="../materiais/index.html" class="mobile-link">Materiais</a>
-                <a href="index.html" class="mobile-link">Tecidos</a>
-                <a href="../profissionais/index.html" class="mobile-link">Profissionais</a>
-                <a href="../objetivos/index.html" class="mobile-link">Objetivos</a>
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="/personalizacao/index.html" class="mobile-link">Personalização</a>
+                <a href="/servicos/index.html" class="mobile-link">Serviços</a>
+                <a href="/materiais/index.html" class="mobile-link">Materiais</a>
+                <a href="index.html" class="mobile-link active">Tecidos</a>
+                <a href="/profissionais/index.html" class="mobile-link">Profissionais</a>
+                <a href="/objetivos/index.html" class="mobile-link">Objetivos</a>
             </div>
         </nav>
 
