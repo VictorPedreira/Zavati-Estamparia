@@ -382,6 +382,11 @@
     }
 }
 
+.lock-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
 @media (max-width: 480px) {
     .color-grid {
         grid-template-columns: repeat(3, 1fr);
