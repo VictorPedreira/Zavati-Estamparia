@@ -275,6 +275,16 @@ function initPersonalization() {
         stopDraggingLogo
     );
 
+    document.addEventListener(
+        'touchmove',
+        event => {
+            if (activePointerId !== null) {
+                event.preventDefault();
+            }
+        },
+        { passive: false }
+    );
+
     resetButton.addEventListener('click', () => {
         currentModel = SHIRT_MODELS[0].id;
         currentColor = COLORS[0];
@@ -297,7 +307,10 @@ function initPersonalization() {
 
     window.addEventListener('resize', () => {
         applyLogoSize();
-        if (!logoWasDragged) updateLogoPosition();
+
+        if (!logoWasDragged) {
+            updateLogoPosition();
+        }
     });
 
     function buildColorOptions() {
@@ -358,10 +371,15 @@ function initPersonalization() {
                 context.putImageData(imageData, 0, 0);
             }
 
-            shirtImage.onload = () => requestAnimationFrame(() => {
-                applyLogoSize();
-                if (!logoWasDragged) updateLogoPosition();
-            });
+            shirtImage.onload = () => {
+                requestAnimationFrame(() => {
+                    applyLogoSize();
+
+                    if (!logoWasDragged) {
+                        updateLogoPosition();
+                    }
+                });
+            };
             shirtImage.src = canvas.toDataURL('image/png');
             modelInfo.textContent = getShirtName(currentModel);
         };
@@ -417,55 +435,105 @@ function initPersonalization() {
     }
 
     function applyLogoSize() {
-        if (previewLogo.hidden || !shirtImage.clientWidth) return;
-        const pixelsPerCm = shirtImage.clientWidth / SHIRT_WIDTH_CM;
-        previewLogo.style.width = `${currentLogoSizeCm * pixelsPerCm}px`;
+        if (
+            previewLogo.hidden ||
+            !shirtImage.clientWidth
+        ) {
+            return;
+        }
+
+        const visibleShirtWidth =
+            shirtImage.clientWidth * 0.75;
+
+        const pixelsPerCm =
+            visibleShirtWidth / SHIRT_WIDTH_CM;
+
+        previewLogo.style.width =
+            `${currentLogoSizeCm * pixelsPerCm}px`;
+
         previewLogo.style.height = 'auto';
     }
 
     function updateLogoPosition() {
-        if (previewLogo.hidden || !previewLogo.offsetWidth) return;
+        if (
+            previewLogo.hidden ||
+            !previewLogo.offsetWidth
+        ) {
+            return;
+        }
 
-        const areaRect = previewArea.getBoundingClientRect();
-        const shirtRect = shirtImage.getBoundingClientRect();
-        const shirtLeft = shirtRect.left - areaRect.left;
-        const shirtTop = shirtRect.top - areaRect.top;
-        const logoWidth = previewLogo.offsetWidth;
-        const logoHeight = previewLogo.offsetHeight;
+        const areaRect =
+            previewArea.getBoundingClientRect();
+
+        const shirtRect =
+            shirtImage.getBoundingClientRect();
+
+        const logoWidth =
+            previewLogo.offsetWidth;
+
+        const logoHeight =
+            previewLogo.offsetHeight;
+
+        const visibleShirtWidth =
+            shirtRect.width * 0.75;
+
+        const visibleShirtLeft =
+            shirtRect.left -
+            areaRect.left +
+            (shirtRect.width - visibleShirtWidth) / 2;
+
+        const shirtTop =
+            shirtRect.top - areaRect.top;
+
         const positions = {
-            left: shirtLeft + shirtRect.width * 0.27,
-            center: shirtLeft + (shirtRect.width - logoWidth) / 2,
-            right: shirtLeft + shirtRect.width * 0.73 - logoWidth
+            left:
+                visibleShirtLeft +
+                visibleShirtWidth * 0.12,
+
+            center:
+                visibleShirtLeft +
+                (visibleShirtWidth - logoWidth) / 2,
+
+            right:
+                visibleShirtLeft +
+                visibleShirtWidth * 0.88 -
+                logoWidth
         };
 
-        previewLogo.style.left = `${positions[currentPosition]}px`;
-        previewLogo.style.top = `${shirtTop + shirtRect.height * 0.31 - logoHeight / 2}px`;
+        previewLogo.style.left =
+            `${positions[currentPosition]}px`;
+
+        previewLogo.style.top =
+            `${shirtTop + shirtRect.height * 0.31 - logoHeight / 2}px`;
     }
 
     function startDraggingLogo(event) {
-    if (previewLogo.hidden) {
-        return;
+        if (previewLogo.hidden) {
+            return;
+        }
+
+        event.preventDefault();
+
+        activePointerId = event.pointerId;
+
+        const logoRect =
+            previewLogo.getBoundingClientRect();
+
+        dragOffsetX =
+            event.clientX - logoRect.left;
+
+        dragOffsetY =
+            event.clientY - logoRect.top;
+
+        logoWasDragged = true;
+
+        document.documentElement.classList.add('dragging-art');
+        document.body.classList.add('dragging-art');
+
+        positionButtons.forEach(button => {
+            button.classList.remove('active');
+        });
     }
-
-    event.preventDefault();
-
-    activePointerId = event.pointerId;
-
-    const logoRect =
-        previewLogo.getBoundingClientRect();
-
-    dragOffsetX =
-        event.clientX - logoRect.left;
-
-    dragOffsetY =
-        event.clientY - logoRect.top;
-
-    logoWasDragged = true;
-
-    positionButtons.forEach(button => {
-        button.classList.remove('active');
-    });
-}
 
     function dragLogo(event) {
         if (activePointerId !== event.pointerId) {
@@ -515,6 +583,9 @@ function initPersonalization() {
         }
 
         activePointerId = null;
+
+        document.documentElement.classList.remove('dragging-art');
+        document.body.classList.remove('dragging-art');
     }
 
     function updateViewButtons() {
@@ -531,7 +602,9 @@ function initPersonalization() {
         if (oversized) return view === 'back' ? 'fitted' : 'oversized';
         return view === 'back' ? 'premium' : 'basica';
     }
+
 }
+
 
 function formatCm(value) {
     return `${Number.isInteger(value) ? value : value.toFixed(1)} cm`;
