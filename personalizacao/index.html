@@ -16,7 +16,7 @@
 
     <meta property="og:description" content="Especialistas em estamparia, bordado computadorizado, silk screen e camisetas personalizadas. Produzimos uniformes de alta qualidade para empresas, eventos e equipes.">
 
-    <meta property="og:url" content="https://zavati.com/">
+    <meta property="og:url" content="https://zavatiestamparia.com/personalizacao/">
 
     <meta property="og:image" content="https://zavatiestamparia.com/assets/images/seo/enuncio-1.jpeg">
 
@@ -61,7 +61,7 @@
         "name":"Zavati Estamparia",
         "image":"https://zavatiestamparia.com/assets/images/logo.png",
         "url":"https://zavatiestamparia.com",
-        "telephone":"+554551-8884",
+        "telephone":"+55114551-8884",
         "priceRange":"$$",
         "address":{
             "@type":"PostalAddress",
@@ -95,8 +95,8 @@
     <link rel="icon" type="image/png" href="/assets/images/logo.png">
     <link rel="canonical" href="https://zavatiestamparia.com/personalizacao/">
     
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../assets/header-footer.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- HEADER -->
@@ -119,14 +119,14 @@
                 </div>
 
                 <!-- Menu mobile -->
-                <button class="menu-toggle" id="menuToggle">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
             </div>
 
-            <div id="mobileMenu" class="mobile-menu">
+            <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
             <!-- Botão de fechar (X) -->
             <button id="menuClose" class="menu-close-btn">&times;</button>
 
@@ -141,16 +141,6 @@
             <!-- ... demais links ... -->
             </div>
 
-            <!-- Menu mobile dropdown -->
-            <div class="mobile-menu" id="mobileMenu">
-                <a href="/" class="mobile-link">Home</a>
-                <a href="./" class="mobile-link active">Personalização</a>
-                <a href="/servicos/" class="mobile-link">Serviços</a>
-                <a href="/materiais/" class="mobile-link">Materiais</a>
-                <a href="/tecidos/" class="mobile-link">Tecidos</a>
-                <a href="/profissionais/" class="mobile-link">Profissionais</a>
-                <a href="/objetivos/" class="mobile-link">Objetivos</a>
-            </div>
         </nav>
 
         <div class="logo-container">
@@ -160,103 +150,91 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- Page Header -->
-        <div class="page-header">
-            <h1><span class="gradient-text">Personalize sua Camiseta Online</span></h1>
-            <p>Escolha o modelo, a cor e faça upload de sua logo para ver como ficará o produto final</p>
-        </div>
+    <main class="personalization-page">
+        <section class="personalization-heading" aria-labelledby="pageTitle">
+            <p class="heading-label">Crie do seu jeito</p>
+            <h1 id="pageTitle">Personalize sua camiseta</h1>
+            <p>Escolha o modelo, a cor e envie sua arte para visualizar o resultado antes de solicitar o orçamento.</p>
+        </section>
 
-        <!-- Personalization Container -->
-        <div class="personalization-container">
-            <!-- Left Panel - Controls -->
-            <div class="controls-panel">
-                <h2>Configurações</h2>
-
-                <!-- Modelo de Camiseta -->
-                <div class="control-group">
-                    <label for="shirtModel">Modelo de Camiseta:</label>
-                    <select id="shirtModel">
-                        <option value="basic">Camiseta frente</option>
-                        <option value="premium">Camiseta costas</option>
-                        <option value="oversized">Camiseta Oversized frente</option>
-                        <option value="fitted">Camiseta Oversized costas</option>
-                    </select>
-                </div>
-
-                <!-- Cor da Camiseta -->
-                <div class="control-group">
-                    <label for="shirtColor">Cor da Camiseta:</label>
-                    <div class="color-grid">
-                        <div class="color-option" data-color="#000000" style="background-color: #000000;" title="Preto"></div>
-                        <div class="color-option" data-color="#FFFFFF" style="background-color: #FFFFFF; border: 2px solid #ddd;" title="Branco"></div>
-                        <div class="color-option" data-color="#FF0000" style="background-color: #FF0000;" title="Vermelho"></div>
-                        <div class="color-option" data-color="#0000FF" style="background-color: #0000FF;" title="Azul"></div>
-                        <div class="color-option" data-color="#00AA00" style="background-color: #00AA00;" title="Verde"></div>
-                        <div class="color-option" data-color="#FFFF00" style="background-color: #FFFF00; border: 2px solid #ddd;" title="Amarelo"></div>
-                        <div class="color-option" data-color="#FF6600" style="background-color: #FF6600;" title="Laranja"></div>
-                        <div class="color-option" data-color="#AA00AA" style="background-color: #AA00AA;" title="Roxo"></div>
+        <section class="personalization-workspace" aria-label="Personalizador de camisetas">
+            <aside class="controls-panel">
+                <div class="control-step">
+                    <div class="step-title"><span>1</span><label for="shirtModel">Modelo</label></div>
+                    <div class="select-wrapper">
+                        <span aria-hidden="true">👕</span>
+                        <select id="shirtModel" aria-label="Modelo de camiseta"></select>
                     </div>
                 </div>
 
-                <!-- Upload de Logo -->
-                <div class="control-group">
-                    <label for="logoUpload">Fazer Upload da Logo:</label>
-                    <input type="file" id="logoUpload" accept="image/*">
-                    <p class="help-text">Formatos aceitos: PNG, JPG, GIF (máx. 5MB)</p>
+                <div class="control-step">
+                    <div class="step-title"><span>2</span><span>Cor</span></div>
+                    <div class="color-grid" role="group" aria-label="Escolha a cor da camiseta"></div>
                 </div>
 
-                <!-- Controles de Tamanho -->
-                <div class="control-group">
-                    <label for="logoSize">Tamanho da Logo:</label>
-                    <input type="range" id="logoSize" min="1" max="30" value="2">
-                    <span id="sizeValue">2.0 cm</span>
+                <div class="control-step">
+                    <div class="step-title"><span>3</span><label for="logoUpload">Envie sua arte</label></div>
+                    <label class="upload-zone" id="logoDropzone" for="logoUpload">
+                        <span class="upload-icon" aria-hidden="true">↥</span>
+                        <strong>Arraste e solte sua arte aqui</strong>
+                        <span>ou clique para selecionar um arquivo</span>
+                        <small>PNG, JPG, GIF ou WEBP • Máx. 5 MB</small>
+                    </label>
+                    <input class="visually-hidden" type="file" id="logoUpload" accept="image/png,image/jpeg,image/gif,image/webp">
                 </div>
 
-                <!-- Controles de Posição -->
-                <div class="control-group">
-                    <label>Posição da Logo:</label>
+                <div class="control-step">
+                    <div class="step-title"><span>4</span><span>Tamanho e posição</span></div>
+                    <div class="size-heading">
+                        <label for="logoSize">Tamanho da arte</label>
+                        <strong id="sizeValue">20 cm</strong>
+                    </div>
+                    <div class="size-control">
+                        <button type="button" id="decreaseSize" aria-label="Diminuir arte">−</button>
+                        <input type="range" id="logoSize" min="2" max="30" step="0.5" value="20">
+                        <button type="button" id="increaseSize" aria-label="Aumentar arte">+</button>
+                    </div>
+
+                    <span class="position-label">Posição da arte</span>
                     <div class="position-buttons">
-                        <button class="position-btn" data-position="top-left">↖️ Canto Superior</button>
-                        <button class="position-btn" data-position="center">📍 Centro</button>
-                        <button class="position-btn" data-position="bottom-right">↙️ Canto Inferior</button>
+                        <button type="button" class="position-btn" data-position="left">Esquerda</button>
+                        <button type="button" class="position-btn active" data-position="center">Centro</button>
+                        <button type="button" class="position-btn" data-position="right">Direita</button>
                     </div>
                 </div>
 
-                <!-- Botão de Reset -->
-                <button id="resetBtn" class="reset-btn">Resetar Tudo</button>
+                <button type="button" id="resetBtn" class="reset-btn">Limpar alterações</button>
+                <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20personalização%20de%20camisetas." target="_blank" rel="noopener noreferrer" class="contact-btn">Solicitar orçamento</a>
+            </aside>
 
-                <!-- Botão de Contato -->
-                <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20personalização%20de%20camisetas." target="_blank" class="contact-btn">
-                    📱 Solicitar Orçamento
-                </a>
-            </div>
+            <section class="preview-panel" aria-labelledby="previewTitle">
+                <div class="preview-header">
+                    <h2 id="previewTitle">Prévia do produto</h2>
+                    <div class="view-buttons" aria-label="Visualização da camiseta">
+                        <button type="button" class="view-btn active" data-view="front">Frente</button>
+                        <button type="button" class="view-btn" data-view="back">Costas</button>
+                    </div>
+                </div>
 
-            <!-- Right Panel - Preview -->
-            <div class="preview-panel">
-                <h2>Prévia do Produto</h2>
-                <!-- Artboard com Réguas (tipo Corel) -->
                 <div class="shirt-preview-container">
+                    <div class="measurement measurement-height" aria-hidden="true"><span>71 cm</span></div>
                     <div class="shirt-preview">
-                        <!-- Camiseta em PNG -->
-                        <img id="shirtImage" class="shirt-image" src="" alt="Camiseta">
-
-                        <!-- Container para a logo (sobreposto à camiseta) -->
+                        <img id="shirtImage" class="shirt-image" src="" alt="Prévia da camiseta personalizada">
                         <div class="logo-container-preview">
-                            <img id="previewLogo" class="preview-logo" src="" alt="Logo" style="display: none;">
+                            <img id="previewLogo" class="preview-logo" src="" alt="Arte enviada" hidden>
                         </div>
                     </div>
+                    <div class="measurement measurement-width" aria-hidden="true"><span>54 cm</span></div>
                 </div>
 
-                <!-- Info -->
-                <div class="preview-info">
-                    <p><strong>Modelo:</strong> <span id="modelInfo">Camiseta Básica</span></p>
-                    <p><strong>Cor:</strong> <span id="colorInfo">Preto</span></p>
-                    <p><strong>Logo:</strong> <span id="logoInfo">Nenhuma logo adicionada</span></p>
+                <div class="preview-info" aria-label="Resumo da personalização">
+                    <div class="info-item"><span>Modelo</span><strong id="modelInfo">Camiseta Básica frente</strong></div>
+                    <div class="info-item"><span>Cor</span><strong><i id="colorSample"></i><span id="colorInfo">Preto</span></strong></div>
+                    <div class="info-item"><span>Arte</span><strong id="logoInfo">Nenhuma arte enviada</strong></div>
+                    <div class="info-item"><span>Tamanho da arte</span><strong id="summarySize">20 cm</strong></div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </section>
     </main>
 
     <!-- FOOTER -->

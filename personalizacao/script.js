@@ -1,346 +1,547 @@
-/**
- * PERSONALIZAÇÃO PAGE - SCRIPT COM CANVAS + RÉGUA EM CM
- */
+const SHIRT_WIDTH_CM = 54;
 
-// ===== CONFIGURAÇÃO DE ESCALA =====
-const SCALE_CM_TO_PX = 20; 
-const SHIRT_WIDTH_CM = 54; 
-const SHIRT_HEIGHT_CM = 71; 
-
-const SHIRT_WIDTH_PX = SHIRT_WIDTH_CM * SCALE_CM_TO_PX; 
-const SHIRT_HEIGHT_PX = SHIRT_HEIGHT_CM * SCALE_CM_TO_PX; 
-
-const DISPLAY_SCALE = 0.50; 
-
-// ===== INICIALIZAÇÃO =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
+    initMobileAccordion();
     initPersonalization();
 });
 
-// ===== MENU MOBILE =====
 function initMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    const menuCloseBtn = document.getElementById('menuClose');
+    const menuClose = document.getElementById('menuClose');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    if (!mobileMenu) return;
+    if (!menuToggle || !mobileMenu) return;
 
-    // Função auxiliar para fechar o menu, destravar a tela e resetar o botão
-    function closeDrawer() {
-        mobileMenu.classList.remove('active');
-        mobileMenu.classList.remove('open');
-        
-        // Destrava a rolagem do HTML e do BODY
-        document.documentElement.classList.remove('lock-scroll');
-        document.body.classList.remove('lock-scroll');
-        
-        // Reseta a animação do botão hambúrguer
-        if (menuToggle) {
-            const spans = menuToggle.querySelectorAll('span');
-            if (spans.length >= 3) {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        }
+    function setMenuState(isOpen) {
+        mobileMenu.classList.toggle('active', isOpen);
+        mobileMenu.classList.toggle('open', isOpen);
+        mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        document.documentElement.classList.toggle('lock-scroll', isOpen);
+        document.body.classList.toggle('lock-scroll', isOpen);
     }
 
-    // 1. Abrir/Fechar pelo botão Hambúrguer
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            // Alterna o estado do menu
-            const isActive = mobileMenu.classList.toggle('active');
-            mobileMenu.classList.toggle('open', isActive);
-            
-            // Trava ou destrava a rolagem
-            if (isActive) {
-                document.documentElement.classList.add('lock-scroll');
-                document.body.classList.add('lock-scroll');
-            } else {
-                document.documentElement.classList.remove('lock-scroll');
-                document.body.classList.remove('lock-scroll');
-            }
-            
-            // Anima as 3 barras do botão hambúrguer
-            const spans = menuToggle.querySelectorAll('span');
-            if (spans.length >= 3) {
-                if (isActive) {
-                    spans[0].style.transform = 'rotate(45deg) translate(10px, 10px)';
-                    spans[1].style.opacity = '0';
-                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
-                } else {
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                }
-            }
-        });
-    }
+    menuToggle.addEventListener('click', () => {
+        setMenuState(!mobileMenu.classList.contains('active'));
+    });
 
-    // 2. Fechar ao clicar no botão 'X' dentro da gaveta
-    if (menuCloseBtn) {
-        menuCloseBtn.addEventListener('click', function() {
-            closeDrawer();
-        });
-    }
-
-    // 3. Fechar a gaveta automaticamente ao clicar em qualquer link
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            closeDrawer();
-        });
+    menuClose?.addEventListener('click', () => setMenuState(false));
+    mobileLinks.forEach(link => link.addEventListener('click', () => setMenuState(false)));
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') setMenuState(false);
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) setMenuState(false);
     });
 }
 
-// ===== PERSONALIZAÇÃO =====
-function initPersonalization() {
-    const SHIRT_COLORS = [
-        { id: 'preto', nome: 'Preto', cor: '#111111' },
-        { id: 'branco', nome: 'Branco', cor: '#ffffff' },
-        { id: 'vermelho', nome: 'Vermelho', cor: '#FF0000' },
-        { id: 'azul', nome: 'Azul', cor: '#0000FF' },
-        { id: 'verde', nome: 'Verde', cor: '#00AA00' },
-        { id: 'amarelo', nome: 'Amarelo', cor: '#FFFF00' },
-        { id: 'laranja', nome: 'Laranja', cor: '#FF6600' },
-        { id: 'roxo', nome: 'Roxo', cor: '#AA00AA' }
-    ];
-    
-    const shirtModel = document.getElementById('shirtModel');
-    const shirtImage = document.getElementById('shirtImage');
-    const logoUpload = document.getElementById('logoUpload');
-    const previewLogo = document.getElementById('previewLogo');
-    const logoSize = document.getElementById('logoSize');
-    const sizeValue = document.getElementById('sizeValue');
-    const positionBtns = document.querySelectorAll('.position-btn');
-    const resetBtn = document.getElementById('resetBtn');
-    
-    const modelInfo = document.getElementById('modelInfo');
-    const colorInfo = document.getElementById('colorInfo');
-    const logoInfo = document.getElementById('logoInfo');
-    const shirtContainer = document.querySelector('.shirt-preview-container');
-    
-    let currentColor = SHIRT_COLORS[0].cor;
-    let currentModel = null;
-    let logoPosition = 'center';
-    let isDragging = false;
-    let offsetX = 0;
-    let offsetY = 0;
-    let currentLogoSizeCm = 2; 
-    let userHasMovedLogo = false; // NOVA VARIÁVEL: Detecta se o usuário arrastou a logo
+function initMobileAccordion() {
+    const steps = Array.from(
+        document.querySelectorAll('.control-step')
+    );
 
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    function createRulers() {
-        const oldRulers = document.querySelectorAll('.ruler');
-        oldRulers.forEach(ruler => ruler.remove());
-        
-        const horizontalRuler = document.createElement('div');
-        horizontalRuler.className = 'ruler horizontal-ruler';
-        horizontalRuler.style.cssText = 'position:absolute; top:-40px; left:0; width:100%; height:40px; display:flex; align-items:flex-end; border-bottom:2px solid #333; background-color:#f5f5f5; z-index:10;';
-        
-        const verticalRuler = document.createElement('div');
-        verticalRuler.className = 'ruler vertical-ruler';
-        verticalRuler.style.cssText = 'position:absolute; left:-50px; top:0; width:50px; height:100%; display:flex; flex-direction:column-reverse; align-items:flex-end; border-right:2px solid #333; background-color:#f5f5f5; z-index:10;';
-        
-        const visualScale = SCALE_CM_TO_PX * DISPLAY_SCALE;
-        const cmWidth = Math.floor(shirtContainer.offsetWidth / visualScale);
-        
-        for (let i = 0; i <= cmWidth; i++) {
-            const pos = i * visualScale;
-            const tick = document.createElement('div');
-            tick.style.cssText = `position:absolute; left:${pos}px; width:1px; height:${i % 5 === 0 ? '20px' : '10px'}; background-color:#333; bottom:0;`;
-            if (i % 5 === 0) {
-                const label = document.createElement('span');
-                label.textContent = i;
-                label.style.cssText = `position:absolute; left:${pos - 8}px; top:0; font-size:10px; font-weight:bold;`;
-                horizontalRuler.appendChild(label);
-            }
-            horizontalRuler.appendChild(tick);
-        }
-        
-        const cmHeight = Math.floor(shirtContainer.offsetHeight / visualScale);
-        for (let i = 0; i <= cmHeight; i++) {
-            const pos = i * visualScale;
-            const tick = document.createElement('div');
-            tick.style.cssText = `position:absolute; top:${pos}px; height:1px; width:${i % 5 === 0 ? '20px' : '10px'}; background-color:#333; right:0;`;
-            if (i % 5 === 0) {
-                const label = document.createElement('span');
-                label.textContent = i;
-                label.style.cssText = `position:absolute; top:${pos - 8}px; right:5px; font-size:10px; font-weight:bold;`;
-                verticalRuler.appendChild(label);
-            }
-            verticalRuler.appendChild(tick);
-        }
-        shirtContainer.appendChild(horizontalRuler);
-        shirtContainer.appendChild(verticalRuler);
+    if (!steps.length) {
+        return;
     }
-    
-    initializeShirtModels();
-    
-    if (SHIRT_MODELS.length > 0) {
-        currentModel = SHIRT_MODELS[0].id;
-        modelInfo.textContent = SHIRT_MODELS[0].nome;
-        loadAndColorizeImage(SHIRT_MODELS[0].imagem, currentColor);
-    }
-    
-    shirtModel.addEventListener('change', function() {
-        currentModel = this.value;
-        modelInfo.textContent = getShirtName(currentModel);
-        loadAndColorizeImage(getShirtImage(currentModel), currentColor);
-    });
 
-    const colorGrid = document.querySelector('.color-grid');
-    if (colorGrid) {
-        colorGrid.innerHTML = '';
-        SHIRT_COLORS.forEach((color, index) => {
-            const colorDiv = document.createElement('div');
-            colorDiv.className = 'color-option' + (index === 0 ? ' active' : '');
-            colorDiv.style.backgroundColor = color.cor;
-            colorDiv.addEventListener('click', function() {
-                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-                currentColor = color.cor;
-                colorInfo.textContent = color.nome;
-                loadAndColorizeImage(getShirtImage(currentModel), currentColor);
-            });
-            colorGrid.appendChild(colorDiv);
+    function openStep(selectedStep) {
+        steps.forEach(step => {
+            const isOpen = step === selectedStep;
+
+            const title =
+                step.querySelector('.step-title');
+
+            step.classList.toggle(
+                'accordion-open',
+                isOpen
+            );
+
+            if (title) {
+                title.setAttribute(
+                    'aria-expanded',
+                    String(isOpen)
+                );
+            }
         });
     }
-    
-    function loadAndColorizeImage(imagePath, targetColor) {
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        img.onload = function() {
-            const aspect = img.width / img.height;
-            const finalWidth = SHIRT_WIDTH_PX * DISPLAY_SCALE;
-            const finalHeight = finalWidth / aspect;
 
-            canvas.width = finalWidth;
-            canvas.height = finalHeight;
-            
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = imageData.data;
-            const rgb = hexToRgb(targetColor);
-            
-            for (let i = 0; i < data.length; i += 4) {
-                const luminance = (data[i] * 0.299 + data[i+1] * 0.587 + data[i+2] * 0.114) / 255;
-                if (data[i+3] > 128) {
-                    const brightness = (rgb.r < 50) ? 0.85 : 0.7;
-                    data[i] = Math.round(rgb.r * luminance * brightness);
-                    data[i+1] = Math.round(rgb.g * luminance * brightness);
-                    data[i+2] = Math.round(rgb.b * luminance * brightness);
-                }
+    steps.forEach((step, index) => {
+        const title =
+            step.querySelector('.step-title');
+
+        if (!title) {
+            return;
+        }
+
+        title.setAttribute('role', 'button');
+        title.setAttribute('tabindex', '0');
+
+        title.setAttribute(
+            'aria-expanded',
+            String(index === 0)
+        );
+
+        step.classList.toggle(
+            'accordion-open',
+            index === 0
+        );
+
+        function toggleStep() {
+            /*
+             * O menu retrátil funciona somente
+             * em telas de até 768px.
+             */
+            if (window.innerWidth > 768) {
+                return;
             }
-            
-            ctx.putImageData(imageData, 0, 0);
-            shirtImage.src = canvas.toDataURL();
-            shirtImage.style.width = finalWidth + "px";
-            shirtImage.style.height = finalHeight + "px";
-            
-            setTimeout(() => {
-                createRulers();
-                // SÓ ATUALIZA A POSIÇÃO SE O USUÁRIO NÃO TIVER MOVIDO MANUALMENTE
-                if (!userHasMovedLogo) {
-                    updateLogoPosition();
-                }
-            }, 100);
-        };
-        img.src = imagePath;
-    }
-    
-    function hexToRgb(hex) {
-        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : { r: 0, g: 0, b: 0 };
-    }
-    
-    logoSize.addEventListener('input', function() {
-        currentLogoSizeCm = parseFloat(this.value);
-        const sizePx = currentLogoSizeCm * SCALE_CM_TO_PX * DISPLAY_SCALE;
-        sizeValue.textContent = currentLogoSizeCm.toFixed(1) + ' cm';
-        
-        if (previewLogo.style.display !== 'none') {
-            previewLogo.style.width = sizePx + 'px';
-            previewLogo.style.height = 'auto';
-            // SÓ ATUALIZA A POSIÇÃO SE O USUÁRIO NÃO TIVER MOVIDO MANUALMENTE
-            if (!userHasMovedLogo) {
-                updateLogoPosition();
+
+            const isAlreadyOpen =
+                step.classList.contains(
+                    'accordion-open'
+                );
+
+            if (isAlreadyOpen) {
+                step.classList.remove(
+                    'accordion-open'
+                );
+
+                title.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+            } else {
+                openStep(step);
             }
         }
+
+        title.addEventListener(
+            'click',
+            toggleStep
+        );
+
+        title.addEventListener(
+            'keydown',
+            event => {
+                if (
+                    event.key === 'Enter' ||
+                    event.key === ' '
+                ) {
+                    event.preventDefault();
+                    toggleStep();
+                }
+            }
+        );
     });
-    
-    positionBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            userHasMovedLogo = false; // Resetamos para usar os botões fixos
-            positionBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            logoPosition = this.getAttribute('data-position');
+}
+
+function initPersonalization() {
+    const COLORS = [
+        { nome: 'Preto', cor: '#222121' },
+        { nome: 'Branco', cor: '#ffffff' },
+        { nome: 'Azul-marinho', cor: '#111c3c' },
+        { nome: 'Cinza', cor: '#bfc2c7' },
+        { nome: 'Chumbo', cor: '#4b5563' },
+        { nome: 'Marrom', cor: '#7c4a2d' },
+        { nome: 'Vinho', cor: '#7f1d3a' },
+        { nome: 'Rosa', cor: '#b11864' },
+        { nome: 'Amarelo', cor: '#facc15' },
+        { nome: 'Roxo', cor: '#350785' },
+        { nome: 'Verde-Lima', cor: '#84cc16' },
+        { nome: 'Bege', cor: '#e8dac4' },
+        { nome: 'Vermelho', cor: '#880c19' },
+        { nome: 'Ciano', cor: '#0d9fb9' },
+        { nome: 'Laranja', cor: '#b9820d' },
+        { nome: 'Verde', cor: '#087c69' }
+    ];
+
+    const shirtModel = document.getElementById('shirtModel');
+    const shirtImage = document.getElementById('shirtImage');
+    const colorGrid = document.querySelector('.color-grid');
+    const logoUpload = document.getElementById('logoUpload');
+    const logoDropzone = document.getElementById('logoDropzone');
+    const previewLogo = document.getElementById('previewLogo');
+    const previewArea = document.querySelector('.shirt-preview');
+    const logoSize = document.getElementById('logoSize');
+    const sizeValue = document.getElementById('sizeValue');
+    const summarySize = document.getElementById('summarySize');
+    const decreaseSize = document.getElementById('decreaseSize');
+    const increaseSize = document.getElementById('increaseSize');
+    const positionButtons = document.querySelectorAll('.position-btn');
+    const viewButtons = document.querySelectorAll('.view-btn');
+    const resetButton = document.getElementById('resetBtn');
+    const modelInfo = document.getElementById('modelInfo');
+    const colorInfo = document.getElementById('colorInfo');
+    const colorSample = document.getElementById('colorSample');
+    const logoInfo = document.getElementById('logoInfo');
+
+    if (!shirtModel || !shirtImage || typeof SHIRT_MODELS === 'undefined') return;
+
+    let currentModel = SHIRT_MODELS[0].id;
+    let currentColor = COLORS[0];
+    let currentLogoSizeCm = 20;
+    let currentPosition = 'center';
+    let logoWasDragged = false;
+    let activePointerId = null;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
+
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d', { willReadFrequently: true });
+
+    initializeShirtModels();
+    shirtModel.value = currentModel;
+    buildColorOptions();
+    updateSize(false);
+    updateViewButtons();
+    renderShirt();
+
+    shirtModel.addEventListener('change', () => {
+        currentModel = shirtModel.value;
+        modelInfo.textContent = getShirtName(currentModel);
+        logoWasDragged = false;
+        updateViewButtons();
+        renderShirt();
+    });
+
+    viewButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const desiredView = button.dataset.view;
+            currentModel = getModelForView(currentModel, desiredView);
+            shirtModel.value = currentModel;
+            modelInfo.textContent = getShirtName(currentModel);
+            logoWasDragged = false;
+            updateViewButtons();
+            renderShirt();
+        });
+    });
+
+    logoSize.addEventListener('input', () => updateSize(true));
+    decreaseSize.addEventListener('click', () => changeSize(-0.5));
+    increaseSize.addEventListener('click', () => changeSize(0.5));
+
+    positionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            positionButtons.forEach(item => item.classList.remove('active'));
+            button.classList.add('active');
+            currentPosition = button.dataset.position;
+            logoWasDragged = false;
             updateLogoPosition();
         });
     });
-    
-    function updateLogoPosition() {
-        if (previewLogo.style.display === 'none') return;
-        const container = shirtContainer;
-        const logoWidth = previewLogo.offsetWidth;
-        const logoHeight = previewLogo.offsetHeight;
-        let x, y;
-        
-        switch(logoPosition) {
-            case 'top-left': x = container.offsetWidth * 0.3; y = container.offsetHeight * 0.25; break;
-            case 'center': x = (container.offsetWidth - logoWidth) / 2; y = (container.offsetHeight - logoHeight) / 2; break;
-            case 'bottom-right': x = container.offsetWidth - logoWidth - 40; y = container.offsetHeight - logoHeight - 40; break;
-            default: x = (container.offsetWidth - logoWidth) / 2; y = (container.offsetHeight - logoHeight) / 2;
-        }
-        previewLogo.style.left = x + 'px';
-        previewLogo.style.top = y + 'px';
-        previewLogo.style.zIndex = "100";
-    }
-    
-    logoUpload.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                userHasMovedLogo = false; // Nova logo começa na posição padrão
-                previewLogo.src = event.target.result;
-                previewLogo.style.display = 'block';
-                logoInfo.textContent = file.name;
-                const sizePx = currentLogoSizeCm * SCALE_CM_TO_PX * DISPLAY_SCALE;
-                previewLogo.style.width = sizePx + 'px';
-                updateLogoPosition();
-                makeLogoDraggable();
-            };
-            reader.readAsDataURL(file);
-        }
+
+    logoUpload.addEventListener('change', event => {
+        const file = event.target.files?.[0];
+        if (file) loadLogo(file);
     });
-    
-    function makeLogoDraggable() {
-        previewLogo.onmousedown = function(e) {
-            isDragging = true;
-            userHasMovedLogo = true; // MARCA QUE O USUÁRIO MOVEU A LOGO
-            offsetX = e.clientX - previewLogo.getBoundingClientRect().left;
-            offsetY = e.clientY - previewLogo.getBoundingClientRect().top;
-            
-            // Remove active dos botões de posição fixa quando começa a arrastar
-            positionBtns.forEach(b => b.classList.remove('active'));
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+        logoDropzone.addEventListener(eventName, event => {
+            event.preventDefault();
+            logoDropzone.classList.add('dragging');
+        });
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        logoDropzone.addEventListener(eventName, event => {
+            event.preventDefault();
+            logoDropzone.classList.remove('dragging');
+        });
+    });
+
+    logoDropzone.addEventListener('drop', event => {
+        const file = event.dataTransfer?.files?.[0];
+        if (file) loadLogo(file);
+    });
+
+    previewLogo.addEventListener(
+        'pointerdown',
+        startDraggingLogo
+    );
+
+    document.addEventListener(
+        'pointermove',
+        dragLogo
+    );
+
+    document.addEventListener(
+        'pointerup',
+        stopDraggingLogo
+    );
+
+    document.addEventListener(
+        'pointercancel',
+        stopDraggingLogo
+    );
+
+    resetButton.addEventListener('click', () => {
+        currentModel = SHIRT_MODELS[0].id;
+        currentColor = COLORS[0];
+        currentLogoSizeCm = 20;
+        currentPosition = 'center';
+        logoWasDragged = false;
+        shirtModel.value = currentModel;
+        logoUpload.value = '';
+        previewLogo.src = '';
+        previewLogo.hidden = true;
+        logoInfo.textContent = 'Nenhuma arte enviada';
+        positionButtons.forEach(button => {
+            button.classList.toggle('active', button.dataset.position === 'center');
+        });
+        buildColorOptions();
+        updateSize(false);
+        updateViewButtons();
+        renderShirt();
+    });
+
+    window.addEventListener('resize', () => {
+        applyLogoSize();
+        if (!logoWasDragged) updateLogoPosition();
+    });
+
+    function buildColorOptions() {
+        colorGrid.innerHTML = '';
+
+        COLORS.forEach(color => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'color-option';
+            button.classList.toggle('active', color.nome === currentColor.nome);
+            button.style.backgroundColor = color.cor;
+            button.title = color.nome;
+            button.setAttribute('aria-label', color.nome);
+            button.setAttribute('aria-pressed', String(color.nome === currentColor.nome));
+
+            button.addEventListener('click', () => {
+                currentColor = color;
+                colorInfo.textContent = color.nome;
+                colorSample.style.backgroundColor = color.cor;
+                colorGrid.querySelectorAll('.color-option').forEach(option => {
+                    const active = option === button;
+                    option.classList.toggle('active', active);
+                    option.setAttribute('aria-pressed', String(active));
+                });
+                renderShirt();
+            });
+
+            colorGrid.appendChild(button);
+        });
+
+        colorInfo.textContent = currentColor.nome;
+        colorSample.style.backgroundColor = currentColor.cor;
+    }
+
+    function renderShirt() {
+        const source = new Image();
+
+        source.onload = () => {
+            canvas.width = source.naturalWidth;
+            canvas.height = source.naturalHeight;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(source, 0, 0);
+
+            if (currentColor.cor.toLowerCase() !== '#ffffff') {
+                const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                const pixels = imageData.data;
+                const rgb = hexToRgb(currentColor.cor);
+
+                for (let index = 0; index < pixels.length; index += 4) {
+                    if (pixels[index + 3] < 20) continue;
+                    const luminance = (pixels[index] * 0.299 + pixels[index + 1] * 0.587 + pixels[index + 2] * 0.114) / 255;
+                    const light = 0.36 + luminance * 0.78;
+                    pixels[index] = Math.min(255, rgb.r * light);
+                    pixels[index + 1] = Math.min(255, rgb.g * light);
+                    pixels[index + 2] = Math.min(255, rgb.b * light);
+                }
+
+                context.putImageData(imageData, 0, 0);
+            }
+
+            shirtImage.onload = () => requestAnimationFrame(() => {
+                applyLogoSize();
+                if (!logoWasDragged) updateLogoPosition();
+            });
+            shirtImage.src = canvas.toDataURL('image/png');
+            modelInfo.textContent = getShirtName(currentModel);
         };
 
-        document.onmousemove = function(e) {
-            if (!isDragging) return;
-            const containerRect = shirtContainer.getBoundingClientRect();
-            let x = e.clientX - containerRect.left - offsetX;
-            let y = e.clientY - containerRect.top - offsetY;
-            previewLogo.style.left = x + 'px';
-            previewLogo.style.top = y + 'px';
+        source.onerror = () => {
+            shirtImage.alt = 'Não foi possível carregar a imagem deste modelo';
         };
-        document.onmouseup = () => isDragging = false;
+
+        source.src = getShirtImage(currentModel);
     }
-    
-    resetBtn.addEventListener('click', () => location.reload());
+
+    function loadLogo(file) {
+        if (!file.type.startsWith('image/')) {
+            alert('Escolha um arquivo de imagem válido.');
+            return;
+        }
+
+        if (file.size > 5 * 1024 * 1024) {
+            alert('A imagem deve ter no máximo 5 MB.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = event => {
+            previewLogo.onload = () => {
+                previewLogo.hidden = false;
+                logoWasDragged = false;
+                applyLogoSize();
+                updateLogoPosition();
+            };
+            previewLogo.src = event.target.result;
+            logoInfo.textContent = file.name;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function changeSize(amount) {
+        const nextValue = Math.min(
+            Number(logoSize.max),
+            Math.max(Number(logoSize.min), Number(logoSize.value) + amount)
+        );
+        logoSize.value = String(nextValue);
+        updateSize(true);
+    }
+
+    function updateSize(reposition) {
+        currentLogoSizeCm = Number(logoSize.value);
+        const formatted = formatCm(currentLogoSizeCm);
+        sizeValue.textContent = formatted;
+        summarySize.textContent = formatted;
+        applyLogoSize();
+        if (reposition && !logoWasDragged) updateLogoPosition();
+    }
+
+    function applyLogoSize() {
+        if (previewLogo.hidden || !shirtImage.clientWidth) return;
+        const pixelsPerCm = shirtImage.clientWidth / SHIRT_WIDTH_CM;
+        previewLogo.style.width = `${currentLogoSizeCm * pixelsPerCm}px`;
+        previewLogo.style.height = 'auto';
+    }
+
+    function updateLogoPosition() {
+        if (previewLogo.hidden || !previewLogo.offsetWidth) return;
+
+        const areaRect = previewArea.getBoundingClientRect();
+        const shirtRect = shirtImage.getBoundingClientRect();
+        const shirtLeft = shirtRect.left - areaRect.left;
+        const shirtTop = shirtRect.top - areaRect.top;
+        const logoWidth = previewLogo.offsetWidth;
+        const logoHeight = previewLogo.offsetHeight;
+        const positions = {
+            left: shirtLeft + shirtRect.width * 0.27,
+            center: shirtLeft + (shirtRect.width - logoWidth) / 2,
+            right: shirtLeft + shirtRect.width * 0.73 - logoWidth
+        };
+
+        previewLogo.style.left = `${positions[currentPosition]}px`;
+        previewLogo.style.top = `${shirtTop + shirtRect.height * 0.31 - logoHeight / 2}px`;
+    }
+
+    function startDraggingLogo(event) {
+    if (previewLogo.hidden) {
+        return;
+    }
+
+    event.preventDefault();
+
+    activePointerId = event.pointerId;
+
+    const logoRect =
+        previewLogo.getBoundingClientRect();
+
+    dragOffsetX =
+        event.clientX - logoRect.left;
+
+    dragOffsetY =
+        event.clientY - logoRect.top;
+
+    logoWasDragged = true;
+
+    positionButtons.forEach(button => {
+        button.classList.remove('active');
+    });
+}
+
+    function dragLogo(event) {
+        if (activePointerId !== event.pointerId) {
+            return;
+        }
+
+        event.preventDefault();
+
+        const areaRect =
+            previewArea.getBoundingClientRect();
+
+        const maxX =
+            previewArea.clientWidth -
+            previewLogo.offsetWidth;
+
+        const maxY =
+            previewArea.clientHeight -
+            previewLogo.offsetHeight;
+
+        const x = Math.min(
+            maxX,
+            Math.max(
+                0,
+                event.clientX -
+                areaRect.left -
+                dragOffsetX
+            )
+        );
+
+        const y = Math.min(
+            maxY,
+            Math.max(
+                0,
+                event.clientY -
+                areaRect.top -
+                dragOffsetY
+            )
+        );
+
+        previewLogo.style.left = `${x}px`;
+        previewLogo.style.top = `${y}px`;
+    }
+
+    function stopDraggingLogo(event) {
+        if (activePointerId !== event.pointerId) {
+            return;
+        }
+
+        activePointerId = null;
+    }
+
+    function updateViewButtons() {
+        const isBack = currentModel === 'premium' || currentModel === 'fitted';
+        viewButtons.forEach(button => {
+            const active = button.dataset.view === (isBack ? 'back' : 'front');
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', String(active));
+        });
+    }
+
+    function getModelForView(modelId, view) {
+        const oversized = modelId === 'oversized' || modelId === 'fitted';
+        if (oversized) return view === 'back' ? 'fitted' : 'oversized';
+        return view === 'back' ? 'premium' : 'basica';
+    }
+}
+
+function formatCm(value) {
+    return `${Number.isInteger(value) ? value : value.toFixed(1)} cm`;
+}
+
+function hexToRgb(hex) {
+    const value = hex.replace('#', '');
+    return {
+        r: parseInt(value.slice(0, 2), 16),
+        g: parseInt(value.slice(2, 4), 16),
+        b: parseInt(value.slice(4, 6), 16)
+    };
 }
