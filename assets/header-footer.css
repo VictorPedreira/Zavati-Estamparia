@@ -1,6 +1,11 @@
-/* ===== HEADER E FOOTER COMPARTILHADOS ===== */
+/* =========================================
+   HEADER E FOOTER COMPARTILHADOS
+========================================= */
 
-/* ===== RESET E VARIÁVEIS ===== */
+/* =========================================
+   RESET E VARIÁVEIS
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,8 +19,12 @@
     --text-color: #1f2937;
     --light-bg: #f9fafb;
     --white: #ffffff;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.1);
+
+    --transition:
+        all 0.3s ease;
 }
 
 html {
@@ -23,212 +32,335 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
     color: var(--text-color);
     background-color: var(--white);
     line-height: 1.6;
 }
 
-/* ===== HEADER E NAVEGAÇÃO ===== */
+/* =========================================
+   HEADER
+========================================= */
+
 .header {
-    position: sticky; /* ou fixed, dependendo do seu layout */
-    top: 0;
+    position: relative;
+    z-index: 1000;
     width: 100%;
-    z-index: 1000; /* Define uma camada alta para o header */
+    height: 76px;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
 }
 
 .navbar {
-    background-color: var(--primary-color);
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    height: 76px;
+    margin: 0;
     padding: 0;
+    overflow: visible;
+    background: #17232f;
 }
 
 .nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
+    position: relative;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
-    height: 80px;
+    justify-content: space-between;
+    width: min(calc(100% - 40px), 1400px);
+    height: 76px;
+    margin: 0 auto;
+    overflow: visible;
 }
+
+/* =========================================
+   LINKS DO MENU
+========================================= */
 
 .nav-left,
 .nav-right {
     display: flex;
-    gap: 8rem;
     align-items: center;
+    justify-content: center;
+    gap: 90px;              /* ajuste entre 70 e 110px */
+    width: calc(50% - 100px);
+    height: 100%;
 }
 
 .nav-link {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: var(--transition);
-    white-space: nowrap;
-}
-
-.nav-link:hover {
-    color: var(--accent-color);
-}
-
-/* Página ativa */
-.nav-link.active {
-    color: var(--accent-color);
     position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.25s ease;
 }
 
-/* Linha abaixo da página ativa */
+.nav-link:hover,
+.nav-link.active {
+    color: #ffc400;
+}
+
 .nav-link.active::after {
     content: "";
     position: absolute;
+    right: 0;
+    bottom: 17px;
     left: 0;
-    bottom: -8px;
-
-    width: 100%;
     height: 3px;
-
-    background: var(--accent-color);
-    border-radius: 5px;
+    border-radius: 999px;
+    background: #ffc400;
 }
 
-/* Menu mobile */
+/* =========================================
+   LOGO CENTRAL
+========================================= */
+
+.logo-container {
+    position: absolute;
+    z-index: 30;
+    top: 0;
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 145px;
+    height: 145px;
+
+    margin: 0;
+    padding: 0;
+
+    transform: translateX(-50%);
+
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+
+    pointer-events: none;
+}
+
+.logo-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 145px;
+    height: 145px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+    border: 0;
+    border-radius: 50%;
+
+    background: #17232f;
+
+    box-shadow:
+        0 17px 35px rgba(15, 30, 50, 0.2),
+        0 5px 12px rgba(15, 30, 50, 0.1);
+
+    text-decoration: none;
+    pointer-events: auto;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.logo-circle:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 21px 42px rgba(15, 30, 50, 0.24),
+        0 7px 16px rgba(15, 30, 50, 0.12);
+}
+
+.logo-circle img {
+    display: block;
+
+    width: 105px;
+    height: 125px;
+
+    max-width: 105px;
+    max-height: 125px;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: contain;
+}
+
+/* Remove pseudo-elementos antigos */
+.header::before,
+.header::after,
+.navbar::before,
+.navbar::after,
+.logo-container::before,
+.logo-container::after {
+    display: none;
+    content: none;
+}
+
+/* =========================================
+   BOTÃO DO MENU MOBILE
+========================================= */
+
 .menu-toggle {
+    position: relative;
+    z-index: 40;
+
     display: none;
     flex-direction: column;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 8px;
+
     background: none;
     border: none;
+
     cursor: pointer;
-    gap: 6px;
 }
 
 .menu-toggle span {
+    display: block;
+
     width: 25px;
     height: 3px;
-    background-color: var(--white);
+
     border-radius: 2px;
+    background-color: var(--white);
+
     transition: var(--transition);
 }
 
+/* =========================================
+   MENU MOBILE
+========================================= */
+
 .mobile-menu {
     position: fixed;
+    z-index: 9999;
     top: 0;
     left: 0;
-    width: 280px;
-    height: 100vh;
-    background-color: var(--primary-color);
-    z-index: 9999;
-    max-width: 80vw;
-    
+
     display: flex;
     flex-direction: column;
-    /* COMEÇA DO TOPO EM VEZ DO CENTRO */
-    justify-content: flex-start; 
     align-items: center;
+    justify-content: flex-start;
+
+    width: 280px;
+    max-width: 80vw;
+    height: 100vh;
+
     gap: 2rem;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
-    
-    /* 5rem no topo para dar espaço ao botão 'X' e não encavalar o "Home" */
-    padding: 5rem 2rem 2rem 2rem; 
-    
-    /* PERMITE ROLAR SE A TELA FOR MUITO PEQUENA */
-    overflow-y: auto; 
-    
+
+    padding: 5rem 2rem 2rem;
+
+    overflow-y: auto;
+
+    background-color: var(--primary-color);
+
+    box-shadow:
+        4px 0 15px rgba(0, 0, 0, 0.4);
+
     transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+
+    transition:
+        transform 0.3s ease-in-out;
 }
 
-/* Quando o JS adiciona a classe 'active' ou 'open', ele desliza para a tela */
 .mobile-menu.active,
 .mobile-menu.open {
     transform: translateX(0);
 }
 
-/* Estilo para o botão de fechar (X) dentro do drawer */
 .menu-close-btn {
     position: absolute;
     top: 20px;
-    left: 20px; /* Pode mudar para right: 20px se preferir no lado direito */
+    left: 20px;
+
+    padding: 5px;
+
+    color: var(--white);
     background: none;
     border: none;
-    color: var(--white);
+
     font-size: 1.8rem;
-    cursor: pointer;
     line-height: 1;
+
+    cursor: pointer;
 }
 
 .mobile-link {
+    position: relative;
+
     color: var(--white);
-    text-decoration: none;
+
+    font-size: 1rem;
     font-weight: 600;
+    text-decoration: none;
+
     transition: var(--transition);
 }
 
-.mobile-link:hover {
-    color: var(--accent-color);
-}
-
-/* Página ativa */
+.mobile-link:hover,
 .mobile-link.active {
     color: var(--accent-color);
-    position: relative;
 }
 
-/* Linha abaixo da página ativa */
 .mobile-link.active::after {
     content: "";
+
     position: absolute;
-    left: 0;
+    right: 0;
     bottom: -8px;
+    left: 0;
 
     width: 100%;
     height: 3px;
 
-    background: var(--accent-color);
     border-radius: 5px;
+    background: var(--accent-color);
 }
 
-/* Logo */
-.logo-container {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0;
-    background-color: var(--white);
-}
+/* =========================================
+   FOOTER
+========================================= */
 
-.logo-circle {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    margin-top: -110px;
-}
-
-.logo-placeholder {
-    color: var(--white);
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* ===== FOOTER ===== */
 .footer {
-    background-color: var(--primary-color);
-    color: var(--white);
     padding: 4rem 2rem 2rem;
+
+    color: var(--white);
+    background-color: var(--primary-color);
 }
 
 .footer-content {
-    max-width: 1400px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    max-width: 1400px;
+
     gap: 3rem;
-    margin-bottom: 2rem;
+
+    margin: 0 auto 2rem;
 }
 
 .footer-section h3,
@@ -244,9 +376,12 @@ body {
 
 .footer-link {
     display: block;
+
+    margin-bottom: 0.5rem;
+
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    margin-bottom: 0.5rem;
+
     transition: var(--transition);
 }
 
@@ -255,15 +390,21 @@ body {
 }
 
 .footer-bottom {
-    max-width: 1400px;
-    margin: 0 auto;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 2rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
+
+    max-width: 1400px;
+
     gap: 1rem;
+
+    margin: 0 auto;
+
+    padding-top: 2rem;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom p {
@@ -277,8 +418,10 @@ body {
 
 .social-links a {
     color: var(--accent-color);
-    text-decoration: none;
+
     font-weight: 600;
+    text-decoration: none;
+
     transition: var(--transition);
 }
 
@@ -286,8 +429,23 @@ body {
     color: var(--white);
 }
 
-/* ===== RESPONSIVO ===== */
+/* =========================================
+   RESPONSIVIDADE — TABLET E CELULAR
+========================================= */
+
 @media (max-width: 768px) {
+    .header,
+    .navbar,
+    .nav-container {
+        height: 70px;
+    }
+
+    .nav-container {
+        width: 100%;
+        padding: 0 18px;
+        justify-content: flex-start;
+    }
+
     .nav-left,
     .nav-right {
         display: none;
@@ -295,6 +453,26 @@ body {
 
     .menu-toggle {
         display: flex;
+    }
+
+    .logo-container {
+        top: 0;
+
+        width: 108px;
+        height: 108px;
+    }
+
+    .logo-circle {
+        width: 108px;
+        height: 108px;
+    }
+
+    .logo-circle img {
+        width: 78px;
+        height: 94px;
+
+        max-width: 78px;
+        max-height: 94px;
     }
 
     .footer-bottom {
@@ -305,15 +483,57 @@ body {
 
 @media (max-width: 480px) {
     .nav-container {
-        padding: 0 1rem;
+        width: calc(100% - 24px);
+    }
+
+    .logo-container {
+        width: 98px;
+        height: 98px;
     }
 
     .logo-circle {
-        width: 120px;
-        height: 120px;
+        width: 98px;
+        height: 98px;
+    }
+
+    .logo-circle img {
+        width: 70px;
+        height: 85px;
+
+        max-width: 70px;
+        max-height: 85px;
+    }
+
+    .footer {
+        padding-right: 1.25rem;
+        padding-left: 1.25rem;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================================
+   LOGO E MENU MOBILE
+========================================= */
+
+.logo-container {
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+/* Menu aberto com a classe active */
+.header:has(.mobile-menu.active) .logo-container {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Compatibilidade caso o menu use a classe open */
+.header:has(.mobile-menu.open) .logo-container {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipe Especializada em Estamparia e Bordados</title>
+    <title>Equipe Especializada em Estamparia e Bordados | Zavati Estamparia</title>
     <meta name="description" content="Conheça a equipe especializada da Zavati. Profissionais qualificados que unem experiência, tecnologia e qualidade em cada projeto de personalização têxtil.">
     
     <meta property="og:type" content="website">
@@ -98,158 +99,621 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../assets/header-footer.css">
 </head>
+
 <body>
-    <!-- HEADER -->
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
     <header class="header">
-        <!-- Barra de Navegação -->
-        <nav class="navbar">
+
+        <nav
+            class="navbar"
+            aria-label="Navegação principal"
+        >
+
             <div class="nav-container">
-                <!-- Links da esquerda -->
+
                 <div class="nav-left">
-                    <a href="/personalizacao/" class="nav-link">Personalização</a>
-                    <a href="/servicos/" class="nav-link">Serviços</a>
-                    <a href="/tecidos/" class="nav-link">Tecidos</a>
+
+                    <a
+                        href="/personalizacao/"
+                        class="nav-link"
+                    >
+                        Personalização
+                    </a>
+
+                    <a
+                        href="/servicos/"
+                        class="nav-link"
+                    >
+                        Serviços
+                    </a>
+
+                    <a
+                        href="/tecidos/"
+                        class="nav-link"
+                    >
+                        Tecidos
+                    </a>
+
                 </div>
 
-                <!-- Links da direita -->
                 <div class="nav-right">
-                    <a href="/materiais/" class="nav-link">Materiais</a>
-                    <a href="./" class="nav-link active">Profissionais</a>
-                    <a href="/objetivos/" class="nav-link">Objetivos</a>
+
+                    <a
+                        href="/materiais/"
+                        class="nav-link"
+                    >
+                        Materiais
+                    </a>
+
+                    <a
+                        href="/profissionais/"
+                        class="nav-link active"
+                        aria-current="page"
+                    >
+                        Profissionais
+                    </a>
+
+                    <a
+                        href="/objetivos/"
+                        class="nav-link"
+                    >
+                        Objetivos
+                    </a>
+
                 </div>
 
-                <!-- Menu mobile -->
-                <button class="menu-toggle" id="menuToggle">
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-controls="mobileMenu"
+                    aria-expanded="false"
+                >
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
+
             </div>
 
-            <div id="mobileMenu" class="mobile-menu">
-            <!-- Botão de fechar (X) -->
-            <button id="menuClose" class="menu-close-btn">&times;</button>
+            <!-- Menu mobile -->
+            <div
+                id="mobileMenu"
+                class="mobile-menu"
+                aria-hidden="true"
+            >
 
-            <!-- Seus links atuais -->
-            <a href="/" class="mobile-link">Home</a>
-            <a href="/personalizacao/" class="mobile-link">Personalização</a>
-            <a href="/servicos/" class="mobile-link">Serviços</a>
-            <a href="/materiais/" class="mobile-link">Materiais</a>
-            <a href="/tecidos/" class="mobile-link">Tecidos</a>
-            <a href="./" class="mobile-link active">Profissionais</a>
-            <a href="/objetivos/" class="mobile-link">Objetivos</a>
-            <!-- ... demais links ... -->
+                <button
+                    id="menuClose"
+                    class="menu-close-btn"
+                    type="button"
+                    aria-label="Fechar menu"
+                >
+                    &times;
+                </button>
+
+                <a href="/" class="mobile-link">
+                    Home
+                </a>
+
+                <a
+                    href="/personalizacao/"
+                    class="mobile-link"
+                >
+                    Personalização
+                </a>
+
+                <a
+                    href="/servicos/"
+                    class="mobile-link"
+                >
+                    Serviços
+                </a>
+
+                <a
+                    href="/tecidos/"
+                    class="mobile-link"
+                >
+                    Tecidos
+                </a>
+
+                <a
+                    href="/materiais/"
+                    class="mobile-link"
+                >
+                    Materiais
+                </a>
+
+                <a
+                    href="/profissionais/"
+                    class="mobile-link active"
+                    aria-current="page"
+                >
+                    Profissionais
+                </a>
+
+                <a
+                    href="/objetivos/"
+                    class="mobile-link"
+                >
+                    Objetivos
+                </a>
+
             </div>
 
-            <!-- Menu mobile dropdown -->
-            <div class="mobile-menu" id="mobileMenu">
-                <a href="/" class="mobile-link">Home</a>
-                <a href="/personalizacao/" class="mobile-link">Personalização</a>
-                <a href="/servicos/" class="mobile-link">Serviços</a>
-                <a href="/materiais/" class="mobile-link">Materiais</a>
-                <a href="/tecidos/" class="mobile-link">Tecidos</a>
-                <a href="./" class="mobile-link active">Profissionais</a>
-                <a href="/objetivos/" class="mobile-link">Objetivos</a>
-            </div>
         </nav>
 
+        <!-- Logo central -->
         <div class="logo-container">
-            <a href="/" class="logo-circle logo-btn">
-                <img src="../assets/images/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
+
+            <a
+                href="/"
+                class="logo-circle"
+                aria-label="Ir para a página inicial da Zavati"
+            >
+                <img
+                    src="../assets/images/logo.png"
+                    alt="Zavati Estamparia"
+                    width="105"
+                    height="125"
+                >
             </a>
+
         </div>
+
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- Page Header -->
-        <div class="page-header">
-            <h1><span class="gradient-text">Equipe Especializada em Estamparia e Bordados</span></h1>
-            <p>Conheça os profissionais que trabalham para transformar suas ideias em realidade</p>
-        </div>
+    <!-- =====================================
+         CONTEÚDO PRINCIPAL
+    ====================================== -->
 
-        <!-- Team Grid -->
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-icon">🏭</div>
-                <h3>Equipe de Produção</h3>
-                <p>DTF e Serigrafia</p>
-                <p class="team-desc">Profissionais experientes em técnicas de impressão com atenção aos detalhes.</p>
+    <main class="professionals-page">
+
+        <!-- Banner -->
+        <section class="professionals-hero">
+
+            <div class="hero-dots hero-dots-left"></div>
+            <div class="hero-dots hero-dots-right"></div>
+
+            <div class="professionals-hero-content">
+
+                <div class="hero-badge">
+
+                    <i
+                        data-lucide="users-round"
+                        aria-hidden="true"
+                    ></i>
+
+                    <span>Nossa equipe</span>
+
+                </div>
+
+                <h1>
+                    Equipe Especializada em
+                    <span>Estamparia e Bordados</span>
+                </h1>
+
+                <p>
+                    Conheça os profissionais que trabalham para
+                    transformar suas ideias em realidade.
+                </p>
+
             </div>
 
-            <div class="team-card">
-                <div class="team-icon">💡</div>
-                <h3>Equipe de Design</h3>
-                <p>Criação e Personalização</p>
-                <p class="team-desc">Designers criativos prontos para transformar suas ideias em realidade.</p>
-            </div>
-
-            <div class="team-card">
-                <div class="team-icon">👥</div>
-                <h3>Equipe de Atendimento</h3>
-                <p>Suporte ao Cliente</p>
-                <p class="team-desc">Profissionais dedicados a oferecer o melhor atendimento possível.</p>
-            </div>
-        </div>
-
-        <!-- Valores Section -->
-        <section class="values-section">
-            <h2>Nossos Valores</h2>
-            <div class="values-grid">
-                <div class="value-item">
-                    <h4>Qualidade</h4>
-                    <p>Cada produto é feito com dedicação e atenção aos detalhes.</p>
-                </div>
-                <div class="value-item">
-                    <h4>Inovação</h4>
-                    <p>Sempre buscamos novas técnicas e tecnologias para melhorar.</p>
-                </div>
-                <div class="value-item">
-                    <h4>Criatividade</h4>
-                    <p>Transformamos ideias em criações únicas e memoráveis.</p>
-                </div>
-                <div class="value-item">
-                    <h4>Compromisso</h4>
-                    <p>Nos comprometemos com prazos e satisfação do cliente.</p>
-                </div>
-            </div>
         </section>
+
+        <!-- Equipes -->
+        <section
+            class="teams-grid"
+            aria-label="Equipes da Zavati"
+        >
+
+            <!-- Produção -->
+            <article class="team-card">
+
+                <div class="team-icon team-icon-production">
+
+                    <i
+                        data-lucide="factory"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <h2>Equipe de Produção</h2>
+
+                <span class="team-subtitle">
+                    DTF e Serigrafia
+                </span>
+
+                <p>
+                    Profissionais experientes em técnicas de impressão,
+                    acabamento e produção com atenção aos detalhes.
+                </p>
+
+                <div class="team-divider"></div>
+
+                <ul class="team-list">
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Especialistas em DTF e serigrafia
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Controle de qualidade rigoroso
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Acabamento profissional
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Produção ágil e eficiente
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Compromisso com os prazos
+                    </li>
+
+                </ul>
+
+            </article>
+
+            <!-- Design -->
+            <article class="team-card">
+
+                <div class="team-icon team-icon-design">
+
+                    <i
+                        data-lucide="lightbulb"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <h2>Equipe de Design</h2>
+
+                <span class="team-subtitle">
+                    Criação e Personalização
+                </span>
+
+                <p>
+                    Designers criativos preparados para transformar
+                    suas ideias em artes profissionais e exclusivas.
+                </p>
+
+                <div class="team-divider"></div>
+
+                <ul class="team-list">
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Criação de artes exclusivas
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Layouts personalizados
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Ajustes e melhorias
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Construção de identidade visual
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Inovação e criatividade
+                    </li>
+
+                </ul>
+
+            </article>
+
+            <!-- Atendimento -->
+            <article class="team-card">
+
+                <div class="team-icon team-icon-support">
+
+                    <i
+                        data-lucide="users"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <h2>Equipe de Atendimento</h2>
+
+                <span class="team-subtitle">
+                    Suporte ao Cliente
+                </span>
+
+                <p>
+                    Profissionais dedicados a oferecer atendimento
+                    próximo, rápido e personalizado.
+                </p>
+
+                <div class="team-divider"></div>
+
+                <ul class="team-list">
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Atendimento humanizado
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Suporte rápido e eficiente
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Acompanhamento de pedidos
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Esclarecimento de dúvidas
+                    </li>
+
+                    <li>
+                        <i data-lucide="circle-check"></i>
+                        Soluções personalizadas
+                    </li>
+
+                </ul>
+
+            </article>
+
+        </section>
+
+        <!-- Valores -->
+        <section class="values-section">
+
+            <div class="values-heading">
+
+                <span class="section-label">
+                    O que guia nosso trabalho
+                </span>
+
+                <h2>Nossos Valores</h2>
+
+                <div class="heading-line"></div>
+
+                <p>
+                    Nossos valores orientam nosso trabalho diário e
+                    garantem qualidade em cada projeto desenvolvido.
+                </p>
+
+            </div>
+
+            <div class="values-grid">
+
+                <article class="value-item">
+
+                    <div class="value-icon">
+                        <i data-lucide="gem"></i>
+                    </div>
+
+                    <h3>Qualidade</h3>
+
+                    <p>
+                        Compromisso com a excelência em cada detalhe
+                        do trabalho.
+                    </p>
+
+                </article>
+
+                <article class="value-item">
+
+                    <div class="value-icon">
+                        <i data-lucide="handshake"></i>
+                    </div>
+
+                    <h3>Confiança</h3>
+
+                    <p>
+                        Transparência e ética em todas as nossas
+                        relações.
+                    </p>
+
+                </article>
+
+                <article class="value-item">
+
+                    <div class="value-icon">
+                        <i data-lucide="clock-3"></i>
+                    </div>
+
+                    <h3>Pontualidade</h3>
+
+                    <p>
+                        Respeitamos os prazos e garantimos entregas
+                        no tempo certo.
+                    </p>
+
+                </article>
+
+                <article class="value-item">
+
+                    <div class="value-icon">
+                        <i data-lucide="star"></i>
+                    </div>
+
+                    <h3>Inovação</h3>
+
+                    <p>
+                        Buscamos técnicas, processos e tecnologias
+                        cada vez melhores.
+                    </p>
+
+                </article>
+
+                <article class="value-item">
+
+                    <div class="value-icon">
+                        <i data-lucide="heart"></i>
+                    </div>
+
+                    <h3>Paixão</h3>
+
+                    <p>
+                        Gostamos do que fazemos e isso se reflete
+                        em cada projeto.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- CTA -->
+        <section class="professionals-cta">
+
+            <div class="cta-support-icon">
+
+                <i
+                    data-lucide="headphones"
+                    aria-hidden="true"
+                ></i>
+
+            </div>
+
+            <div class="cta-copy">
+
+                <h2>
+                    Vamos conversar sobre seu projeto?
+                </h2>
+
+                <p>
+                    Nossa equipe está pronta para atender você e
+                    transformar suas ideias em realidade.
+                </p>
+
+            </div>
+
+            <div class="cta-separator"></div>
+
+            <div class="cta-whatsapp">
+
+                <div class="whatsapp-icon">
+
+                    <i
+                        data-lucide="message-circle"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <div>
+                    <span>Fale conosco no WhatsApp</span>
+                    <strong>11 4551-8884</strong>
+                </div>
+
+            </div>
+
+            <a
+                href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20solicitar%20um%20orçamento."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-button"
+            >
+                Solicitar orçamento
+
+                <i
+                    data-lucide="arrow-right"
+                    aria-hidden="true"
+                ></i>
+            </a>
+
+        </section>
+
     </main>
 
-    <!-- FOOTER -->
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
     <footer class="footer">
+
         <div class="footer-content">
+
             <div class="footer-section">
+
                 <h3>ZAVATI ESTAMPARIA</h3>
-                <p>Especializada em DTF, serigrafia e personalização de produtos. Qualidade e criatividade em cada detalhe.</p>
+
+                <p>
+                    Especializada em DTF, serigrafia, bordados e
+                    personalização de produtos.
+                </p>
+
             </div>
 
             <div class="footer-section">
+
                 <h4>Contato</h4>
-                <a href="https://wa.me/551145518884?text=Olá%20Zavati!" target="_blank" class="footer-link">
+
+                <a
+                    href="https://wa.me/551145518884"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link"
+                >
                     📱 +55 11 4551-8884
                 </a>
-                <a href="https://www.instagram.com/zavati.estamparia" target="_blank" class="footer-link">
+
+                <a
+                    href="https://www.instagram.com/zavati.estamparia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link"
+                >
                     📷 @zavati.estamparia
                 </a>
+
             </div>
 
             <div class="footer-section">
+
                 <h4>Cobertura</h4>
-                <p>🌍 Entregamos para o Brasil todo!</p>
-                <p>Independente da sua localização, levamos nossos produtos com qualidade até você.</p>
+
+                <p>
+                    🌍 Entregamos para todo o Brasil.
+                </p>
+
             </div>
+
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024 Zavati Estamparia. Todos os direitos reservados.</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/zavati.estamparia" target="_blank">Instagram</a>
-                <a href="https://wa.me/551145518884" target="_blank">WhatsApp</a>
-            </div>
+
+            <p>
+                &copy;
+                <span id="currentYear">2026</span>
+                Zavati Estamparia. Todos os direitos reservados.
+            </p>
+
         </div>
+
     </footer>
 
-    <script src="script.js"></script>
 </body>
+
 </html>

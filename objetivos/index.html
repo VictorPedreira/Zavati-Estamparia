@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,166 +99,577 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../assets/header-footer.css">
 </head>
+
 <body>
-    <!-- HEADER -->
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
     <header class="header">
-        <!-- Barra de Navegação -->
-        <nav class="navbar">
+
+        <nav
+            class="navbar"
+            aria-label="Navegação principal"
+        >
+
             <div class="nav-container">
-                <!-- Links da esquerda -->
+
                 <div class="nav-left">
-                    <a href="/personalizacao/" class="nav-link">Personalização</a>
-                    <a href="/servicos/" class="nav-link">Serviços</a>
-                    <a href="/tecidos/" class="nav-link">Tecidos</a>
+
+                    <a
+                        href="/personalizacao/"
+                        class="nav-link"
+                    >
+                        Personalização
+                    </a>
+
+                    <a
+                        href="/servicos/"
+                        class="nav-link"
+                    >
+                        Serviços
+                    </a>
+
+                    <a
+                        href="/tecidos/"
+                        class="nav-link"
+                    >
+                        Tecidos
+                    </a>
+
                 </div>
 
-                <!-- Links da direita -->
                 <div class="nav-right">
-                    <a href="/materiais/" class="nav-link">Materiais</a>
-                    <a href="/profissionais/" class="nav-link">Profissionais</a>
-                    <a href="/" class="nav-link active">Objetivos</a>
+
+                    <a
+                        href="/materiais/"
+                        class="nav-link"
+                    >
+                        Materiais
+                    </a>
+
+                    <a
+                        href="/profissionais/"
+                        class="nav-link"
+                    >
+                        Profissionais
+                    </a>
+
+                    <a
+                        href="/objetivos/"
+                        class="nav-link active"
+                        aria-current="page"
+                    >
+                        Objetivos
+                    </a>
+
                 </div>
 
-                <!-- Menu mobile -->
-                <button class="menu-toggle" id="menuToggle">
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-controls="mobileMenu"
+                    aria-expanded="false"
+                >
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
+
             </div>
 
-            <div id="mobileMenu" class="mobile-menu">
-            <!-- Botão de fechar (X) -->
-            <button id="menuClose" class="menu-close-btn">&times;</button>
+            <!-- Menu mobile -->
+            <div
+                id="mobileMenu"
+                class="mobile-menu"
+                aria-hidden="true"
+            >
 
-            <!-- Seus links atuais -->
-            <a href="/" class="mobile-link">Home</a>
-            <a href="/personalizacao/" class="mobile-link">Personalização</a>
-            <a href="/servicos/" class="mobile-link">Serviços</a>
-            <a href="/materiais/" class="mobile-link">Materiais</a>
-            <a href="/tecidos/" class="mobile-link">Tecidos</a>
-            <a href="/profissionais/" class="mobile-link">Profissionais</a>
-            <a href="./" class="mobile-link active">Objetivos</a>
-            <!-- ... demais links ... -->
+                <button
+                    id="menuClose"
+                    class="menu-close-btn"
+                    type="button"
+                    aria-label="Fechar menu"
+                >
+                    &times;
+                </button>
+
+                <a href="/" class="mobile-link">
+                    Home
+                </a>
+
+                <a
+                    href="/personalizacao/"
+                    class="mobile-link"
+                >
+                    Personalização
+                </a>
+
+                <a
+                    href="/servicos/"
+                    class="mobile-link"
+                >
+                    Serviços
+                </a>
+
+                <a
+                    href="/tecidos/"
+                    class="mobile-link"
+                >
+                    Tecidos
+                </a>
+
+                <a
+                    href="/materiais/"
+                    class="mobile-link"
+                >
+                    Materiais
+                </a>
+
+                <a
+                    href="/profissionais/"
+                    class="mobile-link"
+                >
+                    Profissionais
+                </a>
+
+                <a
+                    href="/objetivos/"
+                    class="mobile-link active"
+                    aria-current="page"
+                >
+                    Objetivos
+                </a>
+
             </div>
 
-            <!-- Menu mobile dropdown -->
-            <div class="mobile-menu" id="mobileMenu">
-                <a href="/" class="mobile-link">Home</a>
-                <a href="/personalizacao/" class="mobile-link">Personalização</a>
-                <a href="/servicos/" class="mobile-link">Serviços</a>
-                <a href="/materiais/" class="mobile-link">Materiais</a>
-                <a href="/tecidos/" class="mobile-link">Tecidos</a>
-                <a href="/profissionais/" class="mobile-link">Profissionais</a>
-                <a href="./" class="mobile-link active">Objetivos</a>
-            </div>
         </nav>
 
+        <!-- Logo central -->
         <div class="logo-container">
-            <a href="/" class="logo-circle logo-btn">
-                <img src="../assets/images/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
+
+            <a
+                href="/"
+                class="logo-circle"
+                aria-label="Ir para a página inicial da Zavati"
+            >
+                <img
+                    src="../assets/images/logo.png"
+                    alt="Zavati Estamparia"
+                    width="105"
+                    height="125"
+                >
             </a>
+
         </div>
+
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- Page Header -->
-        <div class="page-header">
-            <h1><span class="gradient-text">Missão, Visão e Objetivos da Zavati Estamparia</span></h1>
-            <p>Conheça os objetivos e metas que guiam a Zavati Estamparia</p>
-        </div>
+    <!-- =====================================
+         CONTEÚDO PRINCIPAL
+    ====================================== -->
 
-        <!-- Objetivos Grid -->
-        <div class="objectives-grid">
-            <div class="objective-card">
-                <div class="objective-icon">🎯</div>
-                <h3>Missão</h3>
-                <p>Oferecer soluções criativas em estamparia e personalização de produtos, com qualidade excepcional e atendimento personalizado, transformando ideias em realidades tangíveis.</p>
+    <main class="objectives-page">
+
+        <!-- Banner -->
+        <section class="objectives-hero">
+
+            <div class="hero-dots hero-dots-left"></div>
+            <div class="hero-dots hero-dots-right"></div>
+
+            <div class="objectives-hero-content">
+
+                <div class="hero-badge">
+
+                    <i
+                        data-lucide="compass"
+                        aria-hidden="true"
+                    ></i>
+
+                    <span>O que nos guia</span>
+
+                </div>
+
+                <h1>
+                    Missão, Visão e Objetivos da
+                    <span>Zavati Estamparia</span>
+                </h1>
+
+                <p>
+                    Conheça os princípios, metas e valores que
+                    orientam o nosso trabalho.
+                </p>
+
             </div>
 
-            <div class="objective-card">
-                <div class="objective-icon">🚀</div>
-                <h3>Visão</h3>
-                <p>Ser referência no mercado de estamparia e personalização, reconhecida pela qualidade, inovação e compromisso com a satisfação dos clientes em todo o Brasil.</p>
-            </div>
-
-            <div class="objective-card">
-                <div class="objective-icon">⭐</div>
-                <h3>Valores</h3>
-                <p>Qualidade, inovação, criatividade, compromisso, profissionalismo e satisfação do cliente são os pilares que sustentam todas as nossas ações.</p>
-            </div>
-        </div>
-
-        <!-- Roadmap Section -->
-        <section class="roadmap-section">
-            <h2>Nossos Objetivos</h2>
-            <div class="roadmap-item">
-                <h3>2024 - Consolidação</h3>
-                <ul>
-                    <li>Expandir base de clientes em 50%</li>
-                    <li>Implementar novas técnicas de impressão</li>
-                    <li>Melhorar tempo de entrega</li>
-                    <li>Aumentar qualidade dos produtos</li>
-                </ul>
-            </div>
-
-            <div class="roadmap-item">
-                <h3>2025 - Expansão</h3>
-                <ul>
-                    <li>Abrir novos pontos de atendimento</li>
-                    <li>Investir em tecnologia de ponta</li>
-                    <li>Ampliar portfólio de produtos</li>
-                    <li>Fortalecer marca no mercado</li>
-                </ul>
-            </div>
-
-            <div class="roadmap-item">
-                <h3>2026 - Liderança</h3>
-                <ul>
-                    <li>Ser referência no mercado</li>
-                    <li>Atender clientes em todo Brasil</li>
-                    <li>Desenvolver soluções inovadoras</li>
-                    <li>Manter excelência em qualidade</li>
-                </ul>
-            </div>
         </section>
+
+        <!-- Missão, visão e valores -->
+        <section
+            class="principles-grid"
+            aria-label="Missão, visão e valores da Zavati"
+        >
+
+            <!-- Missão -->
+            <article class="principle-card">
+
+                <div class="principle-icon principle-icon-mission">
+
+                    <i
+                        data-lucide="target"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <h2>Missão</h2>
+
+                <div class="principle-line"></div>
+
+                <p>
+                    Oferecer soluções criativas em estamparia e
+                    personalização de produtos, com qualidade,
+                    atendimento próximo e atenção aos detalhes,
+                    transformando ideias em resultados reais.
+                </p>
+
+            </article>
+
+            <!-- Visão -->
+            <article class="principle-card">
+
+                <div class="principle-icon principle-icon-vision">
+
+                    <i
+                        data-lucide="rocket"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <h2>Visão</h2>
+
+                <div class="principle-line"></div>
+
+                <p>
+                    Ser referência no mercado de estamparia e
+                    personalização, reconhecida pela qualidade,
+                    inovação e compromisso com a satisfação dos
+                    clientes em todo o Brasil.
+                </p>
+
+            </article>
+
+            <!-- Valores -->
+            <article class="principle-card">
+
+                <div class="principle-icon principle-icon-values">
+
+                    <i
+                        data-lucide="star"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <h2>Valores</h2>
+
+                <div class="principle-line"></div>
+
+                <p>
+                    Qualidade, inovação, criatividade, compromisso,
+                    profissionalismo e satisfação do cliente são
+                    os pilares que sustentam todas as nossas ações.
+                </p>
+
+            </article>
+
+        </section>
+
+        <!-- Objetivos -->
+        <section class="goals-section">
+
+            <div class="goals-heading">
+
+                <span class="section-label">
+                    O que buscamos
+                </span>
+
+                <h2>Nossos Objetivos</h2>
+
+                <p>
+                    Metas que nos impulsionam a crescer, inovar e
+                    entregar sempre o melhor para nossos clientes.
+                </p>
+
+            </div>
+
+            <div class="goals-grid">
+
+                <!-- Excelência -->
+                <article class="goal-item">
+
+                    <div class="goal-icon">
+
+                        <i
+                            data-lucide="award"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                    <h3>Excelência</h3>
+
+                    <p>
+                        Buscar qualidade em cada etapa do processo,
+                        garantindo produtos com ótimo acabamento.
+                    </p>
+
+                </article>
+
+                <!-- Clientes -->
+                <article class="goal-item">
+
+                    <div class="goal-icon">
+
+                        <i
+                            data-lucide="users-round"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                    <h3>Clientes</h3>
+
+                    <p>
+                        Superar expectativas com atendimento
+                        humanizado e soluções personalizadas.
+                    </p>
+
+                </article>
+
+                <!-- Inovação -->
+                <article class="goal-item">
+
+                    <div class="goal-icon">
+
+                        <i
+                            data-lucide="lightbulb"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                    <h3>Inovação</h3>
+
+                    <p>
+                        Investir em tecnologia e criatividade para
+                        oferecer soluções modernas e eficientes.
+                    </p>
+
+                </article>
+
+                <!-- Pontualidade -->
+                <article class="goal-item">
+
+                    <div class="goal-icon">
+
+                        <i
+                            data-lucide="clock-3"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                    <h3>Pontualidade</h3>
+
+                    <p>
+                        Cumprir prazos e garantir entregas eficientes
+                        com responsabilidade e compromisso.
+                    </p>
+
+                </article>
+
+                <!-- Sustentabilidade -->
+                <article class="goal-item">
+
+                    <div class="goal-icon">
+
+                        <i
+                            data-lucide="leaf"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                    <h3>Sustentabilidade</h3>
+
+                    <p>
+                        Adotar práticas responsáveis nos processos,
+                        respeitando o meio ambiente e a sociedade.
+                    </p>
+
+                </article>
+
+                <!-- Crescimento -->
+                <article class="goal-item">
+
+                    <div class="goal-icon">
+
+                        <i
+                            data-lucide="chart-no-axes-combined"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                    <h3>Crescimento</h3>
+
+                    <p>
+                        Crescer de forma sólida e sustentável,
+                        gerando valor para clientes, parceiros e
+                        colaboradores.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- CTA -->
+        <section class="objectives-cta">
+
+            <div class="cta-support-icon">
+
+                <i
+                    data-lucide="headphones"
+                    aria-hidden="true"
+                ></i>
+
+            </div>
+
+            <div class="cta-copy">
+
+                <h2>
+                    Vamos transformar suas ideias em realidade?
+                </h2>
+
+                <p>
+                    Fale com nossa equipe e descubra como podemos
+                    ajudar no seu projeto.
+                </p>
+
+            </div>
+
+            <div class="cta-separator"></div>
+
+            <div class="cta-whatsapp">
+
+                <div class="whatsapp-icon">
+
+                    <i
+                        data-lucide="message-circle"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <div>
+                    <span>Fale conosco no WhatsApp</span>
+                    <strong>11 4551-8884</strong>
+                </div>
+
+            </div>
+
+            <a
+                href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20solicitar%20um%20orçamento."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-button"
+            >
+                Solicitar orçamento
+
+                <i
+                    data-lucide="arrow-right"
+                    aria-hidden="true"
+                ></i>
+            </a>
+
+        </section>
+
     </main>
 
-    <!-- FOOTER -->
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
     <footer class="footer">
+
         <div class="footer-content">
+
             <div class="footer-section">
+
                 <h3>ZAVATI ESTAMPARIA</h3>
-                <p>Especializada em DTF, serigrafia e personalização de produtos. Qualidade e criatividade em cada detalhe.</p>
+
+                <p>
+                    Especializada em DTF, serigrafia, bordados e
+                    personalização de produtos.
+                </p>
+
             </div>
 
             <div class="footer-section">
+
                 <h4>Contato</h4>
-                <a href="https://wa.me/551145518884?text=Olá%20Zavati!" target="_blank" class="footer-link">
+
+                <a
+                    href="https://wa.me/551145518884"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link"
+                >
                     📱 +55 11 4551-8884
                 </a>
-                <a href="https://www.instagram.com/zavati.estamparia" target="_blank" class="footer-link">
+
+                <a
+                    href="https://www.instagram.com/zavati.estamparia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link"
+                >
                     📷 @zavati.estamparia
                 </a>
+
             </div>
 
             <div class="footer-section">
+
                 <h4>Cobertura</h4>
-                <p>🌍 Entregamos para o Brasil todo!</p>
-                <p>Independente da sua localização, levamos nossos produtos com qualidade até você.</p>
+
+                <p>
+                    🌍 Entregamos para todo o Brasil.
+                </p>
+
             </div>
+
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024 Zavati Estamparia. Todos os direitos reservados.</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/zavati.estamparia" target="_blank">Instagram</a>
-                <a href="https://wa.me/551145518884" target="_blank">WhatsApp</a>
-            </div>
+
+            <p>
+                &copy;
+                <span id="currentYear">2026</span>
+                Zavati Estamparia. Todos os direitos reservados.
+            </p>
+
         </div>
+
     </footer>
 
-    <script src="script.js"></script>
 </body>
+
 </html>

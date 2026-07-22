@@ -8,6 +8,8 @@
     text-align: center;
     max-width: 1400px;
     margin: 0 auto;
+    border-radius: 20px ;
+    margin-top: 90px;
 }
 
 .regua { /* Verifique o nome da classe da sua régua */
@@ -29,6 +31,7 @@
 .page-header p {
     font-size: 1.2rem;
     opacity: 0.9;
+    
 }
 
 /* ===== PERSONALIZATION CONTAINER ===== */
@@ -39,6 +42,7 @@
     padding: 4rem 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    border-radius: 20px;
 }
 
 /* ===== CONTROLS PANEL ===== */
@@ -385,6 +389,85 @@
 .lock-scroll {
     overflow: hidden !important;
     height: 100vh !important;
+}
+
+@media (max-width: 768px) {
+    .header,
+    .navbar,
+    .nav-container {
+        height: 70px;
+    }
+
+    .header,
+    .navbar {
+        overflow: visible;
+    }
+
+    .nav-container {
+        position: relative;
+        width: 100%;
+        padding: 0 18px;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .nav-left,
+    .nav-right {
+        display: none;
+    }
+
+    /* Botão das três barrinhas no lado esquerdo */
+    .menu-toggle {
+        position: relative;
+        z-index: 50;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        margin: 0;
+        padding: 8px;
+
+        background: transparent;
+        border: none;
+
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        width: 26px;
+        height: 3px;
+    }
+
+    /* Logo continua centralizada */
+    .logo-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+
+        width: 108px;
+        height: 108px;
+
+        padding: 0;
+        margin: 0;
+
+        transform: translateX(-50%);
+    }
+
+    .logo-circle {
+        width: 108px;
+        height: 108px;
+    }
+
+    .logo-circle img {
+        width: 78px;
+        height: 94px;
+
+        max-width: 78px;
+        max-height: 94px;
+    }
 }
 
 @media (max-width: 480px) {
