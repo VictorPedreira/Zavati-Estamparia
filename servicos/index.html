@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços de Estamparia: Bordado, Silk Screen e DTF | Zavati</title>
+    <title>Serviços de Estamparia: Bordado, Silk Screen e DTF | Zavati Estamparia</title>
     <meta name="description" content="Conheça os serviços da Zavati: bordado computadorizado, silk screen e impressão DTF para camisetas, uniformes e peças personalizadas. Qualidade, durabilidade e acabamento profissional.">
     
     <meta property="og:type" content="website">
@@ -97,202 +98,635 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../assets/header-footer.css">
 </head>
+
 <body>
-    <!-- HEADER -->
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
     <header class="header">
-        <!-- Barra de Navegação -->
-        <nav class="navbar">
+
+        <nav
+            class="navbar"
+            aria-label="Navegação principal"
+        >
+
             <div class="nav-container">
-                <!-- Links da esquerda -->
+
                 <div class="nav-left">
-                    <a href="/personalizacao/" class="nav-link">Personalização</a>
-                    <a href="./" class="nav-link active">Serviços</a>
-                    <a href="/tecidos/" class="nav-link">Tecidos</a>
+
+                    <a
+                        href="/personalizacao/"
+                        class="nav-link"
+                    >
+                        Personalização
+                    </a>
+
+                    <a
+                        href="/servicos/"
+                        class="nav-link active"
+                        aria-current="page"
+                    >
+                        Serviços
+                    </a>
+
+                    <a
+                        href="/tecidos/"
+                        class="nav-link"
+                    >
+                        Tecidos
+                    </a>
+
                 </div>
 
-                <!-- Links da direita -->
                 <div class="nav-right">
-                    <a href="/materiais/" class="nav-link">Materiais</a>
-                    <a href="/profissionais/" class="nav-link">Profissionais</a>
-                    <a href="/objetivos/" class="nav-link">Objetivos</a>
+
+                    <a
+                        href="/materiais/"
+                        class="nav-link"
+                    >
+                        Materiais
+                    </a>
+
+                    <a
+                        href="/profissionais/"
+                        class="nav-link"
+                    >
+                        Profissionais
+                    </a>
+
+                    <a
+                        href="/objetivos/"
+                        class="nav-link"
+                    >
+                        Objetivos
+                    </a>
+
                 </div>
 
-                <!-- Menu mobile -->
-                <button class="menu-toggle" id="menuToggle">
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-controls="mobileMenu"
+                    aria-expanded="false"
+                >
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
+
             </div>
 
-            <div id="mobileMenu" class="mobile-menu">
-            <!-- Botão de fechar (X) -->
-            <button id="menuClose" class="menu-close-btn">&times;</button>
+            <div
+                id="mobileMenu"
+                class="mobile-menu"
+                aria-hidden="true"
+            >
 
-            <!-- Seus links atuais -->
-            <a href="/" class="mobile-link">Home</a>
-            <a href="/personalizacao/" class="mobile-link">Personalização</a>
-            <a href="./" class="mobile-link active">Serviços</a>
-            <a href="/materiais/" class="mobile-link">Materiais</a>
-            <a href="/tecidos/" class="mobile-link">Tecidos</a>
-            <a href="/profissionais/" class="mobile-link">Profissionais</a>
-            <a href="/objetivos/" class="mobile-link">Objetivos</a>
-            <!-- ... demais links ... -->
+                <button
+                    id="menuClose"
+                    class="menu-close-btn"
+                    type="button"
+                    aria-label="Fechar menu"
+                >
+                    &times;
+                </button>
+
+                <a href="/" class="mobile-link">
+                    Home
+                </a>
+
+                <a
+                    href="/personalizacao/"
+                    class="mobile-link"
+                >
+                    Personalização
+                </a>
+
+                <a
+                    href="/servicos/"
+                    class="mobile-link active"
+                    aria-current="page"
+                >
+                    Serviços
+                </a>
+
+                <a
+                    href="/tecidos/"
+                    class="mobile-link"
+                >
+                    Tecidos
+                </a>
+
+                <a
+                    href="/materiais/"
+                    class="mobile-link"
+                >
+                    Materiais
+                </a>
+
+                <a
+                    href="/profissionais/"
+                    class="mobile-link"
+                >
+                    Profissionais
+                </a>
+
+                <a
+                    href="/objetivos/"
+                    class="mobile-link"
+                >
+                    Objetivos
+                </a>
+
             </div>
 
-            <!-- Menu mobile dropdown -->
-            <div class="mobile-menu" id="mobileMenu">
-                <a href="/" class="mobile-link">Home</a>
-                <a href="/personalizacao/" class="mobile-link">Personalização</a>
-                <a href="./" class="mobile-link active">Serviços</a>
-                <a href="/materiais/" class="mobile-link">Materiais</a>
-                <a href="/tecidos/" class="mobile-link">Tecidos</a>
-                <a href="/profissionais/" class="mobile-link">Profissionais</a>
-                <a href="/objetivos/" class="mobile-link">Objetivos</a>
-            </div>
         </nav>
 
         <div class="logo-container">
-            <a href="/" class="logo-circle logo-btn">
-                <img src="../assets/images/logo.png" alt="Zavati Estamparia" style="width: 70%; height: 100%; object-fit: contain;">
+
+            <a
+                href="/"
+                class="logo-circle"
+                aria-label="Ir para a página inicial"
+            >
+                <img
+                    src="../assets/images/logo.png"
+                    alt="Zavati Estamparia"
+                    width="105"
+                    height="125"
+                >
             </a>
+
         </div>
+
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- Page Header -->
-        <div class="page-header">
-            <h1><span class="gradient-text">Serviços de Estamparia e Personalização Têxtil</span></h1>
-            <p>Conheça as técnicas e serviços que oferecemos para transformar suas ideias em realidade</p>
-        </div>
+    <!-- =====================================
+         CONTEÚDO
+    ====================================== -->
 
-        <!-- Serviços Detalhes -->
-        <div class="services-detail">
-            <div class="service-detail-item">
-                <div class="detail-content">
+    <main class="services-page">
+
+        <!-- Banner -->
+        <section class="services-hero">
+
+            <div class="hero-dots hero-dots-left"></div>
+            <div class="hero-dots hero-dots-right"></div>
+
+            <div class="services-hero-content">
+
+                <div class="hero-badge">
+
+                    <i
+                        data-lucide="settings"
+                        aria-hidden="true"
+                    ></i>
+
+                    <span>Nossos serviços</span>
+
+                </div>
+
+                <h1>
+                    Serviços de Estamparia e
+                    <span>Personalização Têxtil</span>
+                </h1>
+
+                <p>
+                    Conheça as técnicas e serviços que oferecemos
+                    para transformar suas ideias em realidade.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Serviços -->
+        <section
+            class="services-list"
+            aria-label="Serviços oferecidos pela Zavati"
+        >
+
+            <!-- DTF -->
+            <article class="service-row">
+
+                <div class="service-image">
+
+                    <img
+                        src="/assets/images/anuncio 4.jpeg"
+                        alt="Camiseta e produtos personalizados com impressão DTF"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        01
+                    </span>
+
                     <h2>DTF (Direct-to-Film)</h2>
-                    <p>A tecnologia DTF permite imprimir designs complexos e coloridos diretamente em qualquer tipo de tecido. Perfeito para produções em pequena e grande escala com cores vibrantes e detalhes precisos.</p>
-                    
+
+                    <p>
+                        A tecnologia DTF permite imprimir designs
+                        complexos e coloridos diretamente em diferentes
+                        tipos de tecido. É uma excelente opção para
+                        pequenas e grandes produções.
+                    </p>
+
                     <h3>Benefícios:</h3>
-                    <ul>
-                        <li>✓ Cores vibrantes e duradouras</li>
-                        <li>✓ Funciona em qualquer tipo de tecido</li>
-                        <li>✓ Ideal para designs complexos</li>
-                        <li>✓ Produção rápida</li>
-                        <li>✓ Excelente custo-benefício</li>
+
+                    <ul class="benefits-list">
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Cores vibrantes e duradouras
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Funciona em diferentes tecidos
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Ideal para designs complexos
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Excelente definição de detalhes
+                        </li>
+
                     </ul>
 
-                    <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20DTF." target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
-                </div>
-                <div class="detail-image">
-                    <!-- SUBSTITUA AQUI: Coloque sua imagem em ../assets/ -->
-                    <img src="../assets/images/anuncio 4.jpeg" alt="camiseta-personalizada-por-dtf">
-                </div>
-            </div>
+                    <a
+                        href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20impressão%20DTF."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="service-button"
+                    >
+                        Solicitar orçamento
 
-            <div class="service-detail-item reverse">
-                <div class="detail-content">
+                        <i
+                            data-lucide="arrow-right"
+                            aria-hidden="true"
+                        ></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!-- Serigrafia -->
+            <article class="service-row service-row-reverse">
+
+                <div class="service-image">
+
+                    <img
+                        src="/assets/images/anuncio 3.jpeg"
+                        alt="Camisetas sendo produzidas por serigrafia"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        02
+                    </span>
+
                     <h2>Serigrafia</h2>
-                    <p>A serigrafia é uma técnica tradicional que oferece durabilidade excepcional. Ideal para produções em larga escala com cores sólidas e acabamento profissional.</p>
-                    
+
+                    <p>
+                        A serigrafia é uma técnica tradicional que
+                        oferece alta durabilidade. É indicada para
+                        produções em larga escala com cores sólidas
+                        e acabamento profissional.
+                    </p>
+
                     <h3>Benefícios:</h3>
-                    <ul>
-                        <li>✓ Durabilidade excepcional</li>
-                        <li>✓ Cores sólidas e vibrantes</li>
-                        <li>✓ Ideal para grandes volumes</li>
-                        <li>✓ Acabamento profissional</li>
-                        <li>✓ Baixo custo por unidade</li>
+
+                    <ul class="benefits-list">
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Durabilidade excepcional
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Cores sólidas e vibrantes
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Ideal para grandes volumes
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Ótimo custo por unidade
+                        </li>
+
                     </ul>
 
-                    <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Serigrafia." target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
-                </div>
-                <div class="detail-image">
-                    <!-- SUBSTITUA AQUI: Coloque sua imagem em ../assets/ -->
-                    <img src="../assets/images/anuncio 3.jpeg" alt="camiseta-personalizada-por-serigrafia">
-                </div>
-            </div>
+                    <a
+                        href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20serigrafia."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="service-button"
+                    >
+                        Solicitar orçamento
 
-            <div class="service-detail-item">
-                <div class="detail-content">
+                        <i
+                            data-lucide="arrow-right"
+                            aria-hidden="true"
+                        ></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!-- Bordado -->
+            <article class="service-row">
+
+                <div class="service-image">
+
+                    <img
+                        src="/assets/images/anuncio 8.jpeg"
+                        alt="Jaqueta personalizada com bordado"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        03
+                    </span>
+
                     <h2>Bordado</h2>
-                    <p>O bordado em tecido oferece um acabamento sofisticado, alta durabilidade e excelente resistência ao uso e às lavagens. É a escolha ideal para uniformes, camisetas, bonés e peças personalizadas que exigem qualidade e um visual profissional.</p>
-                    
+
+                    <p>
+                        O bordado oferece um acabamento sofisticado,
+                        alta durabilidade e resistência ao uso e às
+                        lavagens. É ideal para uniformes, camisetas,
+                        bonés e peças profissionais.
+                    </p>
+
                     <h3>Benefícios:</h3>
-                    <ul>
-                        <li>✓ Durabilidade excepcional</li>
-                        <li>✓ Cores sólidas e vibrantes</li>
-                        <li>✓ Personalização de qualidade</li>
-                        <li>✓ Acabamento profissional</li>
-                        <li>✓ Baixo custo por unidade</li>
+
+                    <ul class="benefits-list">
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Acabamento sofisticado
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Alta resistência
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Visual profissional
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Excelente durabilidade
+                        </li>
+
                     </ul>
 
-                    <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20saber%20mais%20sobre%20personalização." target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
-                </div>
-                <div class="detail-image">
-                    <!-- SUBSTITUA AQUI: Coloque sua imagem em ../assets/ -->
-                    <img src="../assets/images/anuncio 8.jpeg" alt="jaqueta-personalizada-por-bordado">
-                </div>
-            </div>
+                    <a
+                        href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20bordado."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="service-button"
+                    >
+                        Solicitar orçamento
 
-            <div class="service-detail-item reverse">
-                <div class="detail-content">
-                <h2>Personalização</h2>
-                    <p>Personalizamos canecas, bonés, camisetas, mochilas e muito mais. Cada produto é customizado com cuidado e atenção aos detalhes.</p>
-                    
+                        <i
+                            data-lucide="arrow-right"
+                            aria-hidden="true"
+                        ></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!-- Personalização -->
+            <article class="service-row service-row-reverse">
+
+                <div class="service-image">
+
+                    <img
+                        src="/assets/images/anuncio 6.jpeg"
+                        alt="Bolsas personalizadas produzidas pela Zavati"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        04
+                    </span>
+
+                    <h2>Personalização</h2>
+
+                    <p>
+                        Personalizamos camisetas, canecas, bonés,
+                        mochilas, bolsas e muitos outros produtos.
+                        Cada projeto é produzido com atenção aos
+                        detalhes e às necessidades do cliente.
+                    </p>
+
                     <h3>Produtos:</h3>
-                    <ul>
-                        <li>✓ Canecas e xícaras</li>
-                        <li>✓ Bonés e chapéus</li>
-                        <li>✓ Camisetas e polos</li>
-                        <li>✓ Mochilas e bolsas</li>
-                        <li>✓ Lembrancinhas personalizadas</li>
+
+                    <ul class="benefits-list">
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Camisetas e polos
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Bonés e chapéus
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Canecas e lembrancinhas
+                        </li>
+
+                        <li>
+                            <i data-lucide="circle-check"></i>
+                            Mochilas, bolsas e ecobags
+                        </li>
+
                     </ul>
 
-                    <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Serigrafia." target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
+                    <a
+                        href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20personalização."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="service-button"
+                    >
+                        Solicitar orçamento
+
+                        <i
+                            data-lucide="arrow-right"
+                            aria-hidden="true"
+                        ></i>
+                    </a>
+
                 </div>
-                <div class="detail-image">
-                    <!-- SUBSTITUA AQUI: Coloque sua imagem em ../assets/ -->
-                    <img src="../assets/images/anuncio 6.jpeg" alt="sacolas-personalizadas">
-                </div>
+
+            </article>
+
+        </section>
+
+        <!-- CTA final -->
+        <section class="services-cta">
+
+            <div class="services-cta-icon">
+
+                <i
+                    data-lucide="headphones"
+                    aria-hidden="true"
+                ></i>
+
             </div>
-        </div>
+
+            <div class="services-cta-text">
+
+                <span>Ainda tem dúvidas?</span>
+
+                <h2>
+                    Nossa equipe ajuda você a escolher
+                    a melhor técnica
+                </h2>
+
+                <p>
+                    Conte sua ideia e indicaremos a solução
+                    mais adequada para o seu projeto.
+                </p>
+
+            </div>
+
+            <div class="services-cta-contact">
+
+                <i
+                    data-lucide="message-circle"
+                    aria-hidden="true"
+                ></i>
+
+                <div>
+                    <span>Chame no WhatsApp</span>
+                    <strong>11 4551-8884</strong>
+                </div>
+
+            </div>
+
+            <a
+                href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20solicitar%20um%20orçamento."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-button"
+            >
+                Solicitar orçamento
+
+                <i
+                    data-lucide="arrow-right"
+                    aria-hidden="true"
+                ></i>
+            </a>
+
+        </section>
+
     </main>
 
-    <!-- FOOTER -->
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
     <footer class="footer">
+
         <div class="footer-content">
+
             <div class="footer-section">
+
                 <h3>ZAVATI ESTAMPARIA</h3>
-                <p>Especializada em DTF, serigrafia e personalização de produtos. Qualidade e criatividade em cada detalhe.</p>
+
+                <p>
+                    Especializada em DTF, serigrafia, bordados
+                    e personalização de produtos.
+                </p>
+
             </div>
 
             <div class="footer-section">
+
                 <h4>Contato</h4>
-                <a href="https://wa.me/551145518884?text=Olá%20Zavati!" target="_blank" class="footer-link">
+
+                <a
+                    href="https://wa.me/551145518884"
+                    class="footer-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     📱 +55 11 4551-8884
                 </a>
-                <a href="https://www.instagram.com/zavati.estamparia" target="_blank" class="footer-link">
+
+                <a
+                    href="https://www.instagram.com/zavati.estamparia"
+                    class="footer-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     📷 @zavati.estamparia
                 </a>
+
             </div>
 
             <div class="footer-section">
+
                 <h4>Cobertura</h4>
-                <p>🌍 Entregamos para o Brasil todo!</p>
-                <p>Independente da sua localização, levamos nossos produtos com qualidade até você.</p>
+
+                <p>
+                    🌍 Entregamos para todo o Brasil.
+                </p>
+
             </div>
+
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024 Zavati Estamparia. Todos os direitos reservados.</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/zavati.estamparia" target="_blank">Instagram</a>
-                <a href="https://wa.me/551145518884" target="_blank">WhatsApp</a>
-            </div>
+
+            <p>
+                &copy;
+                <span id="currentYear">2026</span>
+                Zavati Estamparia. Todos os direitos reservados.
+            </p>
+
         </div>
+
     </footer>
 
-    <script src="script.js"></script>
 </body>
+
 </html>
