@@ -96,6 +96,7 @@ function initMobileMenu() {
         mobileMenu.classList.toggle('active', isOpen);
         mobileMenu.classList.toggle('open', isOpen);
         mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+        mobileMenu.toggleAttribute('inert', !isOpen);
         menuToggle.setAttribute('aria-expanded', String(isOpen));
         document.body.style.overflow = isOpen ? 'hidden' : '';
     };

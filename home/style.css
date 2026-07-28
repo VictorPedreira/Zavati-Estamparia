@@ -255,24 +255,46 @@ main {
     position: absolute;
     z-index: 5;
     left: 50%;
-    bottom: 16px;
+    bottom: 4px;
+
     display: flex;
-    gap: 8px;
+    gap: 0;
+
     transform: translateX(-50%);
 }
 
 .indicator {
-    width: 10px;
-    height: 10px;
+    position: relative;
+
+    width: 44px;
+    height: 44px;
     padding: 0;
+
     border: 0;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, .65);
+    background: transparent;
     cursor: pointer;
-    transition: width .25s ease, background-color .25s ease;
 }
 
-.indicator.active {
+.indicator::before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .65);
+
+    transform: translate(-50%, -50%);
+    transition:
+        width .25s ease,
+        background-color .25s ease;
+}
+
+.indicator.active::before {
     width: 28px;
     background: #fff;
 }
