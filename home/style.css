@@ -321,14 +321,16 @@ main {
     min-width: 0;
 }
 
-.trust-item strong,
+.trust-item h2,
 .trust-item small {
     display: block;
 }
 
-.trust-item strong {
+.trust-item h2 {
+    margin: 0;
     color: var(--home-text);
     font-size: 1.02rem;
+    font-weight: 700;
     line-height: 1.25;
 }
 
