@@ -157,7 +157,7 @@
     <!-- CSS -->
     <link
         rel="stylesheet"
-        href="../assets/header-footer.css"
+        href="/assets/header-footer.css"
     >
 
     <link
@@ -203,12 +203,34 @@
                         Personalização
                     </a>
 
-                    <a
-                        href="/servicos/"
-                        class="nav-link"
-                    >
-                        Serviços
-                    </a>
+                    <div class="nav-dropdown">
+                        <a
+                            href="/servicos/"
+                            class="nav-link"
+                            aria-haspopup="true"
+                        >
+                            Serviços
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <a href="/servicos/dtf/">
+                                DTF
+                            </a>
+
+                            <a href="/servicos/serigrafia/">
+                                Serigrafia
+                            </a>
+
+                            <a href="/servicos/bordado-computadorizado/">
+                                Bordado computadorizado
+                            </a>
+
+                            <a href="/servicos/produtos-personalizados/">
+                                Produtos personalizados
+                            </a>
+                        </div>
+                    </div>
+
 
                     <a
                         href="/tecidos/"
@@ -288,33 +310,48 @@
                     Personalização
                 </a>
 
-                    <div class="nav-dropdown">
+                <details class="mobile-services">
+                    <summary class="mobile-services-title">
+                        <span>Serviços</span>
+                    </summary>
+
+                    <div class="mobile-services-list">
                         <a
                             href="/servicos/"
-                            class="nav-link"
-                            aria-haspopup="true"
+                            class="mobile-link mobile-service-link"
                         >
-                            Serviços
+                            Todos os serviços
                         </a>
 
-                        <div class="dropdown-menu">
-                            <a href="/servicos/dtf/">
-                                DTF
-                            </a>
+                        <a
+                            href="/servicos/dtf/"
+                            class="mobile-link mobile-service-link"
+                        >
+                            DTF
+                        </a>
 
-                            <a href="/servicos/serigrafia/">
-                                Serigrafia
-                            </a>
+                        <a
+                            href="/servicos/serigrafia/"
+                            class="mobile-link mobile-service-link"
+                        >
+                            Serigrafia
+                        </a>
 
-                            <a href="/servicos/bordado-computadorizado/">
-                                Bordado computadorizado
-                            </a>
+                        <a
+                            href="/servicos/bordados/"
+                            class="mobile-link mobile-service-link"
+                        >
+                            Bordado computadorizado
+                        </a>
 
-                            <a href="/servicos/produtos-personalizados/">
-                                Produtos personalizados
-                            </a>
-                        </div>
+                        <a
+                            href="/servicos/produtos-personalizados/"
+                            class="mobile-link mobile-service-link"
+                        >
+                            Produtos personalizados
+                        </a>
                     </div>
+                </details>
 
                 <a
                     href="/tecidos/"

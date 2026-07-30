@@ -499,6 +499,10 @@ body {
         flex-direction: column;
         text-align: center;
     }
+
+    .mobile-services {
+    display: block;
+}
 }
 
 @media (max-width: 480px) {
@@ -660,4 +664,96 @@ body {
 .nav-dropdown:hover .dropdown-arrow,
 .nav-dropdown:focus-within .dropdown-arrow {
     transform: rotate(180deg);
+}
+
+/* =========================================
+   SUBMENU MOBILE DE SERVIÇOS
+========================================= */
+
+.mobile-services {
+    width: 100%;
+}
+
+.mobile-services-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 48px;
+    padding: 8px 12px;
+
+    color: #ffffff;
+    border-radius: 7px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    list-style: none;
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* Remove a seta padrão do navegador */
+
+.mobile-services-title::-webkit-details-marker {
+    display: none;
+}
+
+.mobile-services-title::marker {
+    content: "";
+}
+
+.mobile-services-title:hover,
+.mobile-services-title:focus-visible {
+    color: #ffc400;
+    background: rgba(255, 255, 255, 0.06);
+    outline: none;
+}
+
+.mobile-services-arrow {
+    display: inline-block;
+
+    color: currentColor;
+    font-size: 0.75rem;
+
+    transition: transform 0.25s ease;
+}
+
+.mobile-services[open] .mobile-services-arrow {
+    transform: rotate(180deg);
+}
+
+.mobile-services-list {
+    display: grid;
+    gap: 4px;
+
+    margin-top: 5px;
+    padding: 8px;
+
+    background: rgba(0, 0, 0, 0.16);
+    border-left: 2px solid #ffc400;
+    border-radius: 7px;
+}
+
+.mobile-services-list .mobile-service-link {
+    justify-content: flex-start;
+
+    min-height: 42px;
+    padding: 8px 12px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 0.88rem;
+    text-align: left;
+}
+
+.mobile-services-list .mobile-service-link:hover,
+.mobile-services-list .mobile-service-link:focus-visible {
+    color: #ffc400;
+    background: rgba(255, 255, 255, 0.07);
+    outline: none;
 }
