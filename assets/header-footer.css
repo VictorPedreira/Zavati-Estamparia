@@ -70,6 +70,41 @@ body {
     background: #17232f;
 }
 
+/* .navbar {
+    position: relative;
+    z-index: 20;
+
+    width: 100%;
+    height: 76px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+
+    background-color: #17232f;
+
+    background-image:
+        linear-gradient(
+            90deg,
+
+            rgba(32, 165, 171, 0.75) 0%,
+            rgba(111, 64, 137, 0.62) 9%,
+            rgba(201, 54, 113, 0.46) 17%,
+            rgba(222, 99, 55, 0.38) 24%,
+            rgba(247, 187, 42, 0.26) 31%,
+
+            rgba(23, 35, 47, 0) 42%,
+            rgba(23, 35, 47, 0) 58%,
+
+            rgba(247, 187, 42, 0.26) 69%,
+            rgba(222, 99, 55, 0.38) 76%,
+            rgba(201, 54, 113, 0.46) 83%,
+            rgba(111, 64, 137, 0.62) 91%,
+            rgba(32, 165, 171, 0.75) 100%
+        );
+} */
+
 .nav-container {
     position: relative;
     display: flex;

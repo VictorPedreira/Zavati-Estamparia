@@ -1118,3 +1118,472 @@ body {
         margin-top: 32px;
     }
 }
+
+/* =========================================
+   RESPONSIVIDADE DA PÁGINA DTF
+========================================= */
+
+.services-page,
+.services-page *,
+.services-page *::before,
+.services-page *::after {
+    box-sizing: border-box;
+}
+
+.services-page img {
+    max-width: 100%;
+}
+
+.service-detail-hero > *,
+.article-intro > *,
+.benefits-grid > *,
+.process-grid > *,
+.applications-grid > *,
+.service-cta > * {
+    min-width: 0;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+    .benefits-grid,
+    .process-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .service-detail-hero__content {
+        padding: 48px 40px;
+    }
+
+    .service-detail-hero h1 {
+        font-size:
+            clamp(2.3rem, 4.5vw, 3.5rem);
+    }
+}
+
+/* TABLET PEQUENO E CELULAR */
+
+@media (max-width: 900px) {
+    .services-page {
+        width:
+            min(calc(100% - 30px), 1400px);
+
+        padding: 105px 0 65px;
+    }
+
+    /* BANNER */
+
+    .service-detail-hero {
+        grid-template-columns: 1fr !important;
+
+        min-height: auto;
+
+        border-radius: 23px;
+    }
+
+    .service-detail-hero__content {
+        padding: 48px 34px;
+    }
+
+    .service-detail-hero h1 {
+        max-width: 680px;
+
+        font-size:
+            clamp(2.3rem, 7vw, 3.5rem);
+    }
+
+    .service-detail-hero__image {
+        width: 100%;
+        height: clamp(300px, 56vw, 430px);
+        min-height: 0;
+    }
+
+    .service-detail-hero__image::before {
+        inset: 0 0 auto;
+
+        width: 100%;
+        height: 22%;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(25, 101, 181, 0.9),
+                transparent
+            );
+    }
+
+    .service-detail-hero__image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* ARTIGO INICIAL */
+
+    .article-intro {
+        grid-template-columns: 1fr !important;
+
+        gap: 35px;
+
+        padding: 0 10px;
+    }
+
+
+    /* BENEFÍCIOS */
+
+    .benefits-grid,
+    .process-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .benefit-card,
+    .process-card {
+        min-height: 250px;
+    }
+
+    /* HISTÓRIA */
+
+    .history-section {
+        padding: 50px 26px;
+    }
+
+    .history-timeline::before {
+        left: 20px;
+    }
+
+    .history-item {
+        grid-template-columns:
+            42px minmax(0, 1fr);
+    }
+
+    .history-marker,
+    .history-item:nth-child(even) .history-marker {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .history-card,
+    .history-item:nth-child(even) .history-card {
+        grid-column: 2;
+        grid-row: 1;
+
+        text-align: left;
+    }
+
+    /* APLICAÇÕES */
+
+    .applications-section {
+        width: min(100%, 540px);
+        margin: 0 auto;
+    }
+
+    .applications-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .application-card > img {
+        width: 100% !important;
+        height: 320px !important;
+
+        min-height: 320px !important;
+        max-height: 320px !important;
+
+        object-fit: cover !important;
+    }
+
+    /* CTA */
+
+    .service-cta {
+        grid-template-columns:
+            auto minmax(0, 1fr);
+
+        padding: 38px 32px;
+    }
+
+    .service-cta .service-primary-button {
+        grid-column: 1 / -1;
+
+        justify-self: start;
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+    .services-page {
+        width:
+            calc(100% - 20px);
+
+        padding: 88px 0 50px;
+    }
+
+    .service-article {
+        gap: 65px;
+
+        padding-top: 55px;
+    }
+
+    /* BANNER */
+
+    .service-detail-hero {
+        border-radius: 20px;
+    }
+
+    .service-detail-hero__content {
+        padding: 38px 22px;
+    }
+
+    .service-eyebrow,
+    .section-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+    }
+
+    .service-detail-hero h1 {
+        font-size:
+            clamp(2rem, 10vw, 2.8rem);
+
+        line-height: 1.08;
+    }
+
+    .service-detail-hero__content > p {
+        font-size: 0.94rem;
+        line-height: 1.65;
+    }
+
+    .service-primary-button {
+        width: 100%;
+
+        padding: 0 18px;
+
+        text-align: center;
+    }
+
+    .service-detail-hero__image {
+        height: 280px;
+    }
+
+    /* TÍTULOS */
+
+    .article-intro h2,
+    .section-heading h2 {
+        font-size:
+            clamp(1.8rem, 8vw, 2.45rem);
+    }
+
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    /* ARTIGO */
+
+    .article-intro {
+        padding: 0 5px;
+    }
+
+
+    /* BENEFÍCIOS E PROCESSO */
+
+    .benefits-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-card,
+    .process-card {
+        min-height: auto;
+
+        padding: 27px 23px;
+    }
+
+    .process-card {
+        padding-top: 50px;
+    }
+
+    .process-section {
+        padding: 43px 13px;
+
+        border-radius: 21px;
+    }
+
+    /* HISTÓRIA */
+
+    .history-section {
+        padding: 42px 13px;
+
+        border-radius: 21px;
+    }
+
+    .history-timeline {
+        gap: 18px;
+
+        margin-top: 32px;
+    }
+
+    .history-item {
+        grid-template-columns:
+            34px minmax(0, 1fr);
+    }
+
+    .history-timeline::before {
+        left: 16px;
+    }
+
+    .history-marker {
+        width: 18px;
+        height: 18px;
+
+        margin-top: 27px;
+    }
+
+    .history-card {
+        padding: 22px 18px;
+    }
+
+    /* APLICAÇÕES */
+
+    .applications-section {
+        width: 100%;
+    }
+
+    .application-card > img {
+        height: 245px !important;
+
+        min-height: 245px !important;
+        max-height: 245px !important;
+    }
+
+    .application-card__content {
+        min-height: auto;
+
+        padding: 20px;
+    }
+
+    /* FAQ */
+
+    .faq-item summary {
+        gap: 12px;
+
+        min-height: 62px;
+
+        padding: 16px;
+
+        font-size: 0.9rem;
+    }
+
+    .faq-icon {
+        flex: 0 0 30px;
+
+        width: 30px;
+        height: 30px;
+    }
+
+    .faq-item p {
+        padding:
+            0 55px 19px 16px;
+
+        font-size: 0.89rem;
+    }
+
+    /* CTA */
+
+    .service-cta {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        padding: 33px 22px;
+
+        border-radius: 20px;
+    }
+
+    .service-cta__icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .service-cta h2 {
+        font-size: 1.7rem;
+    }
+
+    .service-cta .service-primary-button {
+        grid-column: auto;
+
+        width: 100%;
+    }
+
+        .article-intro__image {
+        width: 100%;
+        height: auto !important;
+
+        aspect-ratio: 4 / 3 !important;
+
+        border-radius: 18px;
+    }
+
+    .article-intro__image img {
+        width: 100% !important;
+        height: 100% !important;
+
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    .service-article {
+        row-gap: 60px !important;
+    }
+}
+
+/* CORREÇÃO DA IMAGEM DO PROCESSO DTF */
+
+.article-intro__image {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    height: auto !important;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    aspect-ratio: 4 / 3 !important;
+
+    border-radius: 22px;
+
+    background: #dfe8f3;
+
+    box-shadow:
+        var(--ser-shadow);
+}
+
+.article-intro__image img {
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+.history-section {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+
+    margin-top: 0 !important;
+}
+
+.service-article {
+    row-gap:
+        clamp(60px, 7vw, 90px) !important;
+}
