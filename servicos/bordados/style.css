@@ -718,9 +718,9 @@ body {
     padding: 21px 22px 24px;
 }
 
-/* =========================================
+/* ========================================
    FAQ
-========================================= */
+======================================== */
 
 .faq-section {
     width: min(100%, 980px);
@@ -735,12 +735,10 @@ body {
 .faq-item {
     overflow: hidden;
 
-    border:
-        1px solid var(--ser-border);
-
+    border: 1px solid var(--bordado-border, #dbe5f1);
     border-radius: 14px;
 
-    background: var(--ser-white);
+    background: var(--bordado-white, #ffffff);
 
     box-shadow:
         0 8px 24px rgba(20, 40, 75, 0.04);
@@ -754,19 +752,24 @@ body {
     gap: 20px;
 
     min-height: 66px;
-
     padding: 18px 22px;
 
-    color: var(--ser-text);
+    color: var(--bordado-text, #0d2038);
 
+    font-size: 1rem;
     font-weight: 800;
-    cursor: pointer;
 
+    cursor: pointer;
     list-style: none;
 }
 
 .faq-item summary::-webkit-details-marker {
     display: none;
+}
+
+.faq-item summary::marker {
+    display: none;
+    content: "";
 }
 
 .faq-icon {
@@ -784,18 +787,24 @@ body {
 
     border-radius: 50%;
 
-    color: var(--ser-blue);
-    background: var(--ser-soft-blue);
+    color: var(--bordado-blue, #145dc4);
+    background: var(--bordado-soft-blue, #edf5ff);
 
     font-family: Arial, sans-serif;
     font-size: 1.35rem;
     font-weight: 700;
     line-height: 1;
 
-    transition: transform 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background-color 0.25s ease;
 }
 
 .faq-item[open] .faq-icon {
+    color: #ffffff;
+    background: var(--bordado-blue, #145dc4);
+
     transform: rotate(45deg);
 }
 
@@ -805,11 +814,56 @@ body {
     padding:
         0 72px 22px 22px;
 
-    color: var(--ser-muted);
+    color: var(--bordado-muted, #5d6f86);
 
     line-height: 1.75;
 }
 
+/* Efeito ao passar o mouse */
+
+.faq-item:hover {
+    border-color: var(--bordado-blue, #145dc4);
+}
+
+.faq-item summary:focus-visible {
+    outline: 3px solid rgba(20, 93, 196, 0.25);
+    outline-offset: -3px;
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    .faq-list {
+        gap: 10px;
+    }
+
+    .faq-item summary {
+        min-height: 60px;
+
+        padding: 15px 16px;
+
+        gap: 14px;
+
+        font-size: 0.92rem;
+    }
+
+    .faq-icon {
+        flex-basis: 30px;
+
+        width: 30px;
+        height: 30px;
+
+        font-size: 1.25rem;
+    }
+
+    .faq-item p {
+        padding:
+            0 16px 18px;
+
+        font-size: 0.92rem;
+        line-height: 1.65;
+    }
+}
 /* =========================================
    CHAMADA FINAL
 ========================================= */
