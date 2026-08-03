@@ -754,18 +754,30 @@ body {
     gap: 12px;
 }
 
-.faq-item {
-    overflow: hidden;
+.faq-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    border:
-        1px solid var(--ser-border);
+    flex: 0 0 32px;
 
-    border-radius: 14px;
+    width: 32px;
+    height: 32px;
 
-    background: var(--ser-white);
+    padding: 0 0 2px;
+    box-sizing: border-box;
 
-    box-shadow:
-        0 8px 24px rgba(20, 40, 75, 0.04);
+    border-radius: 50%;
+
+    color: var(--ser-blue);
+    background: var(--ser-soft-blue);
+
+    font-family: Arial, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+
+    transition: transform 0.25s ease;
 }
 
 .faq-item summary {
