@@ -724,13 +724,11 @@ body {
 
 .faq-section {
     width: min(100%, 980px);
-
     margin: 0 auto;
 }
 
 .faq-list {
     display: grid;
-
     gap: 12px;
 }
 
@@ -738,11 +736,11 @@ body {
     overflow: hidden;
 
     border:
-        1px solid var(--bordado-border);
+        1px solid var(--ser-border);
 
     border-radius: 14px;
 
-    background: var(--bordado-white);
+    background: var(--ser-white);
 
     box-shadow:
         0 8px 24px rgba(20, 40, 75, 0.04);
@@ -759,10 +757,9 @@ body {
 
     padding: 18px 22px;
 
-    color: var(--bordado-text);
+    color: var(--ser-text);
 
     font-weight: 800;
-
     cursor: pointer;
 
     list-style: none;
@@ -773,23 +770,29 @@ body {
 }
 
 .faq-icon {
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     flex: 0 0 32px;
 
     width: 32px;
     height: 32px;
 
+    padding: 0 0 2px;
+    box-sizing: border-box;
+
     border-radius: 50%;
 
-    color: var(--bordado-blue);
-    background: var(--bordado-soft-blue);
+    color: var(--ser-blue);
+    background: var(--ser-soft-blue);
 
+    font-family: Arial, sans-serif;
     font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
 
-    transition:
-        transform 0.25s ease;
+    transition: transform 0.25s ease;
 }
 
 .faq-item[open] .faq-icon {
@@ -802,7 +805,7 @@ body {
     padding:
         0 72px 22px 22px;
 
-    color: var(--bordado-muted);
+    color: var(--ser-muted);
 
     line-height: 1.75;
 }

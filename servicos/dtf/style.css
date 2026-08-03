@@ -792,23 +792,29 @@ body {
 }
 
 .faq-icon {
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     flex: 0 0 32px;
 
     width: 32px;
     height: 32px;
 
+    padding: 0 0 2px;
+    box-sizing: border-box;
+
     border-radius: 50%;
 
     color: var(--ser-blue);
     background: var(--ser-soft-blue);
 
+    font-family: Arial, sans-serif;
     font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
 
-    transition:
-        transform 0.25s ease;
+    transition: transform 0.25s ease;
 }
 
 .faq-item[open] .faq-icon {
