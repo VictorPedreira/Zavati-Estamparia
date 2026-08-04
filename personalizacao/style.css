@@ -746,3 +746,104 @@ body.dragging-art {
     overscroll-behavior: none;
     touch-action: none;
 }
+
+#shirtModel {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    background-color: transparent;
+}
+
+#shirtModel:hover,
+#shirtModel:focus,
+#shirtModel:focus-visible {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Caixa externa — deve permanecer */
+
+.select-wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    height: 48px;
+    padding: 0 13px;
+
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 9px;
+
+    background: #ffffff;
+    box-shadow: none;
+}
+
+/* Select sem o contorno preto nativo */
+
+.select-wrapper #shirtModel {
+    flex: 1;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0 32px 0 0;
+
+    border: none !important;
+    border-width: 0 !important;
+    border-radius: 0 !important;
+
+    outline: none !important;
+    box-shadow: none !important;
+
+    color: var(--custom-text);
+    background: transparent !important;
+    background-image: none !important;
+
+    font: inherit;
+
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+}
+
+/* Também remove o contorno ao clicar */
+
+.select-wrapper #shirtModel:hover,
+.select-wrapper #shirtModel:focus,
+.select-wrapper #shirtModel:focus-visible,
+.select-wrapper #shirtModel:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Recria somente a seta */
+
+.select-wrapper::after {
+    content: "▾";
+
+    position: absolute;
+    top: 50%;
+    right: 14px;
+
+    color: #475569;
+    font-size: 13px;
+    line-height: 1;
+
+    pointer-events: none;
+
+    transform: translateY(-50%);
+}
+
+/* Mantém o destaque somente na caixa externa */
+
+.select-wrapper:focus-within {
+    border-color: var(--custom-blue) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(23, 75, 181, 0.12);
+}

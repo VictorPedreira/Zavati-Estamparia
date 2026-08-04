@@ -144,13 +144,13 @@ function initPersonalization() {
         { nome: 'Cinza', cor: '#bfc2c7' },
         { nome: 'Chumbo', cor: '#4b5563' },
         { nome: 'Marrom', cor: '#7c4a2d' },
-        { nome: 'Vinho', cor: '#7f1d3a' },
-        { nome: 'Rosa', cor: '#b11864' },
+        { nome: 'Vinho', cor: '#4d0b1f' },
+        { nome: 'Rosa', cor: '#6b0a3b' },
         { nome: 'Amarelo', cor: '#facc15' },
         { nome: 'Roxo', cor: '#350785' },
-        { nome: 'Verde-Lima', cor: '#84cc16' },
+        { nome: 'Verde-Lima', cor: '#5b910c' },
         { nome: 'Bege', cor: '#e8dac4' },
-        { nome: 'Vermelho', cor: '#880c19' },
+        { nome: 'Vermelho', cor: '#5c030c' },
         { nome: 'Ciano', cor: '#0d9fb9' },
         { nome: 'Laranja', cor: '#b9820d' },
         { nome: 'Verde', cor: '#087c69' }
@@ -179,6 +179,7 @@ function initPersonalization() {
     if (!shirtModel || !shirtImage || typeof SHIRT_MODELS === 'undefined') return;
 
     let currentModel = SHIRT_MODELS[0].id;
+    let currentView = 'front';
     let currentColor = COLORS[0];
     let currentLogoSizeCm = 20;
     let currentPosition = 'center';
@@ -199,19 +200,28 @@ function initPersonalization() {
 
     shirtModel.addEventListener('change', () => {
         currentModel = shirtModel.value;
-        modelInfo.textContent = getShirtName(currentModel);
+
+        /*
+        * Sempre começa pela frente ao escolher
+        * outro produto.
+        */
+        currentView = 'front';
+
+        modelInfo.textContent =
+            getShirtName(currentModel);
+
         logoWasDragged = false;
+
         updateViewButtons();
         renderShirt();
     });
 
     viewButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const desiredView = button.dataset.view;
-            currentModel = getModelForView(currentModel, desiredView);
-            shirtModel.value = currentModel;
-            modelInfo.textContent = getShirtName(currentModel);
+            currentView = button.dataset.view;
+
             logoWasDragged = false;
+
             updateViewButtons();
             renderShirt();
         });
@@ -287,6 +297,7 @@ function initPersonalization() {
 
     resetButton.addEventListener('click', () => {
         currentModel = SHIRT_MODELS[0].id;
+        currentView = 'front';
         currentColor = COLORS[0];
         currentLogoSizeCm = 20;
         currentPosition = 'center';
@@ -388,7 +399,10 @@ function initPersonalization() {
             shirtImage.alt = 'Não foi possível carregar a imagem deste modelo';
         };
 
-        source.src = getShirtImage(currentModel);
+        source.src = getShirtImage(
+            currentModel,
+            currentView
+        );
     }
 
     function loadLogo(file) {
@@ -589,18 +603,21 @@ function initPersonalization() {
     }
 
     function updateViewButtons() {
-        const isBack = currentModel === 'premium' || currentModel === 'fitted';
         viewButtons.forEach(button => {
-            const active = button.dataset.view === (isBack ? 'back' : 'front');
-            button.classList.toggle('active', active);
-            button.setAttribute('aria-pressed', String(active));
-        });
-    }
+            const active =
+                button.dataset.view ===
+                currentView;
 
-    function getModelForView(modelId, view) {
-        const oversized = modelId === 'oversized' || modelId === 'fitted';
-        if (oversized) return view === 'back' ? 'fitted' : 'oversized';
-        return view === 'back' ? 'premium' : 'basica';
+            button.classList.toggle(
+                'active',
+                active
+            );
+
+            button.setAttribute(
+                'aria-pressed',
+                String(active)
+            );
+        });
     }
 
 }
@@ -618,3 +635,4 @@ function hexToRgb(hex) {
         b: parseInt(value.slice(4, 6), 16)
     };
 }
+
