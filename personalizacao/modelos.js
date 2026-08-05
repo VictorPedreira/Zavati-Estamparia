@@ -1,114 +1,121 @@
-/**
- * ========== CONFIGURAÇÃO DE MODELOS DE CAMISETAS ==========
- * 
- * COMO USAR:
- * 1. Coloque seus arquivos PNG na pasta: assets/
- * 2. Adicione um novo objeto no array 'SHIRT_MODELS' abaixo
- * 3. Preencha os dados: id, nome, imagem (caminho local)
- * 4. Salve o arquivo
- * 5. O modelo vai aparecer automaticamente no select e funcionar!
- * 
- * EXEMPLO:
- * {
- *     id: 'seu-modelo',
- *     nome: 'Seu Modelo',
- *     imagem: '../assets/sua-camiseta.png'
- * }
- * 
- * ========================================================
- */
-
 const SHIRT_MODELS = [
     {
         id: 'basica',
-        nome: 'Camiseta Básica frente',
-        imagem: '../assets/images/camiseta-frente.png'
+        nome: 'Camiseta Básica',
+
+        imagens: {
+            front: '../assets/images/camiseta-frente.png',
+            back: '../assets/images/camiseta-tras.png'
+        }
     },
-    {
-        id: 'premium',
-        nome: 'Camiseta Básica trás',
-        imagem: '../assets/images/camiseta-tras.png'
-    },
+
     {
         id: 'oversized',
-        nome: 'Camiseta Oversized frente',
-        imagem: '../assets/images/camiseta-oversized-branca-frente.png'
+        nome: 'Camiseta Oversized',
+
+        imagens: {
+            front: '../assets/images/oversized-frente.png',
+            back: '../assets/images/oversized-tras.png'
+        }
     },
-    {
-        id: 'fitted',
-        nome: 'Camiseta Oversized trás',
-        imagem: '../assets/images/camiseta-oversized-branca-tras.png'
-    }
-    
-    // ========== ADICIONE NOVOS MODELOS AQUI ==========
-    // Coloque o PNG na pasta assets/ e adicione aqui:
-    /*
-    {
-        id: 'regata',
-        nome: 'Regata',
-        imagem: '../assets/camiseta-regata.png'
-    },
+
     {
         id: 'polo',
-        nome: 'Polo',
-        imagem: '../assets/camiseta-polo.png'
+        nome: 'Camisa Polo',
+
+        imagens: {
+            front: '../assets/images/polo-frente.png',
+            back: '../assets/images/polo-tras.png'
+        }
+    },
+
+    {
+        id: 'moletom-capuz',
+        nome: 'Moletom com capuz',
+
+        imagens: {
+            front: '../assets/images/moletom-capuz.png',
+            back: '../assets/images/moletom-capuz-tras.png'
+        }
+    },
+
+    {
+        id: 'moletom-sem-capuz',
+        nome: 'Moletom sem capuz',
+
+        imagens: {
+            front: '../assets/images/moletom-frente.png',
+            back: '../assets/images/moletom-tras.png'
+        }
     }
-    */
-    // ================================================
 ];
 
-/**
- * Função para inicializar os modelos no HTML
- * Preenche automaticamente o select com os modelos
+/*
+ * Preenche o seletor com apenas os modelos,
+ * sem criar opções separadas para frente e costas.
  */
 function initializeShirtModels() {
-    const shirtModelSelect = document.getElementById('shirtModel');
-    
+    const shirtModelSelect =
+        document.getElementById('shirtModel');
+
     if (!shirtModelSelect) {
-        console.error('Elemento #shirtModel não encontrado!');
+        console.error(
+            'Elemento #shirtModel não encontrado!'
+        );
+
         return;
     }
-    
-    // Limpar opções antigas
+
     shirtModelSelect.innerHTML = '';
-    
-    // Adicionar cada modelo como opção
+
     SHIRT_MODELS.forEach(model => {
-        const option = document.createElement('option');
+        const option =
+            document.createElement('option');
+
         option.value = model.id;
         option.textContent = model.nome;
+
         shirtModelSelect.appendChild(option);
     });
-    
-    console.log(`✅ ${SHIRT_MODELS.length} modelos carregados com sucesso!`);
 }
 
-/**
- * Função para obter a imagem de um modelo pelo ID
- * @param {string} modelId - ID do modelo
- * @returns {string} Caminho da imagem
+/*
+ * Encontra o modelo pelo ID.
  */
-function getShirtImage(modelId) {
-    const model = SHIRT_MODELS.find(m => m.id === modelId);
-    return model ? model.imagem : SHIRT_MODELS[0].imagem;
+function getShirtModel(modelId) {
+    return (
+        SHIRT_MODELS.find(
+            model => model.id === modelId
+        ) || SHIRT_MODELS[0]
+    );
 }
 
-/**
- * Função para obter o nome de um modelo pelo ID
- * @param {string} modelId - ID do modelo
- * @returns {string} Nome do modelo
+/*
+ * Retorna a imagem da frente ou das costas.
+ */
+function getShirtImage(
+    modelId,
+    view = 'front'
+) {
+    const model = getShirtModel(modelId);
+
+    return (
+        model.imagens[view] ||
+        model.imagens.front
+    );
+}
+
+/*
+ * Retorna somente o nome do produto.
  */
 function getShirtName(modelId) {
-    const model = SHIRT_MODELS.find(m => m.id === modelId);
-    return model ? model.nome : SHIRT_MODELS[0].nome;
+    return getShirtModel(modelId).nome;
 }
 
-/**
- * Função para obter todos os modelos
- * @returns {array} Array com todos os modelos
- */
 function getAllShirtModels() {
     return SHIRT_MODELS;
 }
 
-console.log('modelos.js carregado com sucesso!');
+console.log(
+    `${SHIRT_MODELS.length} modelos carregados!`
+);
