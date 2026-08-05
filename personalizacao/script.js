@@ -141,7 +141,7 @@ function initPersonalization() {
         { nome: 'Preto', cor: '#222121' },
         { nome: 'Branco', cor: '#ffffff' },
         { nome: 'Azul-marinho', cor: '#111c3c' },
-        { nome: 'Cinza', cor: '#bfc2c7' },
+        { nome: 'Cinza', cor: '#9d9ea0' },
         { nome: 'Chumbo', cor: '#4b5563' },
         { nome: 'Marrom', cor: '#7c4a2d' },
         { nome: 'Vinho', cor: '#4d0b1f' },
