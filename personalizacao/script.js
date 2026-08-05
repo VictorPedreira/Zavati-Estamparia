@@ -357,6 +357,16 @@ function initPersonalization() {
     }
 
     function renderShirt() {
+        const modelScale =
+            currentModel === 'moletom-capuz' &&
+            currentView === 'front'
+            ? 1.38
+            : 1;
+
+            shirtImage.style.setProperty(
+            '--model-scale',
+            modelScale
+        );
         const source = new Image();
 
         source.onload = () => {

@@ -409,6 +409,15 @@ body {
     -webkit-user-drag: none;
 }
 
+.shirt-image {
+    transform:
+        translateY(var(--model-position-y, 0))
+        scale(var(--model-scale, 1));
+
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
 .logo-container-preview {
     position: absolute;
     inset: 0;
