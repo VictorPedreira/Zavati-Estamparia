@@ -356,64 +356,123 @@ function initPersonalization() {
         colorSample.style.backgroundColor = currentColor.cor;
     }
 
-    function renderShirt() {
-        const modelScale =
-            currentModel === 'moletom-capuz' &&
-            currentView === 'front'
-            ? 1.38
-            : 1;
+function renderShirt() {
+    const modelScales = {
+        'moletom-capuz': {
+            front: 1.38,
+            back: 1
+        },
 
-            shirtImage.style.setProperty(
-            '--model-scale',
-            modelScale
+        'polo': {
+            front: 0.88,
+            back: 0.88
+        }
+    };
+
+    const modelScale =
+        modelScales[currentModel]?.[currentView] ?? 1;
+
+    shirtImage.style.setProperty(
+        '--model-scale',
+        modelScale
+    );
+
+    const source = new Image();
+
+    source.onload = () => {
+        canvas.width = source.naturalWidth;
+        canvas.height = source.naturalHeight;
+
+        context.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
         );
-        const source = new Image();
 
-        source.onload = () => {
-            canvas.width = source.naturalWidth;
-            canvas.height = source.naturalHeight;
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.drawImage(source, 0, 0);
+        context.drawImage(
+            source,
+            0,
+            0
+        );
 
-            if (currentColor.cor.toLowerCase() !== '#ffffff') {
-                const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-                const pixels = imageData.data;
-                const rgb = hexToRgb(currentColor.cor);
+        if (
+            currentColor.cor.toLowerCase() !== '#ffffff'
+        ) {
+            const imageData =
+                context.getImageData(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
 
-                for (let index = 0; index < pixels.length; index += 4) {
-                    if (pixels[index + 3] < 20) continue;
-                    const luminance = (pixels[index] * 0.299 + pixels[index + 1] * 0.587 + pixels[index + 2] * 0.114) / 255;
-                    const light = 0.36 + luminance * 0.78;
-                    pixels[index] = Math.min(255, rgb.r * light);
-                    pixels[index + 1] = Math.min(255, rgb.g * light);
-                    pixels[index + 2] = Math.min(255, rgb.b * light);
+            const pixels = imageData.data;
+            const rgb = hexToRgb(currentColor.cor);
+
+            for (
+                let index = 0;
+                index < pixels.length;
+                index += 4
+            ) {
+                if (pixels[index + 3] < 20) {
+                    continue;
                 }
 
-                context.putImageData(imageData, 0, 0);
+                const luminance =
+                    (
+                        pixels[index] * 0.299 +
+                        pixels[index + 1] * 0.587 +
+                        pixels[index + 2] * 0.114
+                    ) / 255;
+
+                const light =
+                    0.36 + luminance * 0.78;
+
+                pixels[index] =
+                    Math.min(255, rgb.r * light);
+
+                pixels[index + 1] =
+                    Math.min(255, rgb.g * light);
+
+                pixels[index + 2] =
+                    Math.min(255, rgb.b * light);
             }
 
-            shirtImage.onload = () => {
-                requestAnimationFrame(() => {
-                    applyLogoSize();
+            context.putImageData(
+                imageData,
+                0,
+                0
+            );
+        }
 
-                    if (!logoWasDragged) {
-                        updateLogoPosition();
-                    }
-                });
-            };
-            shirtImage.src = canvas.toDataURL('image/png');
-            modelInfo.textContent = getShirtName(currentModel);
+        shirtImage.onload = () => {
+            requestAnimationFrame(() => {
+                applyLogoSize();
+
+                if (!logoWasDragged) {
+                    updateLogoPosition();
+                }
+            });
         };
 
-        source.onerror = () => {
-            shirtImage.alt = 'Não foi possível carregar a imagem deste modelo';
-        };
+        shirtImage.src =
+            canvas.toDataURL('image/png');
 
-        source.src = getShirtImage(
-            currentModel,
-            currentView
-        );
-    }
+        modelInfo.textContent =
+            getShirtName(currentModel);
+    };
+
+    source.onerror = () => {
+        shirtImage.alt =
+            'Não foi possível carregar a imagem deste modelo';
+    };
+
+    source.src = getShirtImage(
+        currentModel,
+        currentView
+    );
+}
 
     function loadLogo(file) {
         if (!file.type.startsWith('image/')) {
