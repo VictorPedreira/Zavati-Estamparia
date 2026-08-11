@@ -359,13 +359,18 @@ function initPersonalization() {
 function renderShirt() {
     const modelScales = {
         'moletom-capuz': {
-            front: 1.38,
+            front: 1.35,
             back: 1
         },
 
+        'moletom-sem-capuz': {
+            front: 1.20,
+            back: 1.10
+        },
+
         'polo': {
-            front: 0.88,
-            back: 0.88
+            front: 0.90,
+            back: 0.90
         }
     };
 
@@ -457,7 +462,7 @@ function renderShirt() {
         };
 
         shirtImage.src =
-            canvas.toDataURL('image/png');
+            canvas.toDataURL('image/webp');
 
         modelInfo.textContent =
             getShirtName(currentModel);
