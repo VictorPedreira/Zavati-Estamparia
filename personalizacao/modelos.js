@@ -4,8 +4,8 @@ const SHIRT_MODELS = [
         nome: 'Camiseta Básica',
 
         imagens: {
-            front: '../assets/images/camiseta-frente.png',
-            back: '../assets/images/camiseta-tras.png'
+            front: '../assets/images/camiseta-frente.webp',
+            back: '../assets/images/camiseta-tras.webp'
         }
     },
 
@@ -14,8 +14,8 @@ const SHIRT_MODELS = [
         nome: 'Camiseta Oversized',
 
         imagens: {
-            front: '../assets/images/oversized-frente.png',
-            back: '../assets/images/oversized-tras.png'
+            front: '../assets/images/oversized-frente.webp',
+            back: '../assets/images/oversized-tras.webp'
         }
     },
 
@@ -24,8 +24,8 @@ const SHIRT_MODELS = [
         nome: 'Camisa Polo',
 
         imagens: {
-            front: '../assets/images/polo-frente.png',
-            back: '../assets/images/polo-tras.png'
+            front: '../assets/images/polo-frente.webp',
+            back: '../assets/images/polo-tras.webp'
         }
     },
 
@@ -34,8 +34,8 @@ const SHIRT_MODELS = [
         nome: 'Moletom com capuz',
 
         imagens: {
-            front: '../assets/images/moletom-capuz.png',
-            back: '../assets/images/moletom-capuz-tras.png'
+            front: '../assets/images/moletom-capuz.webp',
+            back: '../assets/images/moletom-capuz-tras.webp'
         }
     },
 
@@ -44,8 +44,8 @@ const SHIRT_MODELS = [
         nome: 'Moletom sem capuz',
 
         imagens: {
-            front: '../assets/images/moletom-frente.png',
-            back: '../assets/images/moletom-tras.png'
+            front: '../assets/images/moletom-frente.webp',
+            back: '../assets/images/moletom-tras.webp'
         }
     }
 ];
