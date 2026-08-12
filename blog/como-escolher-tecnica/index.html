@@ -93,7 +93,7 @@
     <link
     rel="preload"
     as="image"
-    href="./assets/images/enuncio-1.webp"
+    href="/assets/images/enuncio-1.webp"
     fetchpriority="high"
     >
 
@@ -110,15 +110,16 @@
         href="/assets/favicon/favicon-192x192.webp"
     >
     <link rel="canonical" href="https://zavatiestamparia.com/">
-    <link rel="stylesheet" href="./assets/header-footer.css">
-    <link rel="stylesheet" href="./home/style.css">
+    <link rel="stylesheet" href="/assets/header-footer.css">
+    <link rel="stylesheet" href="/blog/como-escolher-tecnica/style.css">
+    <script src="/home/script.js" async></script>
 </head>
 <body>
     <header class="header">
         <nav class="navbar" aria-label="Navegação principal">
             <div class="nav-container">
                 <div class="nav-left">
-                    <a href="./personalizacao/" class="nav-link">Personalização</a>
+                    <a href="/personalizacao/" class="nav-link">Personalização</a>
                     <div class="nav-dropdown">
                         <a
                             href="/servicos/"
@@ -142,13 +143,13 @@
                             </a>
                         </div>
                     </div>
-                    <a href="./tecidos/" class="nav-link">Tecidos</a>
+                    <a href="/tecidos/" class="nav-link">Tecidos</a>
                 </div>
 
                 <div class="nav-right">
-                    <a href="./materiais/" class="nav-link">Materiais</a>
-                    <a href="./profissionais/" class="nav-link">Profissionais</a>
-                    <a href="./objetivos/" class="nav-link">Objetivos</a>
+                    <a href="/materiais/" class="nav-link">Materiais</a>
+                    <a href="/profissionais/" class="nav-link">Profissionais</a>
+                    <a href="/objetivos/" class="nav-link">Objetivos</a>
                 </div>
 
                 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
@@ -160,8 +161,8 @@
 
             <div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
                 <button id="menuClose" class="menu-close-btn" aria-label="Fechar menu">&times;</button>
-                <a href="./" class="mobile-link active">Home</a>
-                <a href="./personalizacao/" class="mobile-link">Personalização</a>
+                <a href="/" class="mobile-link active">Home</a>
+                <a href="/personalizacao/" class="mobile-link">Personalização</a>
                 <details class="mobile-services">
                     <summary class="mobile-services-title">
                         <span>Serviços</span>
@@ -197,302 +198,488 @@
                         </a>
                     </div>
                 </details>
-                <a href="./materiais/" class="mobile-link">Materiais</a>
-                <a href="./tecidos/" class="mobile-link">Tecidos</a>
-                <a href="./profissionais/" class="mobile-link">Profissionais</a>
-                <a href="./objetivos/" class="mobile-link">Objetivos</a>
+                <a href="/materiais/" class="mobile-link">Materiais</a>
+                <a href="/tecidos/" class="mobile-link">Tecidos</a>
+                <a href="/profissionais/" class="mobile-link">Profissionais</a>
+                <a href="/objetivos/" class="mobile-link">Objetivos</a>
             </div>
         </nav>
 
         <div class="logo-container">
-            <a href="./" class="logo-circle logo-btn" aria-label="Ir para a página inicial">
-                <img src="./assets/images/logo.webp" alt="Zavati Estamparia">
+            <a href="/" class="logo-circle logo-btn" aria-label="Ir para a página inicial">
+                <img src="/assets/images/logo.webp" alt="Zavati Estamparia">
             </a>
         </div>
     </header>
 
-    <main>
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-content">
-                <p class="eyebrow">Estamparia e bordados</p>
-                <h1 id="hero-title">Estamparia e Bordados Personalizados de <span class="gradient-text">Qualidade</span></h1>
-                <p class="hero-description">Somos especialistas em <strong>DTF</strong>, <strong>serigrafia</strong> e <strong>personalização</strong> de produtos. Transformamos suas ideias em criações vibrantes e duráveis.</p>
+    <main class="tech-article">
 
-                <div class="highlights" role="list" aria-label="Diferenciais da Zavati">
-                    <div class="highlight-item" role="listitem">
-                        <span class="highlight-icon" aria-hidden="true">↗</span>
-                        <span>Entregamos para todo o Brasil</span>
-                    </div>
-                    <div class="highlight-item" role="listitem">
-                        <span class="highlight-icon" aria-hidden="true">✓</span>
-                        <span>Qualidade em cada produto</span>
-                    </div>
-                    <div class="highlight-item" role="listitem">
-                        <span class="highlight-icon" aria-hidden="true">◉</span>
-                        <span>Atendimento personalizado</span>
+    <!-- HERO -->
+    <section class="article-hero">
+        <div class="article-container">
+
+            <nav class="article-breadcrumb" aria-label="Navegação estrutural">
+                <a href="/">Início</a>
+                <span aria-hidden="true">›</span>
+                <a href="/blog/">Blog</a>
+                <span aria-hidden="true">›</span>
+                <span>Como escolher a técnica</span>
+            </nav>
+
+            <div class="article-hero-grid">
+
+                <div class="article-hero-content">
+                    <span class="article-category">
+                        Guia de personalização
+                    </span>
+
+                    <h1>
+                        DTF, serigrafia ou bordado:
+                        <span>qual técnica escolher?</span>
+                    </h1>
+
+                    <p class="article-introduction">
+                        Entenda as diferenças entre as principais técnicas de
+                        personalização e descubra qual delas é mais indicada
+                        para o seu projeto.
+                    </p>
+
+                    <div class="article-meta">
+                        <span>Leitura de aproximadamente 6 minutos</span>
                     </div>
                 </div>
 
-                <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    <span class="whatsapp-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
-                    Fale Conosco
-                </a>
+                <div class="tech-preview" aria-label="Técnicas apresentadas no artigo">
+
+                    <div class="tech-preview-card tech-preview-dtf">
+                        <span>DTF</span>
+                        <small>Detalhes e muitas cores</small>
+                    </div>
+
+                    <div class="tech-preview-card tech-preview-screen">
+                        <span>Serigrafia</span>
+                        <small>Produções em quantidade</small>
+                    </div>
+
+                    <div class="tech-preview-card tech-preview-embroidery">
+                        <span>Bordado</span>
+                        <small>Acabamento sofisticado</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO -->
+    <div class="article-container article-layout">
+
+        <article class="article-content">
+
+            <p class="article-opening">
+                Na hora de personalizar uma camiseta, uniforme ou outra peça,
+                uma dúvida bastante comum é:
+                <strong>qual técnica de personalização escolher?</strong>
+            </p>
+
+            <p>
+                DTF, serigrafia e bordado são opções muito utilizadas, mas cada
+                uma possui características diferentes. A melhor escolha depende
+                principalmente do <strong>tipo de peça, quantidade, estilo da
+                arte e resultado desejado</strong>.
+            </p>
+
+            <p>
+                Neste artigo, vamos explicar de forma simples as principais
+                diferenças entre essas técnicas.
+            </p>
+
+            <!-- RESUMO -->
+            <div class="quick-answer">
+                <span class="quick-answer-label">Resposta rápida</span>
+
+                <div class="quick-answer-grid">
+
+                    <div>
+                        <strong>Escolha DTF</strong>
+                        <p>Para artes coloridas, detalhadas e menores quantidades.</p>
+                    </div>
+
+                    <div>
+                        <strong>Escolha serigrafia</strong>
+                        <p>Para produzir muitas peças com a mesma estampa.</p>
+                    </div>
+
+                    <div>
+                        <strong>Escolha bordado</strong>
+                        <p>Para um acabamento profissional, elegante e durável.</p>
+                    </div>
+
+                </div>
             </div>
 
-            <div class="carousel" role="region" aria-roledescription="carrossel" aria-label="Trabalhos realizados pela Zavati">
-                <div class="carousel-container">
-                    <img src="./assets/images/enuncio-1.webp" alt="Camiseta e produtos personalizados pela Zavati" class="carousel-slide active" width="1176" height="896" fetchpriority="high" decoding="async">
-                    <img src="./assets/images/anuncio-6.webp" alt="Personalização de sacolas por serigrafia" class="carousel-slide" loading="lazy" decoding="async">
-                    <img src="./assets/images/anuncio-7.webp" alt="Projeto personalizado para cliente" class="carousel-slide" loading="lazy" decoding="async">
-                    <img src="./assets/images/anuncio-3.webp" alt="Trabalho de serigrafia realizado pela Zavati" class="carousel-slide" loading="lazy" decoding="async">
-                    <img src="./assets/images/mockup-jbf.webp" alt="Mockup personalizado para cliente" class="carousel-slide" loading="lazy" decoding="async">
+            <!-- DTF -->
+            <section id="dtf" class="article-section">
+                <div class="section-heading">
+                    <span class="section-number">01</span>
+
+                    <div>
+                        <span class="section-eyebrow">Impressão digital</span>
+                        <h2>O que é DTF?</h2>
+                    </div>
                 </div>
 
-                <button class="carousel-btn prev" id="prevBtn" aria-label="Imagem anterior">‹</button>
-                <button class="carousel-btn next" id="nextBtn" aria-label="Próxima imagem">›</button>
+                <p>
+                    O <strong>DTF (Direct to Film)</strong> é uma técnica de
+                    impressão indicada principalmente para artes coloridas,
+                    detalhadas e personalizações em pequenas ou médias
+                    quantidades.
+                </p>
 
-                <div class="carousel-indicators" role="group" aria-label="Selecionar imagem">
-                    <button class="indicator active" data-slide="0" aria-label="Ir para imagem 1"></button>
-                    <button class="indicator" data-slide="1" aria-label="Ir para imagem 2"></button>
-                    <button class="indicator" data-slide="2" aria-label="Ir para imagem 3"></button>
-                    <button class="indicator" data-slide="3" aria-label="Ir para imagem 4"></button>
-                    <button class="indicator" data-slide="4" aria-label="Ir para imagem 5"></button>
+                <p>
+                    A arte é impressa e posteriormente aplicada sobre o tecido,
+                    permitindo reproduzir <strong>cores, textos, ilustrações e
+                    pequenos detalhes com bastante precisão</strong>.
+                </p>
+
+                <div class="tech-information">
+                    <div class="tech-information-title">
+                        <span>DTF</span>
+                        <strong>Quando escolher?</strong>
+                    </div>
+
+                    <ul class="article-check-list">
+                        <li>Camisetas personalizadas</li>
+                        <li>Artes com várias cores</li>
+                        <li>Logotipos detalhados</li>
+                        <li>Pequenas e médias quantidades</li>
+                        <li>Personalizações mais elaboradas</li>
+                    </ul>
                 </div>
+
+                <p>
+                    Uma das principais vantagens é a
+                    <strong>liberdade na criação da arte</strong>, já que é
+                    possível trabalhar com diferentes cores e detalhes sem
+                    precisar simplificar muito o desenho.
+                </p>
+
+                <a href="/servicos/dtf/" class="article-service-link">
+                    Conheça nosso serviço de DTF
+                    <span aria-hidden="true">→</span>
+                </a>
+            </section>
+
+            <!-- SERIGRAFIA -->
+            <section id="serigrafia" class="article-section">
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+
+                    <div>
+                        <span class="section-eyebrow">Produção em escala</span>
+                        <h2>O que é serigrafia?</h2>
+                    </div>
+                </div>
+
+                <p>
+                    A <strong>serigrafia</strong>, também conhecida como
+                    <strong>silk screen</strong>, é uma das técnicas mais
+                    tradicionais para personalização de roupas.
+                </p>
+
+                <p>
+                    Ela é muito utilizada quando existe uma quantidade maior de
+                    peças com a mesma estampa. Por isso, é bastante comum na
+                    produção de <strong>uniformes, camisetas para eventos,
+                    empresas, escolas e equipes</strong>.
+                </p>
+
+                <div class="tech-information">
+                    <div class="tech-information-title">
+                        <span>SILK</span>
+                        <strong>Quando escolher?</strong>
+                    </div>
+
+                    <ul class="article-check-list">
+                        <li>Grandes quantidades de camisetas</li>
+                        <li>Uniformes</li>
+                        <li>Estampas com poucas cores</li>
+                        <li>Eventos e ações promocionais</li>
+                        <li>Mesma arte aplicada em várias peças</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Quanto maior a quantidade produzida, mais interessante essa
+                    técnica pode se tornar. Para quem precisa personalizar muitas
+                    peças com a mesma identidade visual, a serigrafia pode
+                    oferecer um <strong>ótimo equilíbrio entre qualidade e
+                    custo</strong>.
+                </p>
+
+                <a href="/servicos/serigrafia/" class="article-service-link">
+                    Conheça nosso serviço de serigrafia
+                    <span aria-hidden="true">→</span>
+                </a>
+            </section>
+
+            <!-- BORDADO -->
+            <section id="bordado" class="article-section">
+                <div class="section-heading">
+                    <span class="section-number">03</span>
+
+                    <div>
+                        <span class="section-eyebrow">Acabamento profissional</span>
+                        <h2>O que é bordado?</h2>
+                    </div>
+                </div>
+
+                <p>
+                    O <strong>bordado computadorizado</strong> cria a
+                    personalização diretamente sobre o tecido utilizando linhas.
+                </p>
+
+                <p>
+                    O resultado possui textura e um acabamento mais sofisticado,
+                    sendo muito utilizado para aplicação de
+                    <strong>logotipos, nomes e símbolos</strong>.
+                </p>
+
+                <div class="tech-information">
+                    <div class="tech-information-title">
+                        <span>BRD</span>
+                        <strong>Quando escolher?</strong>
+                    </div>
+
+                    <ul class="article-check-list">
+                        <li>Camisas polo</li>
+                        <li>Uniformes profissionais</li>
+                        <li>Bonés</li>
+                        <li>Moletons</li>
+                        <li>Jalecos</li>
+                        <li>Logotipos de empresas</li>
+                    </ul>
+                </div>
+
+                <p>
+                    É uma excelente escolha quando o objetivo é transmitir uma
+                    aparência <strong>mais elegante, profissional e
+                    durável</strong>.
+                </p>
+
+                <a href="/servicos/bordados/" class="article-service-link">
+                    Conheça nosso serviço de bordado
+                    <span aria-hidden="true">→</span>
+                </a>
+            </section>
+
+            <!-- COMPARAÇÃO -->
+            <section id="comparacao" class="article-section">
+                <div class="section-heading">
+                    <span class="section-number">04</span>
+
+                    <div>
+                        <span class="section-eyebrow">Comparação rápida</span>
+                        <h2>Qual técnica escolher?</h2>
+                    </div>
+                </div>
+
+                <p>
+                    Não existe uma técnica que seja melhor em todas as situações.
+                    Existe aquela que é <strong>mais adequada para cada
+                    projeto</strong>.
+                </p>
+
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Técnica</th>
+                                <th scope="col">Mais indicada para</th>
+                                <th scope="col">Quantidade</th>
+                                <th scope="col">Resultado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">DTF</th>
+                                <td>Artes coloridas e detalhadas</td>
+                                <td>Pequena ou média</td>
+                                <td>Moderno e versátil</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Serigrafia</th>
+                                <td>Mesma estampa em várias peças</td>
+                                <td>Média ou grande</td>
+                                <td>Resistente e econômico</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Bordado</th>
+                                <td>Uniformes, polos, bonés e jalecos</td>
+                                <td>Variável</td>
+                                <td>Sofisticado e profissional</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="choice-cards">
+
+                    <div class="choice-card">
+                        <span>Escolha DTF</span>
+                        <p>
+                            Quando sua arte possui muitas cores ou detalhes e
+                            você busca flexibilidade na personalização.
+                        </p>
+                    </div>
+
+                    <div class="choice-card">
+                        <span>Escolha serigrafia</span>
+                        <p>
+                            Quando precisa produzir uma quantidade maior de
+                            peças com a mesma estampa.
+                        </p>
+                    </div>
+
+                    <div class="choice-card">
+                        <span>Escolha bordado</span>
+                        <p>
+                            Quando busca um acabamento mais sofisticado e
+                            profissional para peças corporativas.
+                        </p>
+                    </div>
+
+                </div>
+
+                <p>
+                    Também é importante considerar o
+                    <strong>tipo de tecido e a peça que será
+                    personalizada</strong>, pois esses fatores podem influenciar
+                    diretamente no resultado.
+                </p>
+            </section>
+
+            <!-- AVALIAÇÃO -->
+            <section id="avaliacao" class="article-section">
+                <div class="section-heading">
+                    <span class="section-number">05</span>
+
+                    <div>
+                        <span class="section-eyebrow">Antes da produção</span>
+                        <h2>Avalie o seu projeto</h2>
+                    </div>
+                </div>
+
+                <p>
+                    Quantidade, material da peça, tamanho da arte, quantidade de
+                    cores e acabamento desejado são alguns dos pontos que devem
+                    ser considerados antes da produção.
+                </p>
+
+                <div class="project-checklist">
+                    <div>
+                        <span>01</span>
+                        <p>Qual peça será personalizada?</p>
+                    </div>
+
+                    <div>
+                        <span>02</span>
+                        <p>Quantas unidades serão produzidas?</p>
+                    </div>
+
+                    <div>
+                        <span>03</span>
+                        <p>Quantas cores e detalhes existem na arte?</p>
+                    </div>
+
+                    <div>
+                        <span>04</span>
+                        <p>Qual acabamento você deseja alcançar?</p>
+                    </div>
+                </div>
+
+                <p>
+                    Escolher a técnica correta ajuda a alcançar um resultado
+                    mais bonito, adequado ao uso da peça e com melhor
+                    custo-benefício.
+                </p>
+
+                <p>
+                    Na <strong>Zavati Estamparia</strong>, cada projeto pode ser
+                    analisado individualmente para identificar a técnica de
+                    personalização mais adequada, seja
+                    <strong>DTF, serigrafia ou bordado computadorizado</strong>.
+                </p>
+            </section>
+
+        </article>
+
+        <!-- ÍNDICE LATERAL -->
+        <aside class="article-sidebar">
+            <div class="article-index">
+                <strong>Neste artigo</strong>
+
+                <nav aria-label="Índice do artigo">
+                    <a href="#dtf">O que é DTF?</a>
+                    <a href="#serigrafia">O que é serigrafia?</a>
+                    <a href="#bordado">O que é bordado?</a>
+                    <a href="#comparacao">Comparação das técnicas</a>
+                    <a href="#avaliacao">Avalie o seu projeto</a>
+                </nav>
             </div>
-        </section>
 
-        <section class="trust-strip" aria-label="Compromissos da Zavati">
-            <article class="trust-item">
-                <span class="trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M13 6v5a1 1 0 0 0 1 1h6.102a1 1 0 0 1 .712.298l.898.91a1 1 0 0 1 .288.702V17a1 1 0 0 1-1 1h-3"/>
-                        <path d="M5 18H3a1 1 0 0 1-1-1V8a2 2 0 0 1 2-2h12c1.1 0 2.1.8 2.4 1.8l1.176 4.2"/>
-                        <path d="M9 18h5"/>
-                        <circle cx="16" cy="18" r="2"/>
-                        <circle cx="7" cy="18" r="2"/>
-                    </svg>
-                </span>
+            <div class="article-help">
+                <span>Precisa de ajuda?</span>
 
-                <div>
-                    <h2>Brasil todo</h2>
-                    <small>Envio para diversas regiões</small>
-                </div>
-            </article>
+                <strong>
+                    Encontre a técnica ideal para seu projeto.
+                </strong>
 
-            <article class="trust-item">
-                <span class="trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/>
-                        <path d="M20 2v4"/>
-                        <path d="M22 4h-4"/>
-                        <circle cx="4" cy="20" r="2"/>
-                    </svg>
-                </span>
-
-                <div>
-                    <h2>Alta qualidade</h2>
-                    <small>Acabamento cuidadoso</small>
-                </div>
-            </article>
-
-            <article class="trust-item">
-                <span class="trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13"/>
-                        <path d="m8 6 2-2"/>
-                        <path d="m18 16 2-2"/>
-                        <path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"/>
-                        <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
-                        <path d="m15 5 4 4"/>
-                    </svg>
-                </span>
-
-                <div>
-                    <h2>Sob medida</h2>
-                    <small>Produção para cada projeto</small>
-                </div>
-            </article>
-
-            <article class="trust-item">
-                <span class="trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/>
-                        <path d="M21 16v2a4 4 0 0 1-4 4h-5"/>
-                    </svg>
-                </span>
-
-                <div>
-                    <h2>Atendimento direto</h2>
-                    <small>Suporte do início ao fim</small>
-                </div>
-            </article>
-        </section>
-
-        <section class="services-section" aria-labelledby="services-title">
-            <div class="section-heading">
-                <p class="eyebrow">Nossos serviços</p>
-                <h2 id="services-title">Soluções para destacar <span class="gradient-text">sua marca</span></h2>
-                <p>Escolha a técnica ideal para o seu projeto, desde pequenas personalizações até produções em maior escala.</p>
+                <a
+                    href="https://wa.me/551145518884?text=Olá!%20Gostaria%20de%20ajuda%20para%20escolher%20a%20técnica%20de%20personalização."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Falar com a Zavati
+                </a>
             </div>
+        </aside>
 
-            <div class="services-grid">
+    </div>
 
-                <!-- CARD DTF -->
-                <a href="./servicos/#dtf" class="service-card">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M13.5 22H7a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v.5"/>
-                            <path d="m16 19 2 2 4-4"/>
-                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2"/>
-                            <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/>
-                        </svg>
-                    </div>
+    <!-- CTA FINAL -->
+    <section class="article-final-cta">
+        <div class="article-container final-cta-content">
 
-                    <div class="service-copy">
-                        <h3>DTF</h3>
-
-                        <p>
-                            Impressões com alta definição, cores vibrantes
-                            e excelente durabilidade.
-                        </p>
-
-                        <span class="service-link">
-                            Saiba mais <span>→</span>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- CARD SERIGRAFIA -->
-                <a href="./servicos/#serigrafia" class="service-card">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M10 2v2"/>
-                            <path d="M14 2v4"/>
-                            <path d="M17 2a1 1 0 0 1 1 1v9H6V3a1 1 0 0 1 1-1z"/>
-                            <path d="M6 12a1 1 0 0 0-1 1v1a2 2 0 0 0 2 2h2a1 1 0 0 1 1 1v2.9a2 2 0 1 0 4 0V17a1 1 0 0 1 1-1h2a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1"/>
-                        </svg>
-                    </div>
-
-                    <div class="service-copy">
-                        <h3>Serigrafia</h3>
-
-                        <p>
-                            Ideal para grandes tiragens, com cores sólidas
-                            e ótimo custo-benefício.
-                        </p>
-
-                        <span class="service-link">
-                            Saiba mais <span>→</span>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- CARD BORDADOS -->
-                <a href="./servicos/#bordado" class="service-card">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M17 13.44 4.442 17.082A2 2 0 0 0 4.982 21H19a2 2 0 0 0 .558-3.921l-1.115-.32A2 2 0 0 1 17 14.837V7.66"/>
-                            <path d="m7 10.56 12.558-3.642A2 2 0 0 0 19.018 3H5a2 2 0 0 0-.558 3.921l1.115.32A2 2 0 0 1 7 9.163v7.178"/>
-                        </svg>
-                    </div>
-
-                    <div class="service-copy">
-                        <h3>Bordados</h3>
-
-                        <p>
-                            Acabamento premium que valoriza uniformes,
-                            bonés e peças especiais.
-                        </p>
-
-                        <span class="service-link">
-                            Saiba mais <span>→</span>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- CARD PERSONALIZADOS -->
-                <a href="./personalizacao/" class="service-card">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
-                            <path d="m15 5 4 4"/>
-                        </svg>
-                    </div>
-
-                    <div class="service-copy">
-                        <h3>Personalizados</h3>
-
-                        <p>
-                            Produtos exclusivos do seu jeito para empresas,
-                            eventos e ocasiões.
-                        </p>
-
-                        <span class="service-link">
-                            Saiba mais <span>→</span>
-                        </span>
-                    </div>
-                </a>
-
-            </div>
-        </section>
-
-        <section class="cta-section" aria-labelledby="cta-title">
             <div>
-                <p class="eyebrow eyebrow-light">Vamos criar juntos?</p>
-                <h2 id="cta-title">Transforme sua ideia em um produto personalizado</h2>
-                <p>Conte o que você precisa e receba orientação sobre a melhor técnica para o seu projeto.</p>
+                <span>DTF, serigrafia ou bordado?</span>
+
+                <h2>
+                    Vamos escolher a melhor técnica para o seu projeto?
+                </h2>
+
+                <p>
+                    Envie sua ideia para nossa equipe e receba uma orientação
+                    de acordo com a peça, quantidade e acabamento desejado.
+                </p>
             </div>
-            <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Solicitar Orçamento</a>
-        </section>
-    </main>
+
+            <a
+                href="https://wa.me/551145518884?text=Olá!%20Gostaria%20de%20solicitar%20uma%20análise%20para%20meu%20projeto."
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Solicitar análise
+            </a>
+
+        </div>
+    </section>
+
+</main>
+
 
     <footer class="footer">
         <div class="footer-content">
@@ -846,6 +1033,6 @@
         src="/assets/cookies.js"
         defer
     ></script>
-    <script src="./home/script.js"></script>
+  
 </body>
 </html>

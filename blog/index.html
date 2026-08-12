@@ -93,7 +93,7 @@
     <link
     rel="preload"
     as="image"
-    href="./assets/images/enuncio-1.webp"
+    href="/assets/images/enuncio-1.webp"
     fetchpriority="high"
     >
 
@@ -110,15 +110,16 @@
         href="/assets/favicon/favicon-192x192.webp"
     >
     <link rel="canonical" href="https://zavatiestamparia.com/">
-    <link rel="stylesheet" href="./assets/header-footer.css">
-    <link rel="stylesheet" href="./home/style.css">
+    <link rel="stylesheet" href="/assets/header-footer.css">
+    <link rel="stylesheet" href="/blog/style.css">
+    <script src="/home/script.js" async></script>
 </head>
 <body>
     <header class="header">
         <nav class="navbar" aria-label="Navegação principal">
             <div class="nav-container">
                 <div class="nav-left">
-                    <a href="./personalizacao/" class="nav-link">Personalização</a>
+                    <a href="/personalizacao/" class="nav-link">Personalização</a>
                     <div class="nav-dropdown">
                         <a
                             href="/servicos/"
@@ -142,13 +143,13 @@
                             </a>
                         </div>
                     </div>
-                    <a href="./tecidos/" class="nav-link">Tecidos</a>
+                    <a href="/tecidos/" class="nav-link">Tecidos</a>
                 </div>
 
                 <div class="nav-right">
-                    <a href="./materiais/" class="nav-link">Materiais</a>
-                    <a href="./profissionais/" class="nav-link">Profissionais</a>
-                    <a href="./objetivos/" class="nav-link">Objetivos</a>
+                    <a href="/materiais/" class="nav-link">Materiais</a>
+                    <a href="/profissionais/" class="nav-link">Profissionais</a>
+                    <a href="/objetivos/" class="nav-link">Objetivos</a>
                 </div>
 
                 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
@@ -160,8 +161,8 @@
 
             <div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
                 <button id="menuClose" class="menu-close-btn" aria-label="Fechar menu">&times;</button>
-                <a href="./" class="mobile-link active">Home</a>
-                <a href="./personalizacao/" class="mobile-link">Personalização</a>
+                <a href="/" class="mobile-link active">Home</a>
+                <a href="/personalizacao/" class="mobile-link">Personalização</a>
                 <details class="mobile-services">
                     <summary class="mobile-services-title">
                         <span>Serviços</span>
@@ -197,304 +198,617 @@
                         </a>
                     </div>
                 </details>
-                <a href="./materiais/" class="mobile-link">Materiais</a>
-                <a href="./tecidos/" class="mobile-link">Tecidos</a>
-                <a href="./profissionais/" class="mobile-link">Profissionais</a>
-                <a href="./objetivos/" class="mobile-link">Objetivos</a>
+                <a href="/materiais/" class="mobile-link">Materiais</a>
+                <a href="/tecidos/" class="mobile-link">Tecidos</a>
+                <a href="/profissionais/" class="mobile-link">Profissionais</a>
+                <a href="/objetivos/" class="mobile-link">Objetivos</a>
             </div>
         </nav>
 
         <div class="logo-container">
-            <a href="./" class="logo-circle logo-btn" aria-label="Ir para a página inicial">
-                <img src="./assets/images/logo.webp" alt="Zavati Estamparia">
+            <a href="/" class="logo-circle logo-btn" aria-label="Ir para a página inicial">
+                <img src="/assets/images/logo.webp" alt="Zavati Estamparia">
             </a>
         </div>
     </header>
+<main class="blog-main">
 
-    <main>
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-content">
-                <p class="eyebrow">Estamparia e bordados</p>
-                <h1 id="hero-title">Estamparia e Bordados Personalizados de <span class="gradient-text">Qualidade</span></h1>
-                <p class="hero-description">Somos especialistas em <strong>DTF</strong>, <strong>serigrafia</strong> e <strong>personalização</strong> de produtos. Transformamos suas ideias em criações vibrantes e duráveis.</p>
+    <!-- HERO -->
+    <section class="blog-hero">
+        <div
+            class="blog-hero-dots"
+            aria-hidden="true"
+        ></div>
 
-                <div class="highlights" role="list" aria-label="Diferenciais da Zavati">
-                    <div class="highlight-item" role="listitem">
-                        <span class="highlight-icon" aria-hidden="true">↗</span>
-                        <span>Entregamos para todo o Brasil</span>
-                    </div>
-                    <div class="highlight-item" role="listitem">
-                        <span class="highlight-icon" aria-hidden="true">✓</span>
-                        <span>Qualidade em cada produto</span>
-                    </div>
-                    <div class="highlight-item" role="listitem">
-                        <span class="highlight-icon" aria-hidden="true">◉</span>
-                        <span>Atendimento personalizado</span>
-                    </div>
+        <div class="blog-hero-content">
+            <span class="blog-eyebrow">
+                Conteúdo que inspira
+            </span>
+
+            <h1>Blog Zavati</h1>
+
+            <p>
+                Ideias, técnicas e conhecimento para dar
+                vida à sua marca.
+            </p>
+        </div>
+
+        <div
+            class="blog-hero-circle"
+            aria-hidden="true"
+        ></div>
+    </section>
+
+    <!-- ARTIGO EM DESTAQUE -->
+    <section
+        class="blog-featured-container"
+        aria-labelledby="blog-featured-title"
+    >
+        <article class="blog-featured">
+
+            <a
+                href="/blog/como-escolher-tecnica/"
+                class="blog-featured-image"
+                aria-label="Ler artigo sobre como escolher uma técnica de personalização"
+            >
+                <img
+                    src="/assets/images/processo-dtf.webp"
+                    alt="Processo de personalização em tecido"
+                    width="1200"
+                    height="800"
+                    fetchpriority="high"
+                    decoding="async"
+                >
+
+                <span class="blog-featured-label">
+                    Destaque
+                </span>
+            </a>
+
+            <div class="blog-featured-content">
+                <div class="blog-article-meta">
+                    <span>Guia de personalização</span>
+                    <span>9 min de leitura</span>
                 </div>
 
-                <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    <span class="whatsapp-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
-                    Fale Conosco
+                <h2 id="blog-featured-title">
+                    DTF, serigrafia ou bordado:
+                    qual técnica escolher?
+                </h2>
+
+                <p>
+                    Cada método entrega um resultado diferente.
+                    Compare quantidade, acabamento, tipo de arte
+                    e tecidos para encontrar a solução ideal
+                    para seu projeto.
+                </p>
+
+                <a
+                    href="/blog/como-escolher-tecnica/"
+                    class="blog-read-button"
+                >
+                    Ler artigo completo
+                    <span aria-hidden="true">→</span>
                 </a>
             </div>
 
-            <div class="carousel" role="region" aria-roledescription="carrossel" aria-label="Trabalhos realizados pela Zavati">
-                <div class="carousel-container">
-                    <img src="./assets/images/enuncio-1.webp" alt="Camiseta e produtos personalizados pela Zavati" class="carousel-slide active" width="1176" height="896" fetchpriority="high" decoding="async">
-                    <img src="./assets/images/anuncio-6.webp" alt="Personalização de sacolas por serigrafia" class="carousel-slide" loading="lazy" decoding="async">
-                    <img src="./assets/images/anuncio-7.webp" alt="Projeto personalizado para cliente" class="carousel-slide" loading="lazy" decoding="async">
-                    <img src="./assets/images/anuncio-3.webp" alt="Trabalho de serigrafia realizado pela Zavati" class="carousel-slide" loading="lazy" decoding="async">
-                    <img src="./assets/images/mockup-jbf.webp" alt="Mockup personalizado para cliente" class="carousel-slide" loading="lazy" decoding="async">
-                </div>
+        </article>
+    </section>
 
-                <button class="carousel-btn prev" id="prevBtn" aria-label="Imagem anterior">‹</button>
-                <button class="carousel-btn next" id="nextBtn" aria-label="Próxima imagem">›</button>
-
-                <div class="carousel-indicators" role="group" aria-label="Selecionar imagem">
-                    <button class="indicator active" data-slide="0" aria-label="Ir para imagem 1"></button>
-                    <button class="indicator" data-slide="1" aria-label="Ir para imagem 2"></button>
-                    <button class="indicator" data-slide="2" aria-label="Ir para imagem 3"></button>
-                    <button class="indicator" data-slide="3" aria-label="Ir para imagem 4"></button>
-                    <button class="indicator" data-slide="4" aria-label="Ir para imagem 5"></button>
-                </div>
-            </div>
-        </section>
-
-        <section class="trust-strip" aria-label="Compromissos da Zavati">
-            <article class="trust-item">
-                <span class="trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M13 6v5a1 1 0 0 0 1 1h6.102a1 1 0 0 1 .712.298l.898.91a1 1 0 0 1 .288.702V17a1 1 0 0 1-1 1h-3"/>
-                        <path d="M5 18H3a1 1 0 0 1-1-1V8a2 2 0 0 1 2-2h12c1.1 0 2.1.8 2.4 1.8l1.176 4.2"/>
-                        <path d="M9 18h5"/>
-                        <circle cx="16" cy="18" r="2"/>
-                        <circle cx="7" cy="18" r="2"/>
-                    </svg>
-                </span>
-
-                <div>
-                    <h2>Brasil todo</h2>
-                    <small>Envio para diversas regiões</small>
-                </div>
-            </article>
-
-            <article class="trust-item">
-                <span class="trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/>
-                        <path d="M20 2v4"/>
-                        <path d="M22 4h-4"/>
-                        <circle cx="4" cy="20" r="2"/>
-                    </svg>
-                </span>
-
-                <div>
-                    <h2>Alta qualidade</h2>
-                    <small>Acabamento cuidadoso</small>
-                </div>
-            </article>
-
-            <article class="trust-item">
-                <span class="trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13"/>
-                        <path d="m8 6 2-2"/>
-                        <path d="m18 16 2-2"/>
-                        <path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"/>
-                        <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
-                        <path d="m15 5 4 4"/>
-                    </svg>
-                </span>
-
-                <div>
-                    <h2>Sob medida</h2>
-                    <small>Produção para cada projeto</small>
-                </div>
-            </article>
-
-            <article class="trust-item">
-                <span class="trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/>
-                        <path d="M21 16v2a4 4 0 0 1-4 4h-5"/>
-                    </svg>
-                </span>
-
-                <div>
-                    <h2>Atendimento direto</h2>
-                    <small>Suporte do início ao fim</small>
-                </div>
-            </article>
-        </section>
-
-        <section class="services-section" aria-labelledby="services-title">
-            <div class="section-heading">
-                <p class="eyebrow">Nossos serviços</p>
-                <h2 id="services-title">Soluções para destacar <span class="gradient-text">sua marca</span></h2>
-                <p>Escolha a técnica ideal para o seu projeto, desde pequenas personalizações até produções em maior escala.</p>
-            </div>
-
-            <div class="services-grid">
-
-                <!-- CARD DTF -->
-                <a href="./servicos/#dtf" class="service-card">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M13.5 22H7a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v.5"/>
-                            <path d="m16 19 2 2 4-4"/>
-                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2"/>
-                            <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/>
-                        </svg>
-                    </div>
-
-                    <div class="service-copy">
-                        <h3>DTF</h3>
-
-                        <p>
-                            Impressões com alta definição, cores vibrantes
-                            e excelente durabilidade.
-                        </p>
-
-                        <span class="service-link">
-                            Saiba mais <span>→</span>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- CARD SERIGRAFIA -->
-                <a href="./servicos/#serigrafia" class="service-card">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M10 2v2"/>
-                            <path d="M14 2v4"/>
-                            <path d="M17 2a1 1 0 0 1 1 1v9H6V3a1 1 0 0 1 1-1z"/>
-                            <path d="M6 12a1 1 0 0 0-1 1v1a2 2 0 0 0 2 2h2a1 1 0 0 1 1 1v2.9a2 2 0 1 0 4 0V17a1 1 0 0 1 1-1h2a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1"/>
-                        </svg>
-                    </div>
-
-                    <div class="service-copy">
-                        <h3>Serigrafia</h3>
-
-                        <p>
-                            Ideal para grandes tiragens, com cores sólidas
-                            e ótimo custo-benefício.
-                        </p>
-
-                        <span class="service-link">
-                            Saiba mais <span>→</span>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- CARD BORDADOS -->
-                <a href="./servicos/#bordado" class="service-card">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M17 13.44 4.442 17.082A2 2 0 0 0 4.982 21H19a2 2 0 0 0 .558-3.921l-1.115-.32A2 2 0 0 1 17 14.837V7.66"/>
-                            <path d="m7 10.56 12.558-3.642A2 2 0 0 0 19.018 3H5a2 2 0 0 0-.558 3.921l1.115.32A2 2 0 0 1 7 9.163v7.178"/>
-                        </svg>
-                    </div>
-
-                    <div class="service-copy">
-                        <h3>Bordados</h3>
-
-                        <p>
-                            Acabamento premium que valoriza uniformes,
-                            bonés e peças especiais.
-                        </p>
-
-                        <span class="service-link">
-                            Saiba mais <span>→</span>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- CARD PERSONALIZADOS -->
-                <a href="./personalizacao/" class="service-card">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
-                            <path d="m15 5 4 4"/>
-                        </svg>
-                    </div>
-
-                    <div class="service-copy">
-                        <h3>Personalizados</h3>
-
-                        <p>
-                            Produtos exclusivos do seu jeito para empresas,
-                            eventos e ocasiões.
-                        </p>
-
-                        <span class="service-link">
-                            Saiba mais <span>→</span>
-                        </span>
-                    </div>
-                </a>
-
-            </div>
-        </section>
-
-        <section class="cta-section" aria-labelledby="cta-title">
+    <!-- LISTA DE ARTIGOS -->
+    <section
+        class="blog-articles-section"
+        id="conteudos"
+        aria-labelledby="blog-articles-title"
+    >
+        <header class="blog-section-header">
             <div>
-                <p class="eyebrow eyebrow-light">Vamos criar juntos?</p>
-                <h2 id="cta-title">Transforme sua ideia em um produto personalizado</h2>
-                <p>Conte o que você precisa e receba orientação sobre a melhor técnica para o seu projeto.</p>
-            </div>
-            <a href="https://wa.me/551145518884?text=Olá%20Zavati!%20Gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Solicitar Orçamento</a>
-        </section>
-    </main>
+                <span class="blog-eyebrow blog-eyebrow-blue">
+                    Conteúdos recentes
+                </span>
 
-    <footer class="footer">
+                <h2 id="blog-articles-title">
+                    Explore o universo da personalização
+                </h2>
+            </div>
+
+            <p>
+                Informação prática para transformar uma ideia
+                em um produto bem planejado e com acabamento
+                profissional.
+            </p>
+        </header>
+
+        <!-- FILTROS -->
+        <div
+            class="blog-filters"
+            role="group"
+            aria-label="Filtrar artigos por categoria"
+        >
+            <button
+                type="button"
+                class="blog-filter active"
+                data-filter="todos"
+                aria-pressed="true"
+            >
+                Todos
+            </button>
+
+            <button
+                type="button"
+                class="blog-filter"
+                data-filter="dtf"
+                aria-pressed="false"
+            >
+                DTF
+            </button>
+
+            <button
+                type="button"
+                class="blog-filter"
+                data-filter="serigrafia"
+                aria-pressed="false"
+            >
+                Serigrafia
+            </button>
+
+            <button
+                type="button"
+                class="blog-filter"
+                data-filter="bordado"
+                aria-pressed="false"
+            >
+                Bordado
+            </button>
+
+            <button
+                type="button"
+                class="blog-filter"
+                data-filter="materiais"
+                aria-pressed="false"
+            >
+                Materiais
+            </button>
+
+            <button
+                type="button"
+                class="blog-filter"
+                data-filter="guias"
+                aria-pressed="false"
+            >
+                Guias
+            </button>
+
+            <button
+                type="button"
+                class="blog-filter"
+                data-filter="inspiracao"
+                aria-pressed="false"
+            >
+                Inspiração
+            </button>
+        </div>
+
+        <!-- GRID -->
+        <div
+            class="blog-grid"
+            id="blogGrid"
+            aria-live="polite"
+        >
+
+            <!-- SERIGRAFIA -->
+            <article
+                class="blog-card"
+                data-category="serigrafia"
+            >
+                <a
+                    href="/servicos/serigrafia/"
+                    class="blog-card-image"
+                >
+                    <img
+                        src="/assets/images/camisetas-serigrafia.webp"
+                        alt="Camisetas personalizadas por serigrafia"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="blog-category">
+                        Serigrafia
+                    </span>
+                </a>
+
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-08-02">
+                            02 ago. 2026
+                        </time>
+
+                        <span>7 min de leitura</span>
+                    </div>
+
+                    <h3>
+                        <a href="/servicos/serigrafia/">
+                            Serigrafia: durabilidade e cores
+                            que impressionam
+                        </a>
+                    </h3>
+
+                    <p>
+                        Entenda por que a serigrafia continua
+                        sendo uma das técnicas mais eficientes
+                        para grandes produções.
+                    </p>
+
+                    <a
+                        href="/servicos/serigrafia/"
+                        class="blog-card-link"
+                    >
+                        Continuar lendo
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- BORDADO -->
+            <article
+                class="blog-card"
+                data-category="bordado"
+            >
+                <a
+                    href="/servicos/bordados/"
+                    class="blog-card-image"
+                >
+                    <img
+                        src="/assets/images/hero-bordado.webp"
+                        alt="Produção de bordado computadorizado"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="blog-category">
+                        Bordado
+                    </span>
+                </a>
+
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-07-28">
+                            28 jul. 2026
+                        </time>
+
+                        <span>5 min de leitura</span>
+                    </div>
+
+                    <h3>
+                        <a href="/servicos/bordados/">
+                            Bordado computadorizado:
+                            elegância que agrega valor
+                        </a>
+                    </h3>
+
+                    <p>
+                        Conheça as vantagens do bordado em
+                        polos, uniformes, jaquetas, bonés e
+                        outras peças profissionais.
+                    </p>
+
+                    <a
+                        href="/servicos/bordados/"
+                        class="blog-card-link"
+                    >
+                        Continuar lendo
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- DTF -->
+            <article
+                class="blog-card"
+                data-category="dtf"
+            >
+                <a
+                    href="/servicos/dtf/"
+                    class="blog-card-image"
+                >
+                    <img
+                        src="/assets/images/hero-dtf.webp"
+                        alt="Impressão DTF em camiseta"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="blog-category">
+                        DTF
+                    </span>
+                </a>
+
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-07-20">
+                            20 jul. 2026
+                        </time>
+
+                        <span>6 min de leitura</span>
+                    </div>
+
+                    <h3>
+                        <a href="/servicos/dtf/">
+                            DTF: alta definição e liberdade
+                            para criar
+                        </a>
+                    </h3>
+
+                    <p>
+                        Descubra como o DTF proporciona cores
+                        vibrantes, detalhes precisos e aplicação
+                        em diferentes tecidos.
+                    </p>
+
+                    <a
+                        href="/servicos/dtf/"
+                        class="blog-card-link"
+                    >
+                        Continuar lendo
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- MATERIAIS -->
+            <article
+                class="blog-card"
+                data-category="materiais"
+            >
+                <a
+                    href="/tecidos/"
+                    class="blog-card-image"
+                >
+                    <img
+                        src="/assets/images/camisetas.webp"
+                        alt="Tecidos utilizados em camisetas personalizadas"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="blog-category">
+                        Materiais
+                    </span>
+                </a>
+
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-07-15">
+                            15 jul. 2026
+                        </time>
+
+                        <span>8 min de leitura</span>
+                    </div>
+
+                    <h3>
+                        <a href="/tecidos/">
+                            Como escolher o tecido ideal
+                            para sua estampa
+                        </a>
+                    </h3>
+
+                    <p>
+                        Compare algodão, poliéster e dry fit
+                        para escolher o material mais adequado
+                        para seu projeto.
+                    </p>
+
+                    <a
+                        href="/tecidos/"
+                        class="blog-card-link"
+                    >
+                        Continuar lendo
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- INSPIRAÇÃO -->
+            <article
+                class="blog-card"
+                data-category="inspiracao"
+            >
+                <a
+                    href="/blog/inspiracoes-estampas-marca/"
+                    class="blog-card-image"
+                >
+                    <img
+                        src="/assets/images/enuncio-1.webp"
+                        alt="Camisetas personalizadas para empresas e eventos"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="blog-category">
+                        Inspiração
+                    </span>
+                </a>
+
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-07-08">
+                            08 jul. 2026
+                        </time>
+
+                        <span>5 min de leitura</span>
+                    </div>
+
+                    <h3>
+                        <a href="/blog/inspiracoes-estampas-marca/">
+                            Inspirações de estampas para
+                            fortalecer sua marca
+                        </a>
+                    </h3>
+
+                    <p>
+                        Veja ideias para aplicar sua identidade
+                        em uniformes, eventos, brindes e peças
+                        promocionais.
+                    </p>
+
+                    <a
+                        href="/blog/inspiracoes-estampas-marca/"
+                        class="blog-card-link"
+                    >
+                        Continuar lendo
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- GUIAS -->
+            <article
+                class="blog-card"
+                data-category="guias"
+            >
+                <a
+                    href="/blog/ecobags-personalizadas/"
+                    class="blog-card-image"
+                >
+                    <img
+                        src="/assets/images/sacola.webp"
+                        alt="Ecobag personalizada"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="blog-category">
+                        Guias
+                    </span>
+                </a>
+
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-07-01">
+                            01 jul. 2026
+                        </time>
+
+                        <span>4 min de leitura</span>
+                    </div>
+
+                    <h3>
+                        <a href="/blog/ecobags-personalizadas/">
+                            Ecobags personalizadas:
+                            sustentabilidade que divulga
+                        </a>
+                    </h3>
+
+                    <p>
+                        Entenda como as ecobags podem unir
+                        identidade visual, utilidade e
+                        divulgação da sua empresa.
+                    </p>
+
+                    <a
+                        href="/blog/ecobags-personalizadas/"
+                        class="blog-card-link"
+                    >
+                        Continuar lendo
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+        <p
+            class="blog-empty-message"
+            id="blogEmptyMessage"
+            hidden
+        >
+            Nenhum conteúdo encontrado nessa categoria.
+        </p>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section
+        class="blog-newsletter"
+        aria-labelledby="newsletter-title"
+    >
+        <div class="blog-newsletter-icon" aria-hidden="true">
+            ✉
+        </div>
+
+        <div class="blog-newsletter-content">
+            <span class="blog-eyebrow">
+                Novidades da Zavati
+            </span>
+
+            <h2 id="newsletter-title">
+                Receba ideias para seu próximo projeto
+            </h2>
+
+            <p>
+                Conteúdos sobre técnicas, materiais e
+                tendências de personalização diretamente
+                no seu e-mail.
+            </p>
+        </div>
+
+        <form
+            class="blog-newsletter-form"
+            id="blogNewsletterForm"
+        >
+            <label
+                class="blog-visually-hidden"
+                for="blogNewsletterEmail"
+            >
+                Seu melhor e-mail
+            </label>
+
+            <div class="blog-newsletter-field">
+                <input
+                    type="email"
+                    id="blogNewsletterEmail"
+                    placeholder="Seu melhor e-mail"
+                    autocomplete="email"
+                    required
+                >
+
+                <button type="submit">
+                    Assinar
+                </button>
+            </div>
+
+            <small>
+                Respeitamos sua privacidade. Sem spam.
+            </small>
+        </form>
+
+        <p
+            class="blog-newsletter-success"
+            id="blogNewsletterSuccess"
+            role="status"
+            hidden
+        >
+            Pronto! Seu interesse foi registrado.
+        </p>
+    </section>
+
+</main>
+
+<script
+    src="/blog/script.js"
+    defer
+></script>
+<footer class="footer">
         <div class="footer-content">
 
             <!-- Endereço -->
@@ -846,6 +1160,6 @@
         src="/assets/cookies.js"
         defer
     ></script>
-    <script src="./home/script.js"></script>
+  
 </body>
 </html>
