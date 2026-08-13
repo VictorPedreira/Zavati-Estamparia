@@ -710,3 +710,5 @@ function hexToRgb(hex) {
     };
 }
 
+document.querySelector('#current-year').textContent =
+    new Date().getFullYear();
