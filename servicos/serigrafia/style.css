@@ -1130,3 +1130,42 @@ body {
         margin-top: 32px;
     }
 }
+
+.guia-tecnicas {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 22px 26px;
+
+    background: #f5f7f8;
+    border-left: 4px solid #111921;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+.guia-tecnicas a {
+    color: #111921;
+    font-weight: 700;
+    text-decoration: none;
+
+    border-bottom: 2px solid #111921;
+
+    transition: opacity 0.2s ease;
+}
+
+.guia-tecnicas a:hover {
+    opacity: 0.65;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .guia-tecnicas {
+        margin: 30px 16px;
+        padding: 18px 20px;
+
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}

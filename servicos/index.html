@@ -41,54 +41,79 @@
 
     <script type="application/ld+json">
     {
-        "@context":"https://schema.org",
-        "@type":"Organization",
-        "name":"Zavati Estamparia",
-        "url":"https://zavatiestamparia.com",
-        "logo":"https://zavatiestamparia.com/assets/images/logo.webp",
-        "description":"Especializada em estamparia, bordado computadorizado, silk screen e impressão DTF para camisetas, uniformes e peças personalizadas.",
-        "email":"zavatiestamparia@gmail.com",
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+        "@type": "LocalBusiness",
+        "@id": "https://zavatiestamparia.com/#localbusiness",
+        "name": "Zavati Estamparia",
+        "url": "https://zavatiestamparia.com/",
+        "image": "https://zavatiestamparia.com/assets/images/logo.webp",
+        "logo": "https://zavatiestamparia.com/assets/images/logo.webp",
+        "description": "Especializada em estamparia, bordado computadorizado, silk screen e impressão DTF para camisetas, uniformes e peças personalizadas.",
+        "email": "zavatiestamparia@gmail.com",
         "telephone": "+551145518884",
-        "sameAs":[
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Pinheiro, 873",
+            "addressLocality": "Cotia",
+            "addressRegion": "SP",
+            "postalCode": "06712-355",
+            "addressCountry": "BR"
+        },
+        "sameAs": [
             "https://instagram.com/zavati.estamparia/"
         ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"LocalBusiness",
-        "name":"Zavati Estamparia",
-        "image":"https://zavatiestamparia.com/assets/images/logo.webp",
-        "url":"https://zavatiestamparia.com",
-        "telephone": "+551145518884",
-        "priceRange":"$$",
-        "address":{
-            "@type":"PostalAddress",
-            "streetAddress":"Rua Pinheiro, 873",
-            "addressLocality":"Cotia",
-            "addressRegion":"SP",
-            "postalCode":"06712-355",
-            "addressCountry":"BR"
-    }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"WebSite",
-        "name":"Zavati Estamparia",
-        "url":"https://zavatiestamparia.com"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"WebPage",
-        "name":"Serviços",
-        "url":"https://zavatiestamparia.com/servicos/"
+        },
+        {
+        "@type": "WebSite",
+        "@id": "https://zavatiestamparia.com/#website",
+        "url": "https://zavatiestamparia.com/",
+        "name": "Zavati Estamparia",
+        "publisher": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        }
+        },
+        {
+        "@type": "WebPage",
+        "@id": "https://zavatiestamparia.com/servicos/#webpage",
+        "url": "https://zavatiestamparia.com/servicos/",
+        "name": "Serviços de Estamparia: Bordado, Silk Screen e DTF | Zavati Estamparia",
+        "description": "Conheça os serviços da Zavati Estamparia: impressão DTF, serigrafia, silk screen e bordado computadorizado para camisetas, uniformes e peças personalizadas.",
+        "isPartOf": {
+            "@id": "https://zavatiestamparia.com/#website"
+        },
+        "about": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        }
+        },
+        {
+        "@type": "ItemList",
+        "@id": "https://zavatiestamparia.com/servicos/#services",
+        "name": "Serviços de Estamparia e Personalização",
+        "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://zavatiestamparia.com/servicos/dtf/",
+            "name": "Impressão DTF"
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://zavatiestamparia.com/servicos/serigrafia/",
+            "name": "Serigrafia e Silk Screen"
+            },
+            {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://zavatiestamparia.com/servicos/bordados/",
+            "name": "Bordado Computadorizado"
+            }
+        ]
+        }
+    ]
     }
     </script>
 

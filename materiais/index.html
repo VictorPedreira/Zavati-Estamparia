@@ -10,7 +10,7 @@
     >
 
     <title>
-        Materiais para Personalização | Zavati Estamparia
+        Produtos para Personalização | Zavati Estamparia
     </title>
 
     <meta
@@ -114,10 +114,13 @@
     <!-- Dados estruturados da empresa -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
+    "@context": "https://schema.org",
+    "@graph": [
+        {
         "@type": "LocalBusiness",
+        "@id": "https://zavatiestamparia.com/#localbusiness",
         "name": "Zavati Estamparia",
-        "url": "https://zavatiestamparia.com",
+        "url": "https://zavatiestamparia.com/",
         "logo": "https://zavatiestamparia.com/assets/images/logo.webp",
         "image": "https://zavatiestamparia.com/assets/images/seo/enuncio-1.webp",
         "description": "Especializada em estamparia, bordado computadorizado, silk screen, impressão DTF e produtos personalizados.",
@@ -135,22 +138,51 @@
         "sameAs": [
             "https://www.instagram.com/zavati.estamparia"
         ]
-    }
-    </script>
-
-    <!-- Dados estruturados da página -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "Materiais para Personalização",
-        "description": "Produtos e materiais personalizados pela Zavati Estamparia.",
-        "url": "https://zavatiestamparia.com/materiais/",
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "Zavati Estamparia",
-            "url": "https://zavatiestamparia.com"
+        },
+        {
+        "@type": "WebSite",
+        "@id": "https://zavatiestamparia.com/#website",
+        "url": "https://zavatiestamparia.com/",
+        "name": "Zavati Estamparia",
+        "publisher": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
         }
+        },
+        {
+        "@type": "BreadcrumbList",
+        "@id": "https://zavatiestamparia.com/materiais/#breadcrumb",
+        "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://zavatiestamparia.com/"
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Materiais",
+            "item": "https://zavatiestamparia.com/materiais/"
+            }
+        ]
+        },
+        {
+        "@type": "CollectionPage",
+        "@id": "https://zavatiestamparia.com/materiais/#webpage",
+        "url": "https://zavatiestamparia.com/materiais/",
+        "name": "Materiais para Personalização | Zavati Estamparia",
+        "description": "Conheça os produtos e materiais disponíveis para personalização na Zavati Estamparia.",
+        "isPartOf": {
+            "@id": "https://zavatiestamparia.com/#website"
+        },
+        "about": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        },
+        "breadcrumb": {
+            "@id": "https://zavatiestamparia.com/materiais/#breadcrumb"
+        }
+        }
+    ]
     }
     </script>
 
@@ -417,8 +449,8 @@
                     </div>
 
                     <h1>
-                        Materiais Utilizados na
-                        <span>Personalização</span>
+                        Produtos que 
+                        <span>Personalizamos</span>
                     </h1>
 
                     <p>

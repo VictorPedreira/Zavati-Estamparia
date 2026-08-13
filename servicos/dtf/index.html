@@ -105,53 +105,96 @@
 
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@graph": [
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+        "@type": "LocalBusiness",
+        "@id": "https://zavatiestamparia.com/#localbusiness",
+        "name": "Zavati Estamparia",
+        "url": "https://zavatiestamparia.com/",
+        "image": "https://zavatiestamparia.com/assets/images/logo.webp",
+        "logo": "https://zavatiestamparia.com/assets/images/logo.webp",
+        "telephone": "+551145518884",
+        "email": "zavatiestamparia@gmail.com",
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Pinheiro, 873",
+            "addressLocality": "Cotia",
+            "addressRegion": "SP",
+            "postalCode": "06712-355",
+            "addressCountry": "BR"
+        },
+        "sameAs": [
+            "https://instagram.com/zavati.estamparia/"
+        ]
+        },
+        {
+        "@type": "WebSite",
+        "@id": "https://zavatiestamparia.com/#website",
+        "url": "https://zavatiestamparia.com/",
+        "name": "Zavati Estamparia",
+        "publisher": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        }
+        },
+        {
+        "@type": "Service",
+        "@id": "https://zavatiestamparia.com/servicos/dtf/#service",
+        "name": "Impressão DTF",
+        "serviceType": "Impressão DTF em tecidos e roupas",
+        "description": "Serviço de impressão DTF para camisetas, uniformes e peças personalizadas, com cores vibrantes, alta definição e excelente durabilidade.",
+        "url": "https://zavatiestamparia.com/servicos/dtf/",
+        "image": "https://zavatiestamparia.com/assets/images/seo/og-dtf.webp",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+        },
+        "provider": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        }
+        },
+        {
+        "@type": "BreadcrumbList",
+        "@id": "https://zavatiestamparia.com/servicos/dtf/#breadcrumb",
+        "itemListElement": [
             {
-                "@type": "Service",
-                "@id": "https://zavatiestamparia.com/servicos/dtf/#service",
-                "name": "Impressão DTF",
-                "serviceType": "Impressão DTF em tecidos e roupas",
-                "description": "Serviço de impressão DTF para camisetas, uniformes e peças personalizadas, com cores vibrantes, alta definição e excelente durabilidade.",
-                "url": "https://zavatiestamparia.com/servicos/dtf/",
-                "image": "https://zavatiestamparia.com/assets/images/seo/og-dtf.webp",
-                "areaServed": {
-                    "@type": "Country",
-                    "name": "Brasil"
-                },
-                "provider": {
-                    "@type": "LocalBusiness",
-                    "@id": "https://zavatiestamparia.com/#localbusiness",
-                    "name": "Zavati Estamparia",
-                    "url": "https://zavatiestamparia.com/",
-                    "telephone": "+551145518884"
-                }
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://zavatiestamparia.com/"
             },
             {
-                "@type": "BreadcrumbList",
-                "@id": "https://zavatiestamparia.com/servicos/dtf/#breadcrumb",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Início",
-                        "item": "https://zavatiestamparia.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Serviços",
-                        "item": "https://zavatiestamparia.com/servicos/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Impressão DTF",
-                        "item": "https://zavatiestamparia.com/servicos/dtf/"
-                    }
-                ]
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Serviços",
+            "item": "https://zavatiestamparia.com/servicos/"
+            },
+            {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Impressão DTF",
+            "item": "https://zavatiestamparia.com/servicos/dtf/"
             }
         ]
+        },
+        {
+        "@type": "WebPage",
+        "@id": "https://zavatiestamparia.com/servicos/dtf/#webpage",
+        "url": "https://zavatiestamparia.com/servicos/dtf/",
+        "name": "Impressão DTF em São Paulo | Zavati Estamparia",
+        "description": "Impressão DTF para camisetas, uniformes e peças personalizadas, com alta definição, cores vibrantes e excelente durabilidade.",
+        "isPartOf": {
+            "@id": "https://zavatiestamparia.com/#website"
+        },
+        "about": {
+            "@id": "https://zavatiestamparia.com/servicos/dtf/#service"
+        },
+        "breadcrumb": {
+            "@id": "https://zavatiestamparia.com/servicos/dtf/#breadcrumb"
+        }
+        }
+    ]
     }
     </script>
 </head>
@@ -1057,6 +1100,16 @@
                 </div>
 
             </section>
+
+
+            <p class="guia-tecnicas">
+                Ainda não sabe qual processo é ideal para o seu projeto?
+                Veja nosso guia sobre
+                <a href="/blog/como-escolher-tecnica/">
+                    DTF, serigrafia ou bordado
+                </a>
+                e entenda as diferenças entre cada técnica.
+            </p>
 
 
             <!-- CHAMADA FINAL -->

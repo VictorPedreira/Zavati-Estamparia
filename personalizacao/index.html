@@ -40,55 +40,75 @@
 
     <script type="application/ld+json">
     {
-        "@context":"https://schema.org",
-        "@type":"Organization",
-        "name":"Zavati Estamparia",
-        "url":"https://zavatiestamparia.com",
-        "logo":"https://zavatiestamparia.com/assets/images/logo.webp",
-        "description":"Especializada em estamparia, bordado computadorizado, silk screen e impressão DTF para camisetas, uniformes e peças personalizadas.",
-        "email":"zavatiestamparia@gmail.com",
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+        "@type": "LocalBusiness",
+        "@id": "https://zavatiestamparia.com/#localbusiness",
+        "name": "Zavati Estamparia",
+        "url": "https://zavatiestamparia.com/",
+        "logo": "https://zavatiestamparia.com/assets/images/logo.webp",
+        "image": "https://zavatiestamparia.com/assets/images/logo.webp",
+        "description": "Especializada em estamparia, bordado computadorizado, silk screen e impressão DTF para camisetas, uniformes e peças personalizadas.",
+        "email": "zavatiestamparia@gmail.com",
         "telephone": "+551145518884",
-        "sameAs":[
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Pinheiro, 873",
+            "addressLocality": "Cotia",
+            "addressRegion": "SP",
+            "postalCode": "06712-355",
+            "addressCountry": "BR"
+        },
+        "sameAs": [
             "https://instagram.com/zavati.estamparia/"
         ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"LocalBusiness",
-        "name":"Zavati Estamparia",
-        "image":"https://zavatiestamparia.com/assets/images/logo.webp",
-        "url":"https://zavatiestamparia.com",
-        "telephone": "+551145518884",
-        "priceRange":"$$",
-        "address":{
-            "@type":"PostalAddress",
-            "streetAddress":"Rua Pinheiro, 873",
-            "addressLocality":"Cotia",
-            "addressRegion":"SP",
-            "postalCode":"06712-355",
-            "addressCountry":"BR"
-    }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"WebSite",
-        "name":"Zavati Estamparia",
-        "url":"https://zavatiestamparia.com"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"WebPage",
-        "name":"Personalização",
-        "url":"https://zavatiestamparia.com/personalizacao/"
+        },
+        {
+        "@type": "WebSite",
+        "@id": "https://zavatiestamparia.com/#website",
+        "url": "https://zavatiestamparia.com/",
+        "name": "Zavati Estamparia",
+        "publisher": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        }
+        },
+        {
+        "@type": "BreadcrumbList",
+        "@id": "https://zavatiestamparia.com/personalizacao/#breadcrumb",
+        "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://zavatiestamparia.com/"
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Personalização",
+            "item": "https://zavatiestamparia.com/personalizacao/"
+            }
+        ]
+        },
+        {
+        "@type": "WebPage",
+        "@id": "https://zavatiestamparia.com/personalizacao/#webpage",
+        "url": "https://zavatiestamparia.com/personalizacao/",
+        "name": "Personalize sua Camiseta | Zavati Estamparia",
+        "description": "Personalize sua camiseta online: escolha o modelo, a cor, envie sua arte, ajuste o tamanho e visualize sua personalização antes de solicitar um orçamento.",
+        "isPartOf": {
+            "@id": "https://zavatiestamparia.com/#website"
+        },
+        "about": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        },
+        "breadcrumb": {
+            "@id": "https://zavatiestamparia.com/personalizacao/#breadcrumb"
+        }
+        }
+    ]
     }
     </script>
 

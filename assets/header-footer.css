@@ -67,7 +67,14 @@ body {
     margin: 0;
     padding: 0;
     overflow: visible;
-    background: #17232f;
+    background: linear-gradient(
+    90deg,
+    #087f83 0%,
+    #123a55 22%,
+    #111921 50%,
+    #123a55 78%,
+    #087f83 100%
+);
 }
 
 /* .navbar {

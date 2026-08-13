@@ -26,9 +26,11 @@
 
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://zavatiestamparia.com/#organization",
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+        "@type": "LocalBusiness",
+        "@id": "https://zavatiestamparia.com/#localbusiness",
         "name": "Zavati Estamparia",
         "url": "https://zavatiestamparia.com/",
         "logo": "https://zavatiestamparia.com/assets/images/logo.webp",
@@ -36,6 +38,7 @@
         "description": "Especializada em estamparia, bordado computadorizado, silk screen e impressão DTF para camisetas, uniformes e peças personalizadas.",
         "email": "zavatiestamparia@gmail.com",
         "telephone": "+551145518884",
+        "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Rua Pinheiro, 873",
@@ -47,46 +50,74 @@
         "sameAs": [
             "https://www.instagram.com/zavati.estamparia/"
         ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"LocalBusiness",
-        "name":"Zavati Estamparia",
-        "image":"https://zavatiestamparia.com/assets/images/logo.webp",
-        "url":"https://zavatiestamparia.com",
-        "telephone": "+551145518884",
-        "priceRange":"$$",
-        "address":{
-            "@type":"PostalAddress",
-            "streetAddress":"Rua Pinheiro, 873",
-            "addressLocality":"Cotia",
-            "addressRegion":"SP",
-            "postalCode":"06712-355",
-            "addressCountry":"BR"
+        },
+        {
+        "@type": "WebSite",
+        "@id": "https://zavatiestamparia.com/#website",
+        "url": "https://zavatiestamparia.com/",
+        "name": "Zavati Estamparia",
+        "publisher": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
         }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"WebSite",
-        "@id": "https://zavatiestamparia.com/#localbusiness",
-        "name":"Zavati Estamparia",
-        "url":"https://zavatiestamparia.com"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"WebPage",
-        "@id": "https://zavatiestamparia.com/#localbusiness",
-        "name":"Home",
-        "url":"https://zavatiestamparia.com/"
+        },
+        {
+        "@type": "BlogPosting",
+        "@id": "https://zavatiestamparia.com/blog/ecobags-personalizadas/#article",
+        "headline": "Ecobags personalizadas: praticidade, sustentabilidade e identidade para sua marca",
+        "description": "Saiba como ecobags personalizadas podem ser usadas por empresas, eventos e marcas como uma alternativa prática, sustentável e versátil.",
+        "inLanguage": "pt-BR",
+        "image": "https://zavatiestamparia.com/assets/images/blog/og-ecobags-personalizadas.webp",
+        "mainEntityOfPage": {
+            "@id": "https://zavatiestamparia.com/blog/ecobags-personalizadas/#webpage"
+        },
+        "author": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        },
+        "publisher": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        }
+        },
+        {
+        "@type": "BreadcrumbList",
+        "@id": "https://zavatiestamparia.com/blog/ecobags-personalizadas/#breadcrumb",
+        "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://zavatiestamparia.com/"
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://zavatiestamparia.com/blog/"
+            },
+            {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Ecobags Personalizadas",
+            "item": "https://zavatiestamparia.com/blog/ecobags-personalizadas/"
+            }
+        ]
+        },
+        {
+        "@type": "WebPage",
+        "@id": "https://zavatiestamparia.com/blog/ecobags-personalizadas/#webpage",
+        "url": "https://zavatiestamparia.com/blog/ecobags-personalizadas/",
+        "name": "Ecobags Personalizadas | Zavati Estamparia",
+        "description": "Conheça as vantagens das ecobags personalizadas para empresas, eventos, brindes e ações promocionais.",
+        "isPartOf": {
+            "@id": "https://zavatiestamparia.com/#website"
+        },
+        "about": {
+            "@id": "https://zavatiestamparia.com/blog/ecobags-personalizadas/#article"
+        },
+        "breadcrumb": {
+            "@id": "https://zavatiestamparia.com/blog/ecobags-personalizadas/#breadcrumb"
+        }
+        }
+    ]
     }
     </script>
 

@@ -26,9 +26,11 @@
 
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://zavatiestamparia.com/#organization",
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+        "@type": "LocalBusiness",
+        "@id": "https://zavatiestamparia.com/#localbusiness",
         "name": "Zavati Estamparia",
         "url": "https://zavatiestamparia.com/",
         "logo": "https://zavatiestamparia.com/assets/images/logo.webp",
@@ -36,6 +38,7 @@
         "description": "Especializada em estamparia, bordado computadorizado, silk screen e impressão DTF para camisetas, uniformes e peças personalizadas.",
         "email": "zavatiestamparia@gmail.com",
         "telephone": "+551145518884",
+        "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Rua Pinheiro, 873",
@@ -47,46 +50,30 @@
         "sameAs": [
             "https://www.instagram.com/zavati.estamparia/"
         ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"LocalBusiness",
-        "name":"Zavati Estamparia",
-        "image":"https://zavatiestamparia.com/assets/images/logo.webp",
-        "url":"https://zavatiestamparia.com",
-        "telephone": "+551145518884",
-        "priceRange":"$$",
-        "address":{
-            "@type":"PostalAddress",
-            "streetAddress":"Rua Pinheiro, 873",
-            "addressLocality":"Cotia",
-            "addressRegion":"SP",
-            "postalCode":"06712-355",
-            "addressCountry":"BR"
+        },
+        {
+        "@type": "WebSite",
+        "@id": "https://zavatiestamparia.com/#website",
+        "url": "https://zavatiestamparia.com/",
+        "name": "Zavati Estamparia",
+        "publisher": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
         }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"WebSite",
-        "@id": "https://zavatiestamparia.com/#localbusiness",
-        "name":"Zavati Estamparia",
-        "url":"https://zavatiestamparia.com"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"WebPage",
-        "@id": "https://zavatiestamparia.com/#localbusiness",
-        "name":"Home",
-        "url":"https://zavatiestamparia.com/"
+        },
+        {
+        "@type": "WebPage",
+        "@id": "https://zavatiestamparia.com/#webpage",
+        "url": "https://zavatiestamparia.com/",
+        "name": "Estamparia, Bordados e Camisetas Personalizadas | Zavati Estamparia",
+        "description": "Estamparia especializada em DTF, serigrafia, bordado computadorizado e camisetas personalizadas para empresas, eventos e projetos personalizados.",
+        "isPartOf": {
+            "@id": "https://zavatiestamparia.com/#website"
+        },
+        "about": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        }
+        }
+    ]
     }
     </script>
 

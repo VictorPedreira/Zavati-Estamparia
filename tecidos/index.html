@@ -73,16 +73,74 @@
     <!-- Dados estruturados -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Tecidos para Uniformes e Camisetas Personalizadas",
-        "url": "https://zavatiestamparia.com/tecidos/",
-        "description": "Conheça os tecidos utilizados pela Zavati em camisetas, uniformes e produtos personalizados.",
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "Zavati Estamparia",
-            "url": "https://zavatiestamparia.com"
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+        "@type": "LocalBusiness",
+        "@id": "https://zavatiestamparia.com/#localbusiness",
+        "name": "Zavati Estamparia",
+        "url": "https://zavatiestamparia.com/",
+        "image": "https://zavatiestamparia.com/assets/images/logo.webp",
+        "logo": "https://zavatiestamparia.com/assets/images/logo.webp",
+        "telephone": "+551145518884",
+        "email": "zavatiestamparia@gmail.com",
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Pinheiro, 873",
+            "addressLocality": "Cotia",
+            "addressRegion": "SP",
+            "postalCode": "06712-355",
+            "addressCountry": "BR"
+        },
+        "sameAs": [
+            "https://instagram.com/zavati.estamparia/"
+        ]
+        },
+        {
+        "@type": "WebSite",
+        "@id": "https://zavatiestamparia.com/#website",
+        "url": "https://zavatiestamparia.com/",
+        "name": "Zavati Estamparia",
+        "publisher": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
         }
+        },
+        {
+        "@type": "BreadcrumbList",
+        "@id": "https://zavatiestamparia.com/tecidos/#breadcrumb",
+        "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://zavatiestamparia.com/"
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tecidos",
+            "item": "https://zavatiestamparia.com/tecidos/"
+            }
+        ]
+        },
+        {
+        "@type": "WebPage",
+        "@id": "https://zavatiestamparia.com/tecidos/#webpage",
+        "url": "https://zavatiestamparia.com/tecidos/",
+        "name": "Tecidos para Uniformes e Camisetas Personalizadas | Zavati Estamparia",
+        "description": "Conheça os tecidos utilizados pela Zavati em camisetas, uniformes e produtos personalizados, como algodão, poliéster e dry fit.",
+        "isPartOf": {
+            "@id": "https://zavatiestamparia.com/#website"
+        },
+        "about": {
+            "@id": "https://zavatiestamparia.com/#localbusiness"
+        },
+        "breadcrumb": {
+            "@id": "https://zavatiestamparia.com/tecidos/#breadcrumb"
+        }
+        }
+    ]
     }
     </script>
     
