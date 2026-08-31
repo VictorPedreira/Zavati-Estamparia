@@ -1582,7 +1582,7 @@ body {
     background: #f6f9fd;
 }
 
-.cookie-category div {
+.cookie-category-text {
     display: grid;
 
     gap: 0.25rem;
