@@ -40,7 +40,7 @@
 
     <meta
         property="og:image"
-        content="https://zavatiestamparia.com/assets/images/blog/og-inspiracoes-estampas.webp"
+        content="https://zavatiestamparia.com/assets/images/blog/hero-produto.webp"
     >
 
     <meta
@@ -60,7 +60,7 @@
 
     <meta
         name="twitter:image"
-        content="https://zavatiestamparia.com/assets/images/blog/og-inspiracoes-estampas.webp"
+        content="https://zavatiestamparia.com/assets/images/blog/hero-produto.webp"
     >
     <script type="application/ld+json">
     {
@@ -79,14 +79,31 @@
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Rua Pinheiro, 873",
+            "streetAddress": "Rua Pinheiros, 873",
             "addressLocality": "Cotia",
             "addressRegion": "SP",
             "postalCode": "06712-355",
             "addressCountry": "BR"
         },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -23.6159172,
+            "longitude": -46.8435239
+        },
+        "hasMap": "https://www.google.com/maps/place/R.+Pinheiros,+873+-+Jardim+Colibri,+Cotia+-+SP,+06712-355/@-23.6159172,-46.8461042,17z/data=!3m1!4b1!4m5!3m4!1s0x94cfaae769747e79:0xe5cd8fd081d181a8!8m2!3d-23.6159172!4d-46.8435239",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+                ],
+                "opens": "00:00",
+                "closes": "23:59"
+            }
+        ],
         "sameAs": [
-            "https://www.instagram.com/zavati.estamparia/"
+            "https://www.instagram.com/zavati.estamparia/",
+            "https://wa.me/551145518884"
         ]
         },
         {
@@ -106,7 +123,7 @@
         "datePublished": "2026-08-12",
         "dateModified": "2026-08-12",
         "inLanguage": "pt-BR",
-        "image": "https://zavatiestamparia.com/assets/images/blog/og-inspiracoes-estampas.webp",
+        "image": "https://zavatiestamparia.com/assets/images/blog/hero-produto.webp",
         "mainEntityOfPage": {
             "@id": "https://zavatiestamparia.com/blog/inspiracoes-estampas-marca/#webpage"
         },
@@ -181,7 +198,7 @@
         sizes="192x192"
         href="/assets/favicon/favicon-192x192.webp"
     >
-    <link rel="canonical" href="https://zavatiestamparia.com/">
+    <link rel="canonical" href="https://zavatiestamparia.com/blog/inspiracoes-estampas-marca/">
     <link rel="stylesheet" href="/assets/header-footer.css">
     <link rel="stylesheet" href="/blog/como-escolher-tecnica/style.css">
     <link rel="stylesheet" href="/blog/inspiracoes-estampas-marca/style.css">
@@ -280,7 +297,7 @@
 
         <div class="logo-container">
             <a href="/" class="logo-circle logo-btn" aria-label="Ir para a página inicial">
-                <img src="/assets/images/logo.webp" alt="Zavati Estamparia">
+                <img src="/assets/images/logo.webp" alt="Zavati Estamparia" width="1291" height="1248">
             </a>
         </div>
     </header>
@@ -1250,24 +1267,15 @@
                 </p>
 
                 <label class="cookie-category cookie-option">
-                    <div>
+                    <span class="cookie-category-text">
                         <strong>Permitir cookies analíticos</strong>
-
                         <span>
                             Ajuda a Zavati a entender a utilização
                             do site.
                         </span>
-                    </div>
-
-                    <input
-                        type="checkbox"
-                        id="analyticsCookies"
-                    >
-
-                    <span
-                        class="cookie-switch"
-                        aria-hidden="true"
-                    ></span>
+                    </span>
+                    <input type="checkbox" id="analyticsCookies">
+                    <span class="cookie-switch" aria-hidden="true"></span>
                 </label>
             </section>
 
