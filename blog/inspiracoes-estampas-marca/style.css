@@ -255,6 +255,28 @@
     line-height: 1.7;
 }
 
+.idea-example {
+    display: block;
+    margin-top: 14px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.idea-example img {
+    display: block;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.idea-example span {
+    display: block;
+    margin-top: 6px;
+    color: var(--article-blue);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
 .idea-card small {
     color: var(--article-blue);
 
