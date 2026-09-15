@@ -303,6 +303,30 @@ html {
     letter-spacing: -0.035em;
 }
 
+/* EXEMPLO REAL */
+
+.article-example {
+    margin: 28px 0;
+    overflow: hidden;
+    border: 1px solid var(--article-border);
+    border-radius: 20px;
+    background: var(--article-white);
+    box-shadow: 0 15px 36px rgba(14, 38, 76, 0.06);
+}
+
+.article-example img {
+    display: block;
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+}
+
+.article-example figcaption {
+    padding: 14px 20px;
+    color: var(--article-muted);
+    font-size: 0.88rem;
+}
+
 /* BLOCO DE INFORMAÇÕES */
 
 .tech-information {

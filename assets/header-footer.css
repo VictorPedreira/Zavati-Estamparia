@@ -154,6 +154,11 @@ body {
     color: #ffc400;
 }
 
+.mobile-link-secondary {
+    opacity: 0.65;
+    font-size: 0.9rem;
+}
+
 .nav-link.active::after {
     content: "";
     position: absolute;
