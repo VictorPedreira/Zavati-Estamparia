@@ -151,7 +151,7 @@
 
                 <div class="nav-right">
                     <a href="/materiais/" class="nav-link">Materiais</a>
-                    <a href="/profissionais/" class="nav-link">Profissionais</a>
+                    <a href="/blog/" class="nav-link active" aria-current="page">Blog</a>
                     <a href="/personalizacao/" class="nav-link">Personalização</a>
                 </div>
 
@@ -203,9 +203,10 @@
                 </details>
                 <a href="/materiais/" class="mobile-link">Materiais</a>
                 <a href="/tecidos/" class="mobile-link">Tecidos</a>
-                <a href="/profissionais/" class="mobile-link">Profissionais</a>
+                <a href="/blog/" class="mobile-link active" aria-current="page">Blog</a>
                 <a href="/personalizacao/" class="mobile-link">Personalização</a>
                 <a href="/objetivos/" class="mobile-link mobile-link-secondary">Objetivos</a>
+                <a href="/profissionais/" class="mobile-link mobile-link-secondary">Profissionais</a>
             </div>
         </nav>
 
@@ -390,6 +391,15 @@
                 aria-pressed="false"
             >
                 Inspiração
+            </button>
+
+            <button
+                type="button"
+                class="blog-filter"
+                data-filter="tendencias"
+                aria-pressed="false"
+            >
+                Tendências
             </button>
         </div>
 
@@ -675,6 +685,57 @@
                 </div>
             </article>
 
+            <!-- TENDÊNCIAS -->
+            <article
+                class="blog-card"
+                data-category="tendencias"
+            >
+                <a
+                    href="/blog/maximalismo-grafico-retro/"
+                    class="blog-card-image"
+                >
+                    <div class="blog-card-image-placeholder">
+                        <span aria-hidden="true">🖼</span>
+                        <small>Imagem em breve</small>
+                    </div>
+
+                    <span class="blog-category">
+                        Tendências
+                    </span>
+                </a>
+
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-09-21">
+                            21 set. 2026
+                        </time>
+
+                        <span>6 min de leitura</span>
+                    </div>
+
+                    <h3>
+                        <a href="/blog/maximalismo-grafico-retro/">
+                            Maximalismo Gráfico e Retrô:
+                            a tendência que voltou com tudo
+                        </a>
+                    </h3>
+
+                    <p>
+                        Cores vibrantes, referências vintage e
+                        composições ousadas: entenda a tendência e
+                        como aplicá-la em peças personalizadas.
+                    </p>
+
+                    <a
+                        href="/blog/maximalismo-grafico-retro/"
+                        class="blog-card-link"
+                    >
+                        Continuar lendo
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
             <!-- GUIAS -->
             <article
                 class="blog-card"
@@ -935,16 +996,16 @@
                     Política de Cookies
                 </button>
 
-                <a
-                    href="/blog/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <a href="/blog/">
                     Blog
                 </a>
 
                 <a href="/objetivos/">
                     Objetivos
+                </a>
+
+                <a href="/profissionais/">
+                    Profissionais
                 </a>
             </div>
         </div>
