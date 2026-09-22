@@ -175,6 +175,7 @@ function initPersonalization() {
     const colorInfo = document.getElementById('colorInfo');
     const colorSample = document.getElementById('colorSample');
     const logoInfo = document.getElementById('logoInfo');
+    const quoteButton = document.getElementById('quoteBtn');
 
     if (!shirtModel || !shirtImage || typeof SHIRT_MODELS === 'undefined') return;
 
@@ -188,6 +189,13 @@ function initPersonalization() {
     let dragOffsetX = 0;
     let dragOffsetY = 0;
 
+    /*
+    * Frente e costas guardam a própria arte, tamanho e posição.
+    * Ao trocar de lado, o estado atual é salvo aqui e o do
+    * lado de destino é restaurado (ou limpo, se estiver vazio).
+    */
+    let viewState = { front: null, back: null };
+
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d', { willReadFrequently: true });
 
@@ -198,7 +206,9 @@ function initPersonalization() {
     updateViewButtons();
     renderShirt();
 
-    shirtModel.addEventListener('change', () => {
+    shirtModel.addEventListener('change', async () => {
+        captureCurrentViewState();
+
         currentModel = shirtModel.value;
 
         /*
@@ -210,20 +220,28 @@ function initPersonalization() {
         modelInfo.textContent =
             getShirtName(currentModel);
 
-        logoWasDragged = false;
-
         updateViewButtons();
-        renderShirt();
+
+        /*
+        * Primeiro renderiza a camiseta do novo lado, depois
+        * restaura a arte — nessa ordem, a posição da arte é
+        * calculada em cima do tamanho certo da camiseta.
+        */
+        await renderShirtAsync();
+        await restoreViewState(currentView);
     });
 
     viewButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            currentView = button.dataset.view;
+        button.addEventListener('click', async () => {
+            const nextView = button.dataset.view;
+            if (nextView === currentView) return;
 
-            logoWasDragged = false;
-
+            captureCurrentViewState();
+            currentView = nextView;
             updateViewButtons();
-            renderShirt();
+
+            await renderShirtAsync();
+            await restoreViewState(currentView);
         });
     });
 
@@ -299,6 +317,7 @@ function initPersonalization() {
         currentModel = SHIRT_MODELS[0].id;
         currentView = 'front';
         currentColor = COLORS[0];
+        viewState = { front: null, back: null };
         currentLogoSizeCm = 20;
         currentPosition = 'center';
         logoWasDragged = false;
@@ -356,7 +375,7 @@ function initPersonalization() {
         colorSample.style.backgroundColor = currentColor.cor;
     }
 
-function renderShirt() {
+function renderShirt(onReady) {
     const modelScales = {
         'moletom-capuz': {
             front: 1.35,
@@ -458,6 +477,8 @@ function renderShirt() {
                 if (!logoWasDragged) {
                     updateLogoPosition();
                 }
+
+                if (typeof onReady === 'function') onReady();
             });
         };
 
@@ -674,6 +695,292 @@ function renderShirt() {
 
         document.documentElement.classList.remove('dragging-art');
         document.body.classList.remove('dragging-art');
+    }
+
+    function captureCurrentViewState() {
+        if (previewLogo.hidden || !previewLogo.src) {
+            viewState[currentView] = null;
+            return;
+        }
+
+        viewState[currentView] = {
+            src: previewLogo.src,
+            fileName: logoInfo.textContent,
+            sizeCm: currentLogoSizeCm,
+            position: currentPosition,
+            dragged: logoWasDragged,
+            leftPx: logoWasDragged ? parseFloat(previewLogo.style.left) : null,
+            topPx: logoWasDragged ? parseFloat(previewLogo.style.top) : null
+        };
+    }
+
+    function restoreViewState(view) {
+        return new Promise(resolve => {
+            const state = viewState[view];
+
+            if (!state) {
+                previewLogo.onload = null;
+                previewLogo.src = '';
+                previewLogo.hidden = true;
+                previewLogo.style.left = '';
+                previewLogo.style.top = '';
+                logoInfo.textContent = 'Nenhuma arte enviada';
+
+                currentLogoSizeCm = 20;
+                currentPosition = 'center';
+                logoWasDragged = false;
+
+                logoSize.value = String(currentLogoSizeCm);
+                sizeValue.textContent = formatCm(currentLogoSizeCm);
+                summarySize.textContent = formatCm(currentLogoSizeCm);
+
+                positionButtons.forEach(button => {
+                    button.classList.toggle('active', button.dataset.position === 'center');
+                });
+
+                resolve();
+                return;
+            }
+
+            currentLogoSizeCm = state.sizeCm;
+            currentPosition = state.position;
+            logoWasDragged = state.dragged;
+
+            logoSize.value = String(currentLogoSizeCm);
+            sizeValue.textContent = formatCm(currentLogoSizeCm);
+            summarySize.textContent = formatCm(currentLogoSizeCm);
+
+            positionButtons.forEach(button => {
+                button.classList.toggle('active', button.dataset.position === currentPosition);
+            });
+
+            logoInfo.textContent = state.fileName;
+
+            previewLogo.onload = () => {
+                previewLogo.hidden = false;
+                applyLogoSize();
+
+                if (logoWasDragged && state.leftPx !== null) {
+                    previewLogo.style.left = `${state.leftPx}px`;
+                    previewLogo.style.top = `${state.topPx}px`;
+                } else {
+                    updateLogoPosition();
+                }
+
+                resolve();
+            };
+
+            previewLogo.src = state.src;
+        });
+    }
+
+    function renderShirtAsync() {
+        return new Promise(resolve => renderShirt(resolve));
+    }
+
+    /*
+    * Desenha em um canvas separado exatamente o que está
+    * na tela agora (camiseta colorida + arte, se houver),
+    * usando a posição real dos elementos no DOM.
+    */
+    function compositeFromDOM() {
+        return new Promise((resolve, reject) => {
+            const shirtImg = new Image();
+
+            shirtImg.onload = () => {
+                const output = document.createElement('canvas');
+                output.width = shirtImg.naturalWidth;
+                output.height = shirtImg.naturalHeight;
+
+                const outputContext = output.getContext('2d');
+                outputContext.drawImage(shirtImg, 0, 0);
+
+                const finish = () => output.toBlob(resolve, 'image/png');
+
+                if (!previewLogo.hidden && previewLogo.src && shirtImage.clientWidth) {
+                    const logoImg = new Image();
+
+                    logoImg.onload = () => {
+                        const scale = output.width / shirtImage.clientWidth;
+                        const shirtRect = shirtImage.getBoundingClientRect();
+                        const logoRect = previewLogo.getBoundingClientRect();
+
+                        outputContext.drawImage(
+                            logoImg,
+                            (logoRect.left - shirtRect.left) * scale,
+                            (logoRect.top - shirtRect.top) * scale,
+                            logoRect.width * scale,
+                            logoRect.height * scale
+                        );
+
+                        finish();
+                    };
+
+                    logoImg.onerror = finish;
+                    logoImg.src = previewLogo.src;
+                } else {
+                    finish();
+                }
+            };
+
+            shirtImg.onerror = () => reject(new Error('Não foi possível gerar a imagem da camiseta.'));
+            shirtImg.src = shirtImage.src;
+        });
+    }
+
+    /*
+    * Gera a foto de uma das duas visualizações (frente/costas),
+    * trocando de aba temporariamente se necessário e voltando
+    * para a visualização em que o usuário estava.
+    */
+    async function captureView(view) {
+        const previousView = currentView;
+        const needsSwitch = view !== previousView;
+
+        if (needsSwitch) {
+            currentView = view;
+            updateViewButtons();
+            await renderShirtAsync();
+            await restoreViewState(currentView);
+        }
+
+        const blob = await compositeFromDOM();
+
+        if (needsSwitch) {
+            currentView = previousView;
+            updateViewButtons();
+            await renderShirtAsync();
+            await restoreViewState(currentView);
+        }
+
+        return blob;
+    }
+
+    function buildQuoteMessage() {
+        const lines = [
+            'Olá Zavati! Gostaria de solicitar um orçamento para personalização de camiseta.',
+            '',
+            `Modelo: ${getShirtName(currentModel)}`,
+            `Cor: ${currentColor.nome}`
+        ];
+
+        if (viewState.front) lines.push(`Arte na frente: ${formatCm(viewState.front.sizeCm)}`);
+        if (viewState.back) lines.push(`Arte nas costas: ${formatCm(viewState.back.sizeCm)}`);
+        if (!viewState.front && !viewState.back) lines.push('Ainda não apliquei uma arte, gostaria de mais informações.');
+
+        lines.push(
+            '',
+            'Baixei a imagem com a frente e as costas da camiseta personalizada — vou anexar aqui na conversa.'
+        );
+
+        return lines.join('\n');
+    }
+
+    function downloadBlob(blob, filename) {
+        if (!blob) return;
+
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+
+        setTimeout(() => URL.revokeObjectURL(url), 4000);
+    }
+
+    function blobToImage(blob) {
+        return new Promise((resolve, reject) => {
+            const url = URL.createObjectURL(blob);
+            const img = new Image();
+            img.onload = () => resolve({ img, url });
+            img.onerror = reject;
+            img.src = url;
+        });
+    }
+
+    /*
+    * Junta a foto da frente e das costas em uma única imagem,
+    * lado a lado, com legenda — assim é só um arquivo para
+    * baixar e anexar no WhatsApp.
+    */
+    async function combineFrontAndBack(frontBlob, backBlob) {
+        const [front, back] = await Promise.all([
+            blobToImage(frontBlob),
+            blobToImage(backBlob)
+        ]);
+
+        const labelHeight = 56;
+        const gap = 32;
+        const width = front.img.naturalWidth + back.img.naturalWidth + gap;
+        const height = labelHeight + Math.max(front.img.naturalHeight, back.img.naturalHeight);
+
+        const combined = document.createElement('canvas');
+        combined.width = width;
+        combined.height = height;
+
+        const combinedContext = combined.getContext('2d');
+        combinedContext.fillStyle = '#ffffff';
+        combinedContext.fillRect(0, 0, width, height);
+
+        combinedContext.fillStyle = '#152033';
+        combinedContext.textAlign = 'center';
+        combinedContext.font = `bold ${Math.round(labelHeight * 0.5)}px Arial, sans-serif`;
+
+        combinedContext.fillText('Frente', front.img.naturalWidth / 2, labelHeight * 0.68);
+        combinedContext.fillText(
+            'Costas',
+            front.img.naturalWidth + gap + back.img.naturalWidth / 2,
+            labelHeight * 0.68
+        );
+
+        combinedContext.drawImage(front.img, 0, labelHeight);
+        combinedContext.drawImage(back.img, front.img.naturalWidth + gap, labelHeight);
+
+        URL.revokeObjectURL(front.url);
+        URL.revokeObjectURL(back.url);
+
+        return new Promise(resolve => combined.toBlob(resolve, 'image/png'));
+    }
+
+    if (quoteButton) {
+        quoteButton.addEventListener('click', async () => {
+            const WHATSAPP_NUMBER = '551145518884';
+            const originalLabel = quoteButton.textContent;
+
+            quoteButton.disabled = true;
+            quoteButton.textContent = 'Preparando orçamento...';
+
+            try {
+                captureCurrentViewState();
+
+                /*
+                * Sequencial: captureView troca a visualização no DOM,
+                * então rodar em paralelo faria as duas capturas
+                * disputarem o mesmo estado.
+                */
+                const frontBlob = await captureView('front');
+                const backBlob = await captureView('back');
+
+                const combinedBlob = await combineFrontAndBack(frontBlob, backBlob);
+                downloadBlob(combinedBlob, 'camiseta-personalizada-zavati.png');
+
+                const message = buildQuoteMessage();
+
+                window.open(
+                    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+                    '_blank',
+                    'noopener,noreferrer'
+                );
+            } catch (error) {
+                console.error(error);
+                alert('Não foi possível preparar o orçamento. Tente novamente.');
+            } finally {
+                quoteButton.disabled = false;
+                quoteButton.textContent = originalLabel;
+            }
+        });
     }
 
     function updateViewButtons() {

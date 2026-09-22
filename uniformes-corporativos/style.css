@@ -110,24 +110,6 @@ body {
     font-weight: 700;
 }
 
-/* ===== BREADCRUMB ===== */
-.uc-breadcrumb {
-    max-width: 1200px;
-    margin: 1.2rem auto 0;
-    padding: 0 2rem;
-    color: var(--uc-muted);
-    font-size: .82rem;
-}
-
-.uc-breadcrumb a {
-    color: var(--uc-muted);
-    text-decoration: none;
-}
-
-.uc-breadcrumb a:hover {
-    color: var(--uc-blue);
-}
-
 /* ===== HERO ===== */
 .uc-hero {
     max-width: 1200px;
