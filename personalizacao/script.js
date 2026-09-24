@@ -1017,5 +1017,5 @@ function hexToRgb(hex) {
     };
 }
 
-document.querySelector('#current-year').textContent =
-    new Date().getFullYear();
+const currentYear = document.querySelector('#current-year');
+if (currentYear) currentYear.textContent = String(new Date().getFullYear());
