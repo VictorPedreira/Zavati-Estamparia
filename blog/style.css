@@ -362,6 +362,139 @@ span::before {
 }
 
 /* =========================================
+   CARROSSEL DE DESTAQUES
+========================================= */
+
+.blog-carousel {
+    --carousel-arrow-top: 50%;
+}
+
+.blog-carousel-viewport {
+    overflow: hidden;
+
+    border-radius: 26px;
+
+    box-shadow:
+        0 22px 60px
+        rgba(35, 57, 88, 0.14);
+}
+
+.blog-carousel-track {
+    display: flex;
+
+    transition:
+        transform 0.55s ease;
+}
+
+.blog-carousel-slide {
+    flex: 0 0 100%;
+
+    min-width: 0;
+
+    box-shadow: none;
+}
+
+.blog-carousel-arrow {
+    position: absolute;
+    top: var(--carousel-arrow-top);
+    z-index: 3;
+
+    display: grid;
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    border:
+        1px solid var(--blog-border);
+
+    border-radius: 50%;
+
+    color: var(--blog-blue);
+    background: var(--blog-white);
+
+    box-shadow:
+        0 10px 26px
+        rgba(35, 57, 88, 0.2);
+
+    font-size: 1.9rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.blog-carousel-arrow span {
+    margin-top: -4px;
+}
+
+.blog-carousel-arrow:hover {
+    color: var(--blog-white);
+    background: var(--blog-blue);
+
+    transform:
+        translateY(-50%)
+        scale(1.06);
+}
+
+.blog-carousel-arrow:focus-visible,
+.blog-carousel-dot:focus-visible {
+    outline:
+        3px solid var(--blog-yellow);
+
+    outline-offset: 3px;
+}
+
+.blog-carousel-prev {
+    left: 16px;
+}
+
+.blog-carousel-next {
+    right: 16px;
+}
+
+.blog-carousel-dots {
+    display: flex;
+    justify-content: center;
+
+    gap: 0.6rem;
+
+    margin-top: 1.2rem;
+}
+
+.blog-carousel-dot {
+    width: 10px;
+    height: 10px;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 999px;
+
+    background: var(--blog-border);
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.blog-carousel-dot[aria-current="true"] {
+    width: 28px;
+
+    background: var(--blog-blue);
+}
+
+/* =========================================
    LISTA DE ARTIGOS
 ========================================= */
 
@@ -888,6 +1021,11 @@ span::before {
         min-height: 370px;
     }
 
+    /* No layout empilhado, as setas ficam centralizadas na imagem */
+    .blog-carousel {
+        --carousel-arrow-top: 185px;
+    }
+
     .blog-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
@@ -922,12 +1060,32 @@ span::before {
             calc(100% - 24px);
     }
 
-    .blog-featured {
+    .blog-featured,
+    .blog-carousel-viewport {
         border-radius: 20px;
     }
 
     .blog-featured-image {
         min-height: 280px;
+    }
+
+    .blog-carousel {
+        --carousel-arrow-top: 140px;
+    }
+
+    .blog-carousel-arrow {
+        width: 42px;
+        height: 42px;
+
+        font-size: 1.7rem;
+    }
+
+    .blog-carousel-prev {
+        left: 12px;
+    }
+
+    .blog-carousel-next {
+        right: 12px;
     }
 
     .blog-featured-content {
@@ -997,6 +1155,10 @@ span::before {
         min-height: 230px;
     }
 
+    .blog-carousel {
+        --carousel-arrow-top: 115px;
+    }
+
     .blog-article-meta,
     .blog-card-meta {
         align-items: flex-start;
@@ -1047,6 +1209,9 @@ span::before {
     .blog-card,
     .blog-card-image img,
     .blog-featured-image img,
+    .blog-carousel-track,
+    .blog-carousel-arrow,
+    .blog-carousel-dot,
     .blog-filter,
     .blog-read-button,
     .blog-card-link span {
