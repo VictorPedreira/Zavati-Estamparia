@@ -244,60 +244,149 @@
         ></div>
     </section>
 
-    <!-- ARTIGO EM DESTAQUE -->
+    <!-- ARTIGOS EM DESTAQUE (CARROSSEL) -->
     <section
-        class="blog-featured-container"
-        aria-labelledby="blog-featured-title"
+        class="blog-featured-container blog-carousel"
+        id="featuredCarousel"
+        aria-roledescription="carrossel"
+        aria-label="Artigos em destaque"
     >
-        <article class="blog-featured">
+        <div class="blog-carousel-viewport">
+            <div class="blog-carousel-track">
 
-            <a
-                href="/blog/maximalismo-grafico-retro/"
-                class="blog-featured-image"
-                aria-label="Ler artigo sobre maximalismo gráfico e retrô"
-            >
-                <img
-                    src="/assets/images/cases/camisetas-maximalismo.webp"
-                    alt="Exemplo de estampa maximalista e retrô"
-                    width="1312"
-                    height="1199"
-                    fetchpriority="high"
-                    decoding="async"
+                <!-- DESTAQUE: TEXTURAS TRIDIMENSIONAIS -->
+                <article
+                    class="blog-featured blog-carousel-slide"
+                    aria-roledescription="slide"
+                    aria-label="1 de 2"
                 >
 
-                <span class="blog-featured-label">
-                    Destaque
-                </span>
-            </a>
+                    <a
+                        href="/blog/texturas-tridimensionais/"
+                        class="blog-featured-image"
+                        aria-label="Ler artigo sobre texturas tridimensionais"
+                    >
+                        <img
+                            src="/assets/images/texturas-tridimensionais-capa.webp"
+                            alt="Peças com estampas em relevo e texturas tridimensionais"
+                            width="979"
+                            height="1024"
+                            fetchpriority="high"
+                            decoding="async"
+                        >
 
-            <div class="blog-featured-content">
-                <div class="blog-article-meta">
-                    <span>Tendências de estampa</span>
-                    <span>6 min de leitura</span>
-                </div>
+                        <span class="blog-featured-label">
+                            Destaque
+                        </span>
+                    </a>
 
-                <h2 id="blog-featured-title">
-                    Maximalismo Gráfico e Retrô:
-                    a estética que voltou com tudo
-                </h2>
+                    <div class="blog-featured-content">
+                        <div class="blog-article-meta">
+                            <span>Tendências de estampa</span>
+                            <span>7 min de leitura</span>
+                        </div>
 
-                <p>
-                    Cores vibrantes, referências vintage e
-                    composições ousadas. Entenda a tendência e
-                    como aplicá-la em camisetas e uniformes
-                    personalizados.
-                </p>
+                        <h2>
+                            Texturas Tridimensionais:
+                            estampas que dão vontade de tocar
+                        </h2>
 
-                <a
-                    href="/blog/maximalismo-grafico-retro/"
-                    class="blog-read-button"
+                        <p>
+                            Relevo, volume e acabamentos que saltam do
+                            tecido. Entenda a tendência e como aplicá-la
+                            em camisetas, bonés e uniformes
+                            personalizados.
+                        </p>
+
+                        <a
+                            href="/blog/texturas-tridimensionais/"
+                            class="blog-read-button"
+                        >
+                            Ler artigo completo
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+
+                </article>
+
+                <!-- DESTAQUE: MAXIMALISMO -->
+                <article
+                    class="blog-featured blog-carousel-slide"
+                    aria-roledescription="slide"
+                    aria-label="2 de 2"
                 >
-                    Ler artigo completo
-                    <span aria-hidden="true">→</span>
-                </a>
+
+                    <a
+                        href="/blog/maximalismo-grafico-retro/"
+                        class="blog-featured-image"
+                        aria-label="Ler artigo sobre maximalismo gráfico e retrô"
+                    >
+                        <img
+                            src="/assets/images/cases/camisetas-maximalismo.webp"
+                            alt="Exemplo de estampa maximalista e retrô"
+                            width="1312"
+                            height="1199"
+                            decoding="async"
+                        >
+
+                        <span class="blog-featured-label">
+                            Destaque
+                        </span>
+                    </a>
+
+                    <div class="blog-featured-content">
+                        <div class="blog-article-meta">
+                            <span>Tendências de estampa</span>
+                            <span>6 min de leitura</span>
+                        </div>
+
+                        <h2>
+                            Maximalismo Gráfico e Retrô:
+                            a estética que voltou com tudo
+                        </h2>
+
+                        <p>
+                            Cores vibrantes, referências vintage e
+                            composições ousadas. Entenda a tendência e
+                            como aplicá-la em camisetas e uniformes
+                            personalizados.
+                        </p>
+
+                        <a
+                            href="/blog/maximalismo-grafico-retro/"
+                            class="blog-read-button"
+                        >
+                            Ler artigo completo
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+
+                </article>
+
             </div>
+        </div>
 
-        </article>
+        <button
+            type="button"
+            class="blog-carousel-arrow blog-carousel-prev"
+            aria-label="Artigo anterior"
+        >
+            <span aria-hidden="true">‹</span>
+        </button>
+
+        <button
+            type="button"
+            class="blog-carousel-arrow blog-carousel-next"
+            aria-label="Próximo artigo"
+        >
+            <span aria-hidden="true">›</span>
+        </button>
+
+        <div
+            class="blog-carousel-dots"
+            role="group"
+            aria-label="Escolher artigo em destaque"
+        ></div>
     </section>
 
     <!-- LISTA DE ARTIGOS -->
@@ -409,6 +498,61 @@
             id="blogGrid"
             aria-live="polite"
         >
+
+            <!-- TENDÊNCIAS: TEXTURAS TRIDIMENSIONAIS -->
+            <article
+                class="blog-card"
+                data-category="tendencias"
+            >
+                <a
+                    href="/blog/texturas-tridimensionais/"
+                    class="blog-card-image"
+                >
+                    <img
+                        src="/assets/images/texturas-tridimensionais-capa.webp"
+                        alt="Camiseta com estampa em relevo e textura tridimensional"
+                        width="979"
+                        height="1024"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="blog-category">
+                        Tendências
+                    </span>
+                </a>
+
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-10-06">
+                            06 out. 2026
+                        </time>
+
+                        <span>7 min de leitura</span>
+                    </div>
+
+                    <h3>
+                        <a href="/blog/texturas-tridimensionais/">
+                            Texturas Tridimensionais:
+                            estampas que dão vontade de tocar
+                        </a>
+                    </h3>
+
+                    <p>
+                        Puff, alta densidade, bordado 3D e flocado:
+                        entenda a tendência das estampas com relevo
+                        e como aplicá-la em peças personalizadas.
+                    </p>
+
+                    <a
+                        href="/blog/texturas-tridimensionais/"
+                        class="blog-card-link"
+                    >
+                        Continuar lendo
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
 
             <!-- SERIGRAFIA -->
             <article
