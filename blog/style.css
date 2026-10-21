@@ -243,6 +243,14 @@
     transform: scale(1.035);
 }
 
+/* Espaço reservado enquanto o destaque não tem foto */
+.blog-featured-image .blog-card-image-placeholder {
+    position: absolute;
+    inset: 0;
+
+    height: auto;
+}
+
 .blog-featured-label {
     position: absolute;
     top: 24px;
