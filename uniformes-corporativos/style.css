@@ -200,10 +200,14 @@ body {
     background: #f7f9fc;
 }
 
-.uc-section-muted > * {
-    max-width: 1200px;
+/* Seletor duplo para vencer o "margin: 0" de listas como .uc-tag-list e .uc-process */
+.uc-section.uc-section-muted > * {
     margin-left: auto;
     margin-right: auto;
+}
+
+.uc-section.uc-section-muted > :not(.section-heading) {
+    max-width: 1200px;
 }
 
 .uc-grid {
